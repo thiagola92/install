@@ -7,13 +7,6 @@
 # fix time (partitions problem)
 timedatectl set-local-rtc 1;
 
-# creates command "trash"
-mkdir ~/.local/bin;
-echo "#\!\/bin\/bash
-gio trash \$@
-" > ~/.local/bin/trash;
-chmod a+x ~/.local/bin/trash;
-
 # template files
 echo "" > ~/Templates/text;
 echo "" > ~/Templates/c.c;
