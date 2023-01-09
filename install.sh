@@ -90,7 +90,7 @@ sudo apt update;
 sudo apt upgrade -y;
 
 # nala
-sudo apt install nala -y;
+sudo apt install -y nala;
 sudo nala update;
 sudo nala upgrade -y;
 
@@ -120,7 +120,7 @@ sudo nala install -y usb-creator-gtk;
 sudo snap install htop;
 
 # disk usage
-sudo nala install duf;
+sudo nala install -y duf;
 
 # command line information tool
 sudo nala install -y neofetch;
