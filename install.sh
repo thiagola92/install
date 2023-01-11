@@ -66,6 +66,9 @@ gsettings set org.gnome.desktop.interface enable-animations true;
 # disable text editor restoring session
 gsettings set org.gnome.TextEditor restore-session false;
 
+# ctrl+alt+backspace terminate session
+gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_bksp']"
+
 ######################################################
 # OS UPDATE
 ######################################################
