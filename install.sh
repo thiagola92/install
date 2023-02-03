@@ -185,6 +185,9 @@ sudo snap install spotify;
 # image editor
 sudo nala install -y gimp;
 
+# image draw
+sudo snap install inkscape --classic;
+
 # video player
 sudo nala install -y totem;
 sudo flatpak install -y flathub org.videolan.VLC;
