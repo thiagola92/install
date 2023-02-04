@@ -67,7 +67,10 @@ gsettings set org.gnome.desktop.interface enable-animations true;
 gsettings set org.gnome.TextEditor restore-session false;
 
 # ctrl+alt+backspace terminate session
-gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_bksp']"
+gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_bksp']";
+
+# change gnome-terminal theme
+gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
 
 ######################################################
 # OS UPDATE
