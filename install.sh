@@ -206,6 +206,7 @@ sudo nala install -y obs-studio;
 
 # version control
 sudo nala install -y git;
+git config --global init.defaultBranch main;
 git config --global user.email "thiagola92@gmail.com"
 git config --global user.name "thiagola92";
 git config --global core.editor micro;
