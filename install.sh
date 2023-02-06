@@ -215,6 +215,7 @@ git config --global user.name "thiagola92";
 git config --global core.editor micro;
 git config --global credential.helper store;
 git config --global pull.rebase false;
+git config --global alias.graph 'log --graph';
 
 # text editor
 sudo snap install code --classic;
