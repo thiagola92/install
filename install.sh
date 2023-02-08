@@ -201,14 +201,15 @@ sudo flatpak install -y flathub org.pitivi.Pitivi;
 # stream/record
 sudo nala install -y ffmpeg;
 sudo add-apt-repository -y ppa:obsproject/obs-studio;
-sudo nala install -y obs-studio;
+sudo nala install --update -y obs-studio;
 
 ######################################################
 # PROGRAMMING TOOLS
 ######################################################
 
 # version control
-sudo nala install -y git;
+sudo add-apt-repository -y ppa:git-core/ppa;
+sudo nala install --update -y git;
 git config --global init.defaultBranch main;
 git config --global user.email "thiagola92@gmail.com"
 git config --global user.name "thiagola92";
