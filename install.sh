@@ -8,21 +8,21 @@
 timedatectl set-local-rtc 1;
 
 # template files
-echo "" > ~/Templates/text;
-echo "" > ~/Templates/c.c;
-echo "" > ~/Templates/cpp.cpp;
-echo "" > ~/Templates/h.h;
-echo "" > ~/Templates/py.py;
-echo "" > ~/Templates/md.md;
-echo "" > ~/Templates/sh.sh;
-echo "" > ~/Templates/html.html;
-echo "" > ~/Templates/css.css;
-echo "" > ~/Templates/js.js;
-echo "" > ~/Templates/yaml.yaml;
-echo "" > ~/Templates/java.java;
-echo "" > ~/Templates/json.json;
-echo "" > ~/Templates/tf.tf;
-echo "" > ~/Templates/rs.rs;
+echo "" > ~/Templates/file;
+echo "" > ~/Templates/file.c;
+echo "" > ~/Templates/file.cpp;
+echo "" > ~/Templates/file.h;
+echo "" > ~/Templates/file.py;
+echo "" > ~/Templates/file.md;
+echo "" > ~/Templates/file.sh;
+echo "" > ~/Templates/file.html;
+echo "" > ~/Templates/file.css;
+echo "" > ~/Templates/file.js;
+echo "" > ~/Templates/file.yaml;
+echo "" > ~/Templates/file.java;
+echo "" > ~/Templates/file.json;
+echo "" > ~/Templates/file.tf;
+echo "" > ~/Templates/file.rs;
 
 # mouse speed
 gsettings set org.gnome.desktop.peripherals.mouse speed -1;
