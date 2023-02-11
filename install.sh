@@ -219,6 +219,8 @@ git config --global pull.rebase false;
 git config --global alias.graph 'log --graph';
 git config --global alias.clone-all 'clone --recurse-submodules';
 git config --global alias.pull-all 'pull --recurse-submodules';
+git config --global alias.clone-blobless 'clone --filter=blob:none';
+git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse-submodules';
 
 # text editor
 sudo snap install code --classic;
