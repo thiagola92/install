@@ -193,7 +193,7 @@ sudo snap install inkscape --classic;
 
 # video player
 sudo nala install -y totem;
-sudo flatpak install -y flathub org.videolan.VLC;
+sudo nala install -y gstreamer1.0-libav;
 
 # video editor
 sudo flatpak install -y flathub org.pitivi.Pitivi;
