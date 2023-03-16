@@ -160,3 +160,23 @@ sudo flatpak install -y flathub io.beekeeperstudio.Studio;
 
 # redis database
 sudo flatpak install -y flathub com.redis.RedisInsight;
+
+######################################################
+# REMOTE CONTROL TOOLS
+######################################################
+
+# ftp server
+sudo dnf install -y vsftpd;
+
+# rdp server
+sudo dnf install -y xrdp;
+
+# create a network
+curl -s https://install.zerotier.com | sudo bash;
+
+######################################################
+# OS SETTINGS 2
+######################################################
+
+# dock favorites
+gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
