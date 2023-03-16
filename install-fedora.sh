@@ -84,3 +84,28 @@ sudo dnf install -y curl;
 # text editor
 sudo dnf install -y micro;
 sudo dnf install -y xclip;
+
+######################################################
+# BASIC TOOLS
+######################################################
+
+# browser
+sudo dnf install -y dnf-plugins-core;
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo;
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc;
+sudo dnf install -y brave-browser;
+
+# discord
+sudo flatpak install -y flathub com.discordapp.Discord
+
+# customize gnome
+sudo dnf install -y dconf-editor;
+
+# torrent downloader
+sudo flatpak install -y flathub de.haeckerfelix.Fragments;
+
+# upscale image
+sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
+
+# game platform
+sudo dnf install -y steam;
