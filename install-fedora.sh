@@ -180,3 +180,10 @@ curl -s https://install.zerotier.com | sudo bash;
 
 # dock favorites
 gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
+
+######################################################
+# ENDING
+######################################################
+
+# cleaning
+sudo dnf autoremove -y;
