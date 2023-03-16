@@ -96,7 +96,7 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc;
 sudo dnf install -y brave-browser;
 
 # discord
-sudo flatpak install -y flathub com.discordapp.Discord
+sudo flatpak install -y flathub com.discordapp.Discord;
 
 # customize gnome
 sudo dnf install -y dconf-editor;
@@ -109,3 +109,25 @@ sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
 # game platform
 sudo dnf install -y steam;
+
+######################################################
+# MEDIA TOOLS
+######################################################
+
+# music player
+sudo flatpak install -y flathub com.spotify.Client;
+
+# image editor
+sudo dnf install -y gimp;
+
+# image draw
+sudo flatpak install -y flathub org.inkscape.Inkscape;
+
+# video player
+sudo dnf install -y gstreamer1-plugin-libav;
+
+# video editor
+sudo flatpak install -y flathub org.pitivi.Pitivi;
+
+# stream/record
+sudo flatpak install -y flathub com.obsproject.Studio;
