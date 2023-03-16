@@ -131,3 +131,32 @@ sudo flatpak install -y flathub org.pitivi.Pitivi;
 
 # stream/record
 sudo flatpak install -y flathub com.obsproject.Studio;
+
+######################################################
+# PROGRAMMING TOOLS
+######################################################
+
+# version control
+sudo dnf install -y git;
+git config --global init.defaultBranch main;
+git config --global user.email "thiagola92@gmail.com"
+git config --global user.name "thiagola92";
+git config --global core.editor micro;
+git config --global credential.helper store;
+git config --global pull.rebase false;
+git config --global alias.graph 'log --graph';
+git config --global alias.clone-all 'clone --recurse-submodules';
+git config --global alias.pull-all 'pull --recurse-submodules';
+git config --global alias.clone-blobless 'clone --filter=blob:none';
+git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse-submodules';
+
+# text editor
+curl -L --output vscode.rpm "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64";
+sudo dnf install -y ./vscode.rpm;
+rm ./vscode.rpm;
+
+# sql database
+sudo flatpak install -y flathub io.beekeeperstudio.Studio;
+
+# redis database
+sudo flatpak install -y flathub com.redis.RedisInsight;
