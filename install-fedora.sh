@@ -59,8 +59,28 @@ gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
 ######################################################
 
 # dnf
-sudo dnf update -y;
+sudo dnf upgrade -y;
 
 # flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 sudo flatpak update -y;
+
+######################################################
+# ESSENTIALS TOOLS
+######################################################
+
+# interactive process viewer
+sudo dnf install -y htop;
+
+# disk usage
+sudo dnf install -y duf;
+
+# command line information tool
+sudo dnf install -y neofetch;
+
+# transfering network data
+sudo dnf install -y curl;
+
+# text editor
+sudo dnf install -y micro;
+sudo dnf install -y xclip;
