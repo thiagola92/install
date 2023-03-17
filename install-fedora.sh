@@ -161,6 +161,14 @@ sudo flatpak install -y flathub io.beekeeperstudio.Studio;
 # redis database
 sudo flatpak install -y flathub com.redis.RedisInsight;
 
+# game engine
+mkdir ~/.local/bin;
+curl -L --output godot.zip "https://downloads.tuxfamily.org/godotengine/4.0.1/rc2/Godot_v4.0.1-rc2_linux.x86_64.zip";
+unzip -p godot.zip Godot* > godot;
+chmod u+rwx,go+r godot;
+mv -f godot ~/.local/bin;
+rm godot.zip;
+
 ######################################################
 # REMOTE CONTROL TOOLS
 ######################################################
