@@ -38,6 +38,7 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
 
 # show hidden files
 gsettings set org.gtk.Settings.FileChooser show-hidden true;
+gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true;
 
 # touchpad remove natural
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true;
