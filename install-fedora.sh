@@ -55,6 +55,9 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_
 # change gnome-terminal theme
 gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
 
+# sort directories first
+ gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
+
 ######################################################
 # OS UPDATE
 ######################################################
@@ -188,7 +191,7 @@ curl -s https://install.zerotier.com | sudo bash;
 ######################################################
 
 # dock favorites
-gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
+gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop', 'gnome-terminal']";
 
 ######################################################
 # ENDING
