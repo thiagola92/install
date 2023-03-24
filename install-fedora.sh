@@ -89,6 +89,9 @@ sudo dnf install -y curl;
 sudo dnf install -y micro;
 sudo dnf install -y xclip;
 
+# customize gnome
+sudo dnf install -y dconf-editor;
+
 ######################################################
 # BASIC TOOLS
 ######################################################
@@ -99,33 +102,34 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc;
 sudo dnf install -y brave-browser;
 
+# music player
+sudo flatpak install -y flathub com.spotify.Client;
+
 # discord
 sudo flatpak install -y flathub com.discordapp.Discord;
-
-# customize gnome
-sudo dnf install -y dconf-editor;
-
-# torrent
-sudo flatpak install -y flathub de.haeckerfelix.Fragments;
-
-# upscale image
-sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
 # game platform
 sudo dnf install -y steam;
 
-######################################################
-# MEDIA TOOLS
-######################################################
+# torrent
+sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
-# music player
-sudo flatpak install -y flathub com.spotify.Client;
+######################################################
+# IMAGE TOOLS
+######################################################
 
 # image editor
 sudo dnf install -y gimp;
 
 # image draw
 sudo flatpak install -y flathub org.inkscape.Inkscape;
+
+# upscale image
+sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
+
+######################################################
+# VIDEO TOOLS
+######################################################
 
 # video player
 sudo dnf install -y gstreamer1-plugin-libav;
