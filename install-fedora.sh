@@ -105,7 +105,7 @@ sudo flatpak install -y flathub com.discordapp.Discord;
 # customize gnome
 sudo dnf install -y dconf-editor;
 
-# torrent downloader
+# torrent
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
 # upscale image
