@@ -191,7 +191,7 @@ curl -s https://install.zerotier.com | sudo bash;
 ######################################################
 
 # dock favorites
-gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop', 'gnome-terminal']";
+gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop', 'gnome-terminal.desktop']";
 
 ######################################################
 # ENDING
