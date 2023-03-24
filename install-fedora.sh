@@ -32,6 +32,7 @@ gsettings set org.gnome.desktop.screensaver lock-enabled false;
 
 # never go idle
 gsettings set org.gnome.desktop.session idle-delay 0;
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "nothing";
 
 # allow volume above 100 percent
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
@@ -57,6 +58,10 @@ gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
 
 # sort directories first
  gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
+
+# power button shutdown the computer
+ gsettings set org.gnome.settings-daemon.plugins.power power-button-actoin "interactive";
+ 
 
 ######################################################
 # OS UPDATE
