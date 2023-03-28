@@ -61,7 +61,6 @@ gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
 
 # power button shutdown the computer
  gsettings set org.gnome.settings-daemon.plugins.power power-button-actoin "interactive";
- 
 
 ######################################################
 # OS UPDATE
