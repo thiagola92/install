@@ -137,6 +137,7 @@ sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
 # video player
 sudo dnf install -y gstreamer1-plugin-libav;
+sudo dnf install -y gstreamer1-plugin-openh264;
 
 # video editor
 sudo flatpak install -y flathub org.pitivi.Pitivi;
