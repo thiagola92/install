@@ -57,10 +57,13 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_
 gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
 
 # sort directories first
- gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
+gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
 
 # power button shutdown the computer
- gsettings set org.gnome.settings-daemon.plugins.power power-button-actoin "interactive";
+gsettings set org.gnome.settings-daemon.plugins.power power-button-actoin "interactive";
+
+# left-top do not activate activities overview
+gsettings set org.gnome.desktop.interface enable-hot-corners false;
 
 ######################################################
 # OS UPDATE
