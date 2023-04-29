@@ -129,6 +129,9 @@ sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 sudo dnf install -y gimp;
 
 # image draw
+sudo flatpak install -y flathub org.kde.krita;
+
+# vector image draw
 sudo flatpak install -y flathub org.inkscape.Inkscape;
 
 # upscale image
