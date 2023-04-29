@@ -151,6 +151,9 @@ sudo flatpak install -y flathub org.pitivi.Pitivi;
 # stream/record
 sudo flatpak install -y flathub com.obsproject.Studio;
 
+# video downloader
+sudo flatpak install -y flathub org.nickvision.tubeconverter;
+
 ######################################################
 # PROGRAMMING TOOLS
 ######################################################
