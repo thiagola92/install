@@ -173,9 +173,10 @@ git config --global alias.clone-blobless 'clone --filter=blob:none';
 git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse-submodules';
 
 # text editor
-curl -L --output vscode.rpm "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64";
-sudo dnf install -y ./vscode.rpm;
-rm ./vscode.rpm;
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc;
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo';
+sudo dnf check-update;
+sudo dnf -y install code;
 
 # sql database
 sudo flatpak install -y flathub io.beekeeperstudio.Studio;
