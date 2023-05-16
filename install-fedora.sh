@@ -137,6 +137,9 @@ sudo flatpak install -y flathub org.inkscape.Inkscape;
 # upscale image
 sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
+# gnome icons
+flatpak install flathub org.gnome.design.IconLibrary;
+
 ######################################################
 # VIDEO TOOLS
 ######################################################
