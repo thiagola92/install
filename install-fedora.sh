@@ -122,6 +122,13 @@ sudo dnf install -y steam;
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
 ######################################################
+# AUDIO TOOLS
+######################################################
+
+# sound recorder
+flatpak install flathub org.gnome.SoundRecorder
+
+######################################################
 # IMAGE TOOLS
 ######################################################
 
