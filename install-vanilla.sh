@@ -56,9 +56,6 @@ gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
 # left-top do not activate activities overview
 gsettings set org.gnome.desktop.interface enable-hot-corners false;
 
-# dock favorites
-gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'epiphany.desktop']";
-
 ######################################################
 # OS UPDATE
 ######################################################
@@ -200,6 +197,13 @@ apx install --dnf -y xrdp;
 # create a network
 # their script would detect your OS and install this package
 apx install --dnf zerotier-one;
+
+######################################################
+# OS SETTINGS 2
+######################################################
+
+# dock favorites
+gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'apx_managed_dnf-brave-browser.desktop']";
 
 ######################################################
 # ENDING
