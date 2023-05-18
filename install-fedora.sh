@@ -109,9 +109,6 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc;
 sudo dnf install -y brave-browser;
 
-# music player
-sudo flatpak install -y flathub com.spotify.Client;
-
 # discord
 sudo flatpak install -y flathub com.discordapp.Discord;
 
@@ -124,6 +121,9 @@ sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 ######################################################
 # AUDIO TOOLS
 ######################################################
+
+# music player
+sudo flatpak install -y flathub com.spotify.Client;
 
 # sound recorder
 flatpak install flathub org.gnome.SoundRecorder;
