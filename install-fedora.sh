@@ -126,7 +126,7 @@ sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 ######################################################
 
 # sound recorder
-flatpak install flathub org.gnome.SoundRecorder
+flatpak install flathub org.gnome.SoundRecorder;
 
 ######################################################
 # IMAGE TOOLS
