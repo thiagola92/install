@@ -32,12 +32,13 @@ gsettings set org.gnome.desktop.screensaver lock-enabled false;
 
 # never go idle
 gsettings set org.gnome.desktop.session idle-delay 0;
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "nothing";
 
 # allow volume above 100 percent
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
 
 # show hidden files
-gsettings set org.gtk.Settings.FileChooser show-hidden true;
+gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true;
 
 # dock position
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM';
@@ -71,6 +72,12 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_
 
 # change gnome-terminal theme
 gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
+
+# sort directories first
+gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
+
+# left-top do not activate activities overview
+gsettings set org.gnome.desktop.interface enable-hot-corners false;
 
 ######################################################
 # OS UPDATE
@@ -113,12 +120,6 @@ sudo flatpak update -y;
 # ESSENTIALS TOOLS
 ######################################################
 
-# gnome console
-sudo nala install -y gnome-console;
-
-# disk partitions
-sudo nala install -y gparted;
-
 # create usb boot (gnome version)
 sudo nala install -y usb-creator-gtk;
 
@@ -138,12 +139,21 @@ sudo nala install -y curl;
 sudo snap install micro --classic;
 sudo nala install -y xclip;
 
+# customize gnome
+sudo nala install -y dconf-editor;
+
+# process viewer
+sudo snap install bottom;
+sudo snap connect bottom:mount-observe;
+sudo snap connect bottom:hardware-observe;
+sudo snap connect bottom:system-observe;
+sudo snap connect bottom:process-control;
+
 ######################################################
 # BASIC TOOLS
 ######################################################
 
 # browser
-sudo nala install -y curl;
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
 sudo nala update;
@@ -153,9 +163,6 @@ sudo nala install -y brave-browser;
 curl -L --output /tmp/discord.deb "https://discord.com/api/download?platform=linux&format=deb";
 sudo nala install -y /tmp/discord.deb;
 rm /tmp/discord.deb;
-
-# customize ubuntu
-sudo nala install -y dconf-editor;
 
 # weather forecast
 sudo flatpak install -y flathub org.gnome.Weather;
@@ -169,27 +176,41 @@ sudo flatpak install -y flathub org.gnome.Maps;
 # translator
 sudo flatpak install -y flathub app.drey.Dialect;
 
-# torrent downloader
+# torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
-
-# upscale image
-sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
 # game platform
 sudo nala install -y steam;
 
 ######################################################
-# MEDIA TOOLS
+# AUDIO TOOLS
 ######################################################
 
 # music player
 sudo snap install spotify;
+
+# sound recorder
+sudo flatpak install -y flathub org.gnome.SoundRecorder;
+
+######################################################
+# IMAGE TOOLS
+######################################################
 
 # image editor
 sudo nala install -y gimp;
 
 # image draw
 sudo snap install inkscape --classic;
+
+# upscale image
+sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
+
+# gnome icons
+sudo flatpak install -y flathub org.gnome.design.IconLibrary;
+
+######################################################
+# VIDEO TOOLS
+######################################################
 
 # video player
 sudo nala install -y totem;
@@ -202,6 +223,9 @@ sudo flatpak install -y flathub org.pitivi.Pitivi;
 sudo nala install -y ffmpeg;
 sudo add-apt-repository -y ppa:obsproject/obs-studio;
 sudo nala install --update -y obs-studio;
+
+# video download
+sudo flatpak install -y flathub org.nickvision.tubeconverter;
 
 ######################################################
 # PROGRAMMING TOOLS
@@ -226,13 +250,13 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 sudo snap install code --classic;
 
 # containers
-sudo nala install -y ca-certificates curl gnupg lsb-release;
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg;
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
+sudo nala install -y ca-certificates curl gnupg;
+sudo install -m 0755 -d /etc/apt/keyrings;
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
+sudo chmod a+r /etc/apt/keyrings/docker.gpg;
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
 sudo nala update;
-sudo nala install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin;
-sudo groupadd docker;
-sudo usermod -aG docker $USER;
+sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
 
 # sql database
 sudo snap install beekeeper-studio;
@@ -267,31 +291,6 @@ sudo nala install -y gnome-connections;
 # MENTIONS
 ######################################################
 
-# process monitor
-# sudo snap install bottom
-# sudo snap connect bottom:mount-observe
-# sudo snap connect bottom:hardware-observe
-# sudo snap connect bottom:system-observe
-# sudo snap connect bottom:process-control
-
-# process json on command line
-# sudo nala install -y jq;
-
-# apt package manager
-# sudo nala install -y muon;
-
-# customize gnome desktop
-# sudo nala install -y gnome-tweaks;
-
-# sound recorder
-# sudo nala install -y gnome-sound-recorder;
-
-# control multiple terminals
-# sudo nala install -y tmux;
-
-# mirror phone screen
-# sudo nala install -y scrcpy;
-
 # gamer mouse
 # sudo nala install -y piper;
 
@@ -304,12 +303,6 @@ sudo nala install -y gnome-connections;
 
 # dock favorites
 gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
-
-# gnome-console as default terminal
-gsettings set org.gnome.desktop.default-applications.terminal exec kgx;
-
-# change terminal theme
-gsettings set org.gnome.Console theme 'day';
 
 ######################################################
 # ENDING
