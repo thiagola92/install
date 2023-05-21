@@ -40,6 +40,9 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
 # show hidden files
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true;
 
+# icon size
+gsettings set org.gnome.nautilus.icon-view default-zoom-level 'medium';
+
 # dock position
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM';
 
