@@ -180,7 +180,7 @@ sudo flatpak install -y flathub app.drey.Dialect;
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
 # game platform
-sudo nala install -y steam;
+sudo snap install steam;
 
 ######################################################
 # AUDIO TOOLS
