@@ -300,6 +300,9 @@ sudo nala install -y gnome-connections;
 # fake mouse/keyboard inputs
 # sudo nala install -y xdotool;
 
+# virtual machine
+# flatpak install flathub org.gnome.Boxes;
+
 ######################################################
 # OS SETTINGS 2
 ######################################################
