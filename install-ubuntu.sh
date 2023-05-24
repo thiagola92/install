@@ -132,6 +132,9 @@ sudo snap install htop;
 # disk usage
 sudo nala install -y duf;
 
+# disk analyzer
+sudo flatpak install flathub org.gnome.baobab;
+
 # command line information tool
 sudo nala install -y neofetch;
 
