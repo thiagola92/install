@@ -82,6 +82,12 @@ gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
 # left-top do not activate activities overview
 gsettings set org.gnome.desktop.interface enable-hot-corners false;
 
+# fast access to binaries
+echo "
+# binaries
+export PATH=/home/$USER/.local/bin:\$PATH
+" | tee -a ~/.bash_profile ~/.bashrc
+
 ######################################################
 # OS UPDATE
 ######################################################
