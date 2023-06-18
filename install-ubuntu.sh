@@ -270,6 +270,9 @@ sudo snap install beekeeper-studio;
 # redis database
 sudo snap install redis-desktop-manager;
 
+# dev toolbox
+flatpak install -y flathub me.iepure.devtoolbox;
+
 ######################################################
 # REMOTE CONTROL TOOLS
 ######################################################
