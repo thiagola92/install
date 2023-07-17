@@ -256,6 +256,9 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 sudo snap install code --classic;
 sudo flatpak install -y flathub dev.lapce.lapce;
 
+# IDE
+sudo flatpak install -y flathub org.gnome.Builder;
+
 # containers
 sudo nala install -y ca-certificates curl gnupg;
 sudo install -m 0755 -d /etc/apt/keyrings;
