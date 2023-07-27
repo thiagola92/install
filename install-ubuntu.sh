@@ -179,9 +179,6 @@ sudo flatpak install -y flathub org.gnome.Weather;
 # clock
 sudo flatpak install -y flathub org.gnome.clocks;
 
-# map
-sudo flatpak install -y flathub org.gnome.Maps;
-
 # translator
 sudo flatpak install -y flathub app.drey.Dialect;
 
