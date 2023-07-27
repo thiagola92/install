@@ -82,6 +82,9 @@ gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
 # left-top do not activate activities overview
 gsettings set org.gnome.desktop.interface enable-hot-corners false;
 
+# make screen color warmer to prevent sleeplessness
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true;
+
 ######################################################
 # OS UPDATE
 ######################################################
@@ -133,7 +136,7 @@ sudo snap install htop;
 sudo nala install -y duf;
 
 # disk analyzer
-sudo flatpak install flathub org.gnome.baobab;
+sudo flatpak install -y flathub org.gnome.baobab;
 
 # command line information tool
 sudo nala install -y neofetch;
@@ -146,7 +149,7 @@ sudo snap install micro --classic;
 sudo nala install -y xclip;
 
 # customize gnome
-sudo nala install -y dconf-editor;
+sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
 # process viewer
 sudo snap install bottom;
@@ -203,10 +206,12 @@ sudo flatpak install -y flathub org.gnome.SoundRecorder;
 ######################################################
 
 # image editor
-sudo nala install -y gimp;
+sudo flatpak install -y flathub org.gimp.GIMP;
 
 # image draw
-sudo snap install inkscape --classic;
+sudo add-apt-repository -y ppa:inkscape.dev/stable;
+sudo nala update;
+sudo nala install -y inkscape;
 
 # upscale image
 sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
@@ -219,16 +224,14 @@ sudo flatpak install -y flathub org.gnome.design.IconLibrary;
 ######################################################
 
 # video player
-sudo nala install -y totem;
+sudo flatpak install -y flathub org.gnome.Totem;
 sudo nala install -y gstreamer1.0-libav;
 
 # video editor
 sudo flatpak install -y flathub org.pitivi.Pitivi;
 
 # stream/record
-sudo nala install -y ffmpeg;
-sudo add-apt-repository -y ppa:obsproject/obs-studio;
-sudo nala install --update -y obs-studio;
+sudo flatpak install -y flathub com.obsproject.Studio;
 
 # video download
 sudo flatpak install -y flathub org.nickvision.tubeconverter;
@@ -260,19 +263,14 @@ sudo flatpak install -y flathub dev.lapce.lapce;
 sudo flatpak install -y flathub org.gnome.Builder;
 
 # containers
-sudo nala install -y ca-certificates curl gnupg;
-sudo install -m 0755 -d /etc/apt/keyrings;
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
-sudo chmod a+r /etc/apt/keyrings/docker.gpg;
-echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
-sudo nala update;
-sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+sudo nala install -y podman;
+sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
 
 # sql database
 sudo snap install beekeeper-studio;
 
 # redis database
-sudo snap install redis-desktop-manager;
+sudo snap install -y redisinsight;
 
 # dev toolbox
 flatpak install -y flathub me.iepure.devtoolbox;
@@ -298,7 +296,7 @@ sudo nala install -y gnome-remote-desktop;
 curl -s https://install.zerotier.com | sudo bash;
 
 # remote control
-sudo nala install -y gnome-connections;
+flatpak install -y flathub org.gnome.Connections;
 
 ######################################################
 # MENTIONS
