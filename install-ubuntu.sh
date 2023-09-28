@@ -216,6 +216,9 @@ sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 # gnome icons
 sudo flatpak install -y flathub org.gnome.design.IconLibrary;
 
+# color palette
+sudo flatpak install -y flathub org.gnome.design.Palette;
+
 ######################################################
 # VIDEO TOOLS
 ######################################################
