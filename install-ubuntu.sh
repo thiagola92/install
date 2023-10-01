@@ -311,6 +311,9 @@ flatpak install -y flathub org.gnome.Connections;
 # virtual machine
 # sudo flatpak install flathub org.gnome.Boxes;
 
+# mirror phone screen
+# sudo nala install -y scrcpy;
+
 ######################################################
 # OS SETTINGS 2
 ######################################################
