@@ -151,6 +151,9 @@ sudo nala install -y xclip;
 # customize gnome
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
+# flatpak manager
+sudo flatpak install -y flathub io.github.flattool.Warehouse;
+
 # process viewer
 sudo snap install bottom;
 sudo snap connect bottom:mount-observe;
