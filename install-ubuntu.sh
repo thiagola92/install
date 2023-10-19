@@ -295,11 +295,11 @@ sudo nala install -y xrdp;
 sudo nala install -y vino;
 sudo nala install -y gnome-remote-desktop;
 
-# create a network
-curl -s https://install.zerotier.com | sudo bash;
-
 # remote control
 flatpak install -y flathub org.gnome.Connections;
+
+# create a network
+curl -s https://install.zerotier.com | sudo bash;
 
 ######################################################
 # MENTIONS
