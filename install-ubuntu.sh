@@ -331,3 +331,12 @@ gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser
 # cleaning
 sudo nala autoremove -y;
 sudo apt autoremove -y;
+
+######################################################
+# NOTES
+######################################################
+# If you are going to a new release, there is big chance that some package be missing in the PPA.
+# Go to "Software & Updates > Other Software > Add...", copy the example and change the codename to the previous release. Example:
+#   'deb http://archive.ubuntu.com/ubuntu mantic main'
+#   'deb http://archive.ubuntu.com/ubuntu lunar main'
+# You can find the codenames here: https://wiki.ubuntu.com/Releases
