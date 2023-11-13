@@ -172,9 +172,7 @@ sudo nala update;
 sudo nala install -y brave-browser;
 
 # discord
-curl -L --output /tmp/discord.deb "https://discord.com/api/download?platform=linux&format=deb";
-sudo nala install -y /tmp/discord.deb;
-rm /tmp/discord.deb;
+sudo flatpak install -y flathub com.discordapp.Discord;
 
 # weather forecast
 sudo flatpak install -y flathub org.gnome.Weather;
