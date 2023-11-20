@@ -230,6 +230,7 @@ sudo nala install -y gstreamer1.0-libav;
 
 # video editor
 sudo flatpak install -y flathub org.pitivi.Pitivi;
+sudo flatpak install -y flathub org.shotcut.Shotcut;
 
 # stream/record
 sudo flatpak install -y flathub com.obsproject.Studio;
