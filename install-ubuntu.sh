@@ -232,7 +232,7 @@ sudo flatpak install -y flathub org.gnome.Totem;
 sudo nala install -y gstreamer1.0-libav;
 
 # video editor
-sudo flatpak install -y flathub org.pitivi.Pitivi;
+# sudo flatpak install -y flathub org.pitivi.Pitivi; # Bad exports
 sudo flatpak install -y flathub org.shotcut.Shotcut;
 
 # stream/record
@@ -263,9 +263,6 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 # text editor
 sudo snap install code --classic;
 sudo flatpak install -y flathub dev.lapce.lapce;
-
-# IDE
-# sudo flatpak install -y flathub org.gnome.Builder;
 
 # containers
 sudo nala install -y podman;
