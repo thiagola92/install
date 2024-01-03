@@ -265,7 +265,7 @@ sudo snap install code --classic;
 sudo flatpak install -y flathub dev.lapce.lapce;
 
 # IDE
-sudo flatpak install -y flathub org.gnome.Builder;
+# sudo flatpak install -y flathub org.gnome.Builder;
 
 # containers
 sudo nala install -y podman;
