@@ -151,9 +151,6 @@ sudo nala install -y xclip;
 # customize gnome
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
-# flatpak manager
-sudo flatpak install -y flathub io.github.flattool.Warehouse;
-
 # process viewer
 sudo snap install bottom;
 sudo snap connect bottom:mount-observe;
@@ -179,9 +176,6 @@ sudo flatpak install -y flathub org.gnome.Weather;
 
 # clock
 sudo flatpak install -y flathub org.gnome.clocks;
-
-# translator
-sudo flatpak install -y flathub app.drey.Dialect;
 
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
@@ -232,7 +226,6 @@ sudo flatpak install -y flathub org.gnome.Totem;
 sudo nala install -y gstreamer1.0-libav;
 
 # video editor
-# sudo flatpak install -y flathub org.pitivi.Pitivi; # Bad exports
 sudo flatpak install -y flathub org.shotcut.Shotcut;
 
 # stream/record
@@ -268,17 +261,21 @@ sudo flatpak install -y flathub dev.lapce.lapce;
 sudo nala install -y podman;
 sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
 
+# dev toolbox
+flatpak install -y flathub me.iepure.devtoolbox;
+
+######################################################
+# DATABASES
+######################################################
+
 # sql database
 sudo snap install beekeeper-studio;
 
 # redis database
 sudo snap install -y redisinsight;
 
-# dev toolbox
-flatpak install -y flathub me.iepure.devtoolbox;
-
 ######################################################
-# REMOTE CONTROL TOOLS
+# REMOTE ACCESS
 ######################################################
 
 # ssh server
