@@ -298,7 +298,7 @@ sudo snap install beekeeper-studio;
 sudo snap install redisinsight;
 
 ######################################################
-# PROGRAMMING LANGUAGES
+# PROGRAMMING LANGUAGES - PYTHON
 ######################################################
 
 # pyenv
@@ -310,6 +310,10 @@ export PYENV_ROOT=\"\$HOME/.pyenv\"
 [[ -d \$PYENV_ROOT/bin ]] && export PATH=\"\$PYENV_ROOT/bin:\$PATH\"
 eval \"\$(pyenv init -)\"
 eval \"\$(pyenv virtualenv-init -)\"" | tee -a ~/.bash_profile ~/.bashrc;
+
+# pdm
+sudo nala install -y python3-venv;
+curl -sSL https://pdm-project.org/install-pdm.py | python3 -;
 
 ######################################################
 # MENTIONS
