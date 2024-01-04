@@ -310,6 +310,7 @@ export PYENV_ROOT=\"\$HOME/.pyenv\"
 [[ -d \$PYENV_ROOT/bin ]] && export PATH=\"\$PYENV_ROOT/bin:\$PATH\"
 eval \"\$(pyenv init -)\"
 eval \"\$(pyenv virtualenv-init -)\"" | tee -a ~/.bash_profile ~/.bashrc;
+source ~/.bashrc;
 
 # pdm
 sudo nala install -y python3-venv;
@@ -319,6 +320,24 @@ echo "
 export PATH=~/.local/bin:\$PATH" | tee -a ~/.bash_profile ~/.bashrc;
 source ~/.bashrc;
 pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
+
+######################################################
+# PROGRAMMING LANGUAGES - JAVASCRIPT
+######################################################
+
+# deno
+curl -fsSL https://deno.land/x/install/install.sh | sh;
+echo "
+# deno
+export DENO_INSTALL=\"~/.deno\"
+export PATH=\"\$DENO_INSTALL/bin:\$PATH\"" | tee -a ~/.bash_profile ~/.bashrc;
+source ~/.bashrc;
+
+######################################################
+# PROGRAMMING LANGUAGES - RUST
+######################################################
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 
 ######################################################
 # MENTIONS
