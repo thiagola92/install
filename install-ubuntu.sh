@@ -314,7 +314,9 @@ eval \"\$(pyenv virtualenv-init -)\"" | tee -a ~/.bash_profile ~/.bashrc;
 # pdm
 sudo nala install -y python3-venv;
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -;
-export PATH=~/.local/bin:$PATH;
+echo "
+# pdm
+export PATH=~/.local/bin:\$PATH" | tee -a ~/.bash_profile ~/.bashrc;
 source ~/.bashrc;
 pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
 
