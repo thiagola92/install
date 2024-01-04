@@ -333,6 +333,9 @@ export DENO_INSTALL=\"~/.deno\"
 export PATH=\"\$DENO_INSTALL/bin:\$PATH\"" | tee -a ~/.bash_profile ~/.bashrc;
 source ~/.bashrc;
 
+# nodejs
+sudo nala install -y nodejs npm;
+
 ######################################################
 # PROGRAMMING LANGUAGES - RUST
 ######################################################
