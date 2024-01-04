@@ -272,7 +272,7 @@ flatpak install -y flathub me.iepure.devtoolbox;
 sudo snap install beekeeper-studio;
 
 # redis database
-sudo snap install -y redisinsight;
+sudo snap install redisinsight;
 
 ######################################################
 # REMOTE ACCESS
