@@ -235,6 +235,29 @@ sudo flatpak install -y flathub com.obsproject.Studio;
 sudo flatpak install -y flathub org.nickvision.tubeconverter;
 
 ######################################################
+# REMOTE ACCESS
+######################################################
+
+# ssh server
+sudo nala install -y openssh-server;
+
+# ftp server
+sudo nala install -y vsftpd;
+
+# rdp server
+sudo nala install -y xrdp;
+
+# add screen sharing to ubuntu
+sudo nala install -y vino;
+sudo nala install -y gnome-remote-desktop;
+
+# remote control
+flatpak install -y flathub org.gnome.Connections;
+
+# create a network
+curl -s https://install.zerotier.com | sudo bash;
+
+######################################################
 # PROGRAMMING TOOLS
 ######################################################
 
@@ -275,27 +298,18 @@ sudo snap install beekeeper-studio;
 sudo snap install redisinsight;
 
 ######################################################
-# REMOTE ACCESS
+# PROGRAMMING LANGUAGES
 ######################################################
 
-# ssh server
-sudo nala install -y openssh-server;
-
-# ftp server
-sudo nala install -y vsftpd;
-
-# rdp server
-sudo nala install -y xrdp;
-
-# add screen sharing to ubuntu
-sudo nala install -y vino;
-sudo nala install -y gnome-remote-desktop;
-
-# remote control
-flatpak install -y flathub org.gnome.Connections;
-
-# create a network
-curl -s https://install.zerotier.com | sudo bash;
+# pyenv
+sudo nala install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev;
+curl https://pyenv.run | bash;
+echo "
+# pyenv
+export PYENV_ROOT=\"\$HOME/.pyenv\"
+[[ -d \$PYENV_ROOT/bin ]] && export PATH=\"\$PYENV_ROOT/bin:\$PATH\"
+eval \"\$(pyenv init -)\"
+eval \"\$(pyenv virtualenv-init -)\"" | tee -a ~/.bash_profile ~/.bashrc;
 
 ######################################################
 # MENTIONS
