@@ -255,7 +255,7 @@ sudo nala install -y gnome-remote-desktop;
 flatpak install -y flathub org.gnome.Connections;
 
 # create a network
-curl -s https://install.zerotier.com | sudo bash;
+sudo snap install zerotier;
 
 ######################################################
 # PROGRAMMING TOOLS
