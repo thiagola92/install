@@ -1,5 +1,5 @@
-# install
-Scripts to use after formatting the computer.  
+# install.sh
+Script to use after formatting the computer.  
 
 ## usage
 Don't execute bash with sudo, it will ask the password when needed.  
