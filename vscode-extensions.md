@@ -11,5 +11,6 @@
       }
       ```
 - **Clang-format**
-  - Because **clangd**  doesn't format on save :)
+  - Because **clangd**  doesn't format on save
+    - It was only formating the line above after an enter :^)
   - Because Godot recommended
