@@ -1,9 +1,5 @@
 # VSCode Extensions
 
-## Build
-- **Meson**
-  - Automate building using meson
-
 ## C
 - **clangd**
   - Because **C/C++** was complaining of:
