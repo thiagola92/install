@@ -1,8 +1,9 @@
 # VSCode Extensions
+The less I have to change the default settings from an extension the better (I already have too much settings in my life to think about).
 
 ## C
 - **clangd**
-  - Because **C/C++** was complaining of:
+  - Because **C/C++** extension from Microsoft was complaining of:
     - ```C
       #include <netdb.h>
       
@@ -11,6 +12,13 @@
       }
       ```
 - **Clang-format**
-  - Because **clangd**  doesn't format on save
+  - Because **clangd** doesn't format on save
     - It was only formating the line above after an enter :^)
   - Because Godot recommended
+
+## Python
+- **Ruff**
+  - It will bring together:
+    - **Pylance**
+    - **Python**
+    - **Python Debugger**
