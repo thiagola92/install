@@ -25,7 +25,28 @@ The less I have to change the default settings from an extension the better (I a
           ]
         }
         ```
-      - **C/C++** search all directories for headers, you may install it to discover the headers
+      - **C/C++** search all directories for headers, you may install it to discover the headers. Or gain some idea running:
+        - ```python
+          from pathlib import Path
+  
+          suffixes = [".h", ".hpp"]
+          
+          def get_headers_dir(path: str) -> list[str]:
+              for p in Path(path).iterdir():
+                  if p.is_file() and p.suffix in suffixes:
+                      return [path]
+                  
+              subpaths: list[str] = []
+          
+              for p in Path(path).iterdir():
+                  if p.is_dir():
+                      subpaths.extend(get_headers_dir(p))
+              
+              return subpaths
+          
+          for d in get_headers_dir('.'):
+              print(d)
+          ```
 - **Clang-format**
   - *Because*:
     - Godot recommended
