@@ -30,18 +30,16 @@ The less I have to change the default settings from an extension the better (I a
           from pathlib import Path
   
           suffixes = [".h", ".hpp"]
-          
+
+          # No space between lines so you can run with interactive Python
           def get_headers_dir(path: str) -> list[str]:
               for p in Path(path).iterdir():
                   if p.is_file() and p.suffix in suffixes:
                       return [path]
-                  
               subpaths: list[str] = []
-          
               for p in Path(path).iterdir():
                   if p.is_dir():
                       subpaths.extend(get_headers_dir(p))
-              
               return subpaths
           
           for d in get_headers_dir('.'):
