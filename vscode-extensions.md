@@ -57,3 +57,8 @@ The less I have to change the default settings from an extension the better (I a
     - **Pylance**
     - **Python**
     - **Python Debugger**
+
+## Rust
+- **rust-analyzer**
+  - *Because*:
+    - Rust recommendation 
