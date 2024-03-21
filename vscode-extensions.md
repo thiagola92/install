@@ -61,4 +61,9 @@ The less I have to change the default settings from an extension the better (I a
 ## Rust
 - **rust-analyzer**
   - *Because*:
-    - Rust recommendation 
+    - Rust recommended
+
+## SSH
+- **Remote - SSH**
+  - *Because*:
+    - Microsoft support
