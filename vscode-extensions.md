@@ -67,3 +67,6 @@ The less I have to change the default settings from an extension the better (I a
 - **Remote - SSH**
   - *Because*:
     - Microsoft support
+  - *Bring*:
+    - **Remote - SSH: Editing Configuration Files**
+    - **Remote Explorer**
