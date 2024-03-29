@@ -174,9 +174,6 @@ sudo flatpak install -y flathub com.discordapp.Discord;
 # weather forecast
 sudo flatpak install -y flathub org.gnome.Weather;
 
-# clock
-sudo flatpak install -y flathub org.gnome.clocks;
-
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
