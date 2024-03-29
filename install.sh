@@ -282,7 +282,7 @@ sudo nala install -y podman;
 sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
 
 # dev toolbox
-flatpak install -y flathub me.iepure.devtoolbox;
+sudo flatpak install -y flathub me.iepure.devtoolbox;
 
 ######################################################
 # DATABASES
