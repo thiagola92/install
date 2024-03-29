@@ -33,6 +33,7 @@ gsettings set org.gnome.desktop.screensaver lock-enabled false;
 # never go idle
 gsettings set org.gnome.desktop.session idle-delay 0;
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type "nothing";
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type "nothing";
 
 # allow volume above 100 percent
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
