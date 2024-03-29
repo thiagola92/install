@@ -249,7 +249,7 @@ sudo nala install -y vino;
 sudo nala install -y gnome-remote-desktop;
 
 # remote control
-flatpak install -y flathub org.gnome.Connections;
+sudo flatpak install -y flathub org.gnome.Connections;
 
 # create a network
 sudo snap install zerotier;
