@@ -351,10 +351,13 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 # sudo nala install -y xdotool;
 
 # virtual machine
-# sudo flatpak install flathub org.gnome.Boxes;
+# sudo flatpak install -y flathub org.gnome.Boxes;
 
 # mirror phone screen
-# sudo nala install -y scrcpy;
+# sudo nala install -y ffmpeg libsdl2-2.0-0 adb wget gcc git pkg-config meson ninja-build libsdl2-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libswresample-dev libusb-1.0-0 libusb-1.0-0-dev;
+# git clone https://github.com/Genymobile/scrcpy;
+# cd scrcpy;
+# ./install_release.sh;
 
 ######################################################
 # OS SETTINGS 2
