@@ -299,20 +299,6 @@ sudo snap install redisinsight;
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
 
-# pyenv
-sudo nala install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev;
-curl https://pyenv.run | bash;
-echo "
-# pyenv
-export PYENV_ROOT=\"\$HOME/.pyenv\"
-[[ -d \$PYENV_ROOT/bin ]] && export PATH=\"\$PYENV_ROOT/bin:\$PATH\"
-eval \"\$(pyenv init -)\"
-eval \"\$(pyenv virtualenv-init -)\"" | tee -a ~/.bash_profile ~/.bashrc;
-source ~/.bashrc;
-
-# uv (maybe in the future if receive more functionality, right doesn't even create pyproject.toml)
-# curl -LsSf https://astral.sh/uv/install.sh | sh;
-
 # pdm
 sudo nala install -y python3-venv;
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -;
