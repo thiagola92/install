@@ -310,7 +310,10 @@ eval \"\$(pyenv init -)\"
 eval \"\$(pyenv virtualenv-init -)\"" | tee -a ~/.bash_profile ~/.bashrc;
 source ~/.bashrc;
 
-# pdm (should I change to uv?)
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh;
+
+# pdm (old)
 sudo nala install -y python3-venv;
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -;
 echo "
