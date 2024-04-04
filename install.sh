@@ -165,7 +165,7 @@ sudo snap connect bottom:process-control;
 
 # browser
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
 sudo nala update;
 sudo nala install -y brave-browser;
 
@@ -279,8 +279,13 @@ sudo snap install code --classic;
 sudo flatpak install -y flathub dev.lapce.lapce;
 
 # containers
-sudo nala install -y podman;
-sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
+sudo nala install -y ca-certificates curl;
+sudo install -m 0755 -d /etc/apt/keyrings;
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
+sudo chmod a+r /etc/apt/keyrings/docker.asc;
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
+sudo nala update;
+sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
 
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
