@@ -278,31 +278,20 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 sudo snap install code --classic;
 sudo flatpak install -y flathub dev.lapce.lapce;
 
-# containers
-sudo nala install -y ca-certificates curl;
-sudo install -m 0755 -d /etc/apt/keyrings;
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
-sudo chmod a+r /etc/apt/keyrings/docker.asc;
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
-sudo nala update;
-sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
-
-######################################################
-# DATABASES
-######################################################
 
 # sql database
 sudo snap install beekeeper-studio;
 
-# redis database
-sudo snap install redisinsight;
-
 ######################################################
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
+
+# pipx
+sudo nala install -y pipx;
+pipx ensurepath;
+sudo pipx ensurepath --global;
 
 # pdm
 sudo nala install -y python3-venv;
@@ -332,7 +321,19 @@ sudo nala install -y nodejs npm;
 # PROGRAMMING LANGUAGES - RUST
 ######################################################
 
+# rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
+
+######################################################
+# PROGRAMMING TOOLS [2]
+######################################################
+
+# podman
+sudo nala install -y podman;
+sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
+
+# podman compose
+pipx install podman-compose;
 
 ######################################################
 # MENTIONS
