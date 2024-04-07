@@ -337,6 +337,13 @@ sudo nala install -y nodejs npm;
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 
 ######################################################
+# PROGRAMMING LANGUAGES - GO
+######################################################
+
+# go
+sudo nala install -y golang-go;
+
+######################################################
 # MENTIONS
 ######################################################
 
