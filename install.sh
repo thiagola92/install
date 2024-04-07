@@ -342,6 +342,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 
 # go
 sudo nala install -y golang-go;
+echo "
+# go
+export PATH=\"/home/thiagola92/go/bin:\$PATH\"" | tee -a ~/.bash_profile ~/.bashrc;
+source ~/.bashrc;
 
 ######################################################
 # MENTIONS
