@@ -284,6 +284,18 @@ sudo flatpak install -y flathub me.iepure.devtoolbox;
 # sql database
 sudo snap install beekeeper-studio;
 
+# docker
+sudo nala install -y ca-certificates curl;
+sudo install -m 0755 -d /etc/apt/keyrings;
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
+sudo chmod a+r /etc/apt/keyrings/docker.asc;
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo nala update;
+sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+
 ######################################################
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
@@ -323,17 +335,6 @@ sudo nala install -y nodejs npm;
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
-
-######################################################
-# PROGRAMMING TOOLS [2]
-######################################################
-
-# podman
-sudo nala install -y podman;
-sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
-
-# podman compose
-pipx install podman-compose;
 
 ######################################################
 # MENTIONS
