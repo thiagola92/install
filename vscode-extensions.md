@@ -51,6 +51,11 @@ The less I have to change the default settings from an extension the better (I a
     - **clangd** doesn't format on save
       - Only format the line above after an enter :^)
 
+## Docker
+- **Docker**
+  - *Because*:
+    - Microsoft support
+
 ## Python
 - **Ruff**
   - *Bring*:
