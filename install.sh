@@ -203,9 +203,6 @@ sudo add-apt-repository -y ppa:inkscape.dev/stable;
 sudo nala update;
 sudo nala install -y inkscape;
 
-# image draw [2]
-#sudo nala install -y krita;
-
 # upscale image
 sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
