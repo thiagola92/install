@@ -159,6 +159,12 @@ sudo snap connect bottom:hardware-observe;
 sudo snap connect bottom:system-observe;
 sudo snap connect bottom:process-control;
 
+# fish shell
+sudo apt-add-repository ppa:fish-shell/release-3;
+sudo nala update;
+sudo nala install -y fish;
+sudo chsh -s /usr/bin/fish thiagola92;
+
 ######################################################
 # BASIC TOOLS
 ######################################################
