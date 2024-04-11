@@ -56,6 +56,11 @@ The less I have to change the default settings from an extension the better (I a
   - *Because*:
     - Microsoft support
 
+## Go
+- **God**
+  - *Because*:
+    - Google support
+
 ## Python
 - **Ruff**
   - *Bring*:
