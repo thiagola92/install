@@ -363,6 +363,12 @@ sudo nala install -y meson ninja-build;
 # scons
 sudo nala install -y scons;
 
+# clang
+sudo nala install -y clang;
+
+# clang-format
+sudo nala install -y clang-format;
+
 ######################################################
 # MENTIONS
 ######################################################
