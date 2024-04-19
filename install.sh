@@ -354,6 +354,16 @@ sudo echo "
 export PATH=\"/root/go/bin:\$PATH\"" | sudo tee -a /root/.bash_profile /root/.bashrc;
 
 ######################################################
+# PROGRAMMING LANGUAGES - C
+######################################################
+
+# meson
+sudo nala install -y meson ninja-build;
+
+# scons
+sudo nala install -y scons;
+
+######################################################
 # MENTIONS
 ######################################################
 
