@@ -1,7 +1,8 @@
 #!/bin/bash
 
-USERNAME=xxxxxxx
-EMAIL=xxxxxxx
+# Not a secret
+USERNAME=thiagola92
+EMAIL=thiagola92@gmail.com
 
 ######################################################
 # OS SETTINGS 1
@@ -270,8 +271,8 @@ sudo snap install zerotier;
 sudo add-apt-repository -y ppa:git-core/ppa;
 sudo nala install --update -y git;
 git config --global init.defaultBranch main;
-git config --global user.email $EMAIL
 git config --global user.name $USERNAME;
+git config --global user.email $EMAIL
 git config --global core.editor micro;
 git config --global credential.helper store;
 git config --global pull.rebase false;
