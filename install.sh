@@ -1,5 +1,8 @@
 #!/bin/bash
 
+USERNAME=xxxxxxx
+EMAIL=xxxxxxx
+
 ######################################################
 # OS SETTINGS 1
 ######################################################
@@ -164,7 +167,7 @@ sudo apt-add-repository ppa:fish-shell/release-3;
 sudo nala update;
 sudo nala install -y fish;
 echo /usr/local/bin/fish | sudo tee -a /etc/shells;
-sudo chsh -s /usr/local/bin/fish thiagola92;
+sudo chsh -s /usr/local/bin/fish $USERNAME;
 
 ######################################################
 # BASIC TOOLS
@@ -267,8 +270,8 @@ sudo snap install zerotier;
 sudo add-apt-repository -y ppa:git-core/ppa;
 sudo nala install --update -y git;
 git config --global init.defaultBranch main;
-git config --global user.email "thiagola92@gmail.com"
-git config --global user.name "thiagola92";
+git config --global user.email $EMAIL
+git config --global user.name $USERNAME;
 git config --global core.editor micro;
 git config --global credential.helper store;
 git config --global pull.rebase false;
