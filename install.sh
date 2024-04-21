@@ -167,8 +167,8 @@ sudo snap connect bottom:process-control;
 sudo apt-add-repository ppa:fish-shell/release-3;
 sudo nala update;
 sudo nala install -y fish;
-echo /usr/local/bin/fish | sudo tee -a /etc/shells;
-sudo chsh -s /usr/local/bin/fish $USERNAME;
+echo /usr/bin/fish | sudo tee -a /etc/shells;
+sudo chsh -s /usr/bin/fish $USERNAME;
 
 ######################################################
 # BASIC TOOLS
