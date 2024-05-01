@@ -143,9 +143,6 @@ sudo nala install -y duf;
 # disk analyzer
 sudo flatpak install -y flathub org.gnome.baobab;
 
-# command line information tool
-sudo nala install -y neofetch;
-
 # transfering network data
 sudo nala install -y curl;
 
