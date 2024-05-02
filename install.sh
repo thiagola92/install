@@ -145,6 +145,7 @@ sudo flatpak install -y flathub org.gnome.baobab;
 
 # command line information tool
 sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
+sudo nala update;
 sudo nala install -y fastfetch;
 
 # transfering network data
