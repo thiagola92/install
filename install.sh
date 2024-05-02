@@ -143,6 +143,10 @@ sudo nala install -y duf;
 # disk analyzer
 sudo flatpak install -y flathub org.gnome.baobab;
 
+# command line information tool
+sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
+sudo nala install -y fastfetch;
+
 # transfering network data
 sudo nala install -y curl;
 
@@ -161,7 +165,7 @@ sudo snap connect bottom:system-observe;
 sudo snap connect bottom:process-control;
 
 # fish shell
-sudo apt-add-repository ppa:fish-shell/release-3;
+sudo apt-add-repository -y ppa:fish-shell/release-3;
 sudo nala update;
 sudo nala install -y fish;
 echo /usr/bin/fish | sudo tee -a /etc/shells;
