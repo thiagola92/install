@@ -339,6 +339,8 @@ sudo nala install -y nodejs npm;
 ######################################################
 
 # rust
+echo "
+# rust" | tee -a ~/.bash_profile ~/.bashrc;
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 
 ######################################################
