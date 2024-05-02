@@ -325,6 +325,8 @@ pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
 
 # deno
 curl -fsSL https://deno.land/x/install/install.sh | sh;
+fish -c "fish_add_path ~/.deno";
+fish -c "fish_add_path ~/.deno/bin";
 echo "
 # deno
 export DENO_INSTALL=\"~/.deno\"
