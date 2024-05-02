@@ -402,6 +402,9 @@ gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser
 # ENDING
 ######################################################
 
+# fish
+fish -c "set --universal PATH $PATH";
+
 # cleaning
 sudo nala autoremove -y;
 sudo apt autoremove -y;
