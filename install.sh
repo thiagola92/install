@@ -376,6 +376,9 @@ sudo nala install -y scons;
 # clang
 sudo nala install -y clang;
 
+# clangd
+sudo nala install -y clangd;
+
 # clang-format
 sudo nala install -y clang-format;
 
