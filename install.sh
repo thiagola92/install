@@ -165,7 +165,7 @@ sudo snap connect bottom:hardware-observe;
 sudo snap connect bottom:system-observe;
 sudo snap connect bottom:process-control;
 
-# fish shell
+# shell
 sudo apt-add-repository -y ppa:fish-shell/release-3;
 sudo nala update;
 sudo nala install -y fish;
@@ -239,7 +239,7 @@ sudo flatpak install -y flathub org.shotcut.Shotcut;
 # stream/record
 sudo flatpak install -y flathub com.obsproject.Studio;
 
-# video download
+# video downloader
 sudo flatpak install -y flathub org.nickvision.tubeconverter;
 
 ######################################################
@@ -310,12 +310,12 @@ sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
 
-# pipx
+# application installer
 sudo nala install -y pipx;
 pipx ensurepath;
 sudo pipx ensurepath --global;
 
-# pdm
+# package manager
 sudo nala install -y python3-venv;
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -;
 echo "
@@ -328,7 +328,7 @@ pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
 # PROGRAMMING LANGUAGES - JAVASCRIPT
 ######################################################
 
-# deno
+# all-in-one
 curl -fsSL https://deno.land/x/install/install.sh | sh;
 fish -c "fish_add_path ~/.deno";
 fish -c "fish_add_path ~/.deno/bin";
@@ -338,14 +338,14 @@ export DENO_INSTALL=\"~/.deno\"
 export PATH=\"\$DENO_INSTALL/bin:\$PATH\"" | tee -a ~/.bash_profile ~/.bashrc;
 source ~/.bashrc;
 
-# nodejs
+# all-in-one
 sudo nala install -y nodejs npm;
 
 ######################################################
 # PROGRAMMING LANGUAGES - RUST
 ######################################################
 
-# rust
+# all-in-one
 echo "
 # rust" | tee -a ~/.bash_profile ~/.bashrc;
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
@@ -354,7 +354,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 # PROGRAMMING LANGUAGES - GO
 ######################################################
 
-# go
+# all-in-one
 sudo nala install -y golang-go;
 sudo echo "
 # go
@@ -367,32 +367,32 @@ export PATH=\"/root/go/bin:\$PATH\"" | sudo tee -a /root/.bash_profile /root/.ba
 # PROGRAMMING LANGUAGES - C
 ######################################################
 
-# meson
+# build tool
 sudo nala install -y meson ninja-build;
 
-# scons
+# build tool
 sudo nala install -y scons;
 
-# clang
+# compiler
 sudo nala install -y clang;
 
-# clangd
+# debugger
 sudo nala install -y clangd;
 
-# clang-format
+# formatter
 sudo nala install -y clang-format;
 
 ######################################################
 # STYLE
 ######################################################
 
-# nerd fonts
+# fonts
 curl -fL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -o FiraCode.zip;
 unzip FiraCode.zip -d FiraCode;
 rm FiraCode.zip;
 sudo mv FiraCode /usr/share/fonts;
 
-# starship
+# shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh;
 sudo echo "
 # starship
