@@ -383,6 +383,16 @@ sudo nala install -y clangd;
 sudo nala install -y clang-format;
 
 ######################################################
+# STYLE
+######################################################
+
+# nerd fonts
+curl -fL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -o FiraCode.zip;
+unzip FiraCode.zip -d FiraCode;
+rm FiraCode.zip;
+sudo mv FiraCode /usr/share/fonts;
+
+######################################################
 # MENTIONS
 ######################################################
 
