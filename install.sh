@@ -392,6 +392,15 @@ unzip FiraCode.zip -d FiraCode;
 rm FiraCode.zip;
 sudo mv FiraCode /usr/share/fonts;
 
+# starship
+sudo curl -sS https://starship.rs/install.sh | sh;
+sudo echo "
+# starship
+starship init fish | source" | tee -a ~/.config/fish/config.fish;
+sudo echo "
+# starship
+eval "$(starship init bash)"" | tee -a ~/.bashrc;
+
 ######################################################
 # MENTIONS
 ######################################################
