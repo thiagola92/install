@@ -398,8 +398,17 @@ sudo echo "
 # starship
 starship init fish | source" | tee -a ~/.config/fish/config.fish;
 sudo echo "
-# starship
-eval "$(starship init bash)"" | tee -a ~/.bashrc;
+add_newline = false
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+[cmd_duration]
+min_time = 0
+format = '⌛ [$duration]($style) '
+[sudo]
+format = '[$symbol]($style)'
+disabled = false
+" | tee -a ~/.config/starship.toml;
 
 ######################################################
 # MENTIONS
