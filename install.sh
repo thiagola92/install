@@ -398,6 +398,8 @@ sudo echo "
 # starship
 starship init fish | source" | tee -a ~/.config/fish/config.fish;
 sudo echo "
+scan_timeout = 1000
+command_timeout = 1000
 add_newline = false
 [character]
 success_symbol = '[\$](bold green)'
