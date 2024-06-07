@@ -1,0 +1,15 @@
+scan_timeout = 1000
+command_timeout = 1000
+add_newline = false
+
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+
+[cmd_duration]
+min_time = 0
+format = '⌛ [$duration]($style) '
+
+[sudo]
+format = '[$symbol]($style)'
+disabled = false
