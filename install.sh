@@ -450,11 +450,16 @@ sudo apt autoremove -y;
 # NOTES
 ######################################################
 # If you are going to a new release, there is big chance that some package be missing in the PPA.
-# Go to "Software & Updates > Other Software > Add...", copy the example and change the codename to the previous release. Example:
-#   'deb http://archive.ubuntu.com/ubuntu mantic main'
-#   'deb http://archive.ubuntu.com/ubuntu lunar main'
+# Go to "Software & Updates > Other Software > Add...", copy the example and change the codename to a previous release. Example:
+#    'deb http://archive.ubuntu.com/ubuntu mantic main'
+#    'deb http://archive.ubuntu.com/ubuntu lunar main'
+#
 # You can find the codenames here: https://wiki.ubuntu.com/Releases
-# The first name is the codename.
+#    codename == first name in lowercase
+#
+# 'main' is the official support
+#    'deb http://archive.ubuntu.com/ubuntu lunar main'
+# 'universe' is the community-maintained
+#    'deb http://archive.ubuntu.com/ubuntu lunar universe'
 # 
-# Other option is to search, download and install manually the package.
-# You can find the packages here: https://packages.ubuntu.com/
+# You can search packages here: https://packages.ubuntu.com/
