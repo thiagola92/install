@@ -454,3 +454,7 @@ sudo apt autoremove -y;
 #   'deb http://archive.ubuntu.com/ubuntu mantic main'
 #   'deb http://archive.ubuntu.com/ubuntu lunar main'
 # You can find the codenames here: https://wiki.ubuntu.com/Releases
+# The first name is the codename.
+# 
+# Other option is to search, download and install manually the package.
+# You can find the packages here: https://packages.ubuntu.com/
