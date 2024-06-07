@@ -394,23 +394,7 @@ sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh;
-sudo echo "
-# starship
-starship init fish | source" | tee -a ~/.config/fish/config.fish;
-sudo echo "
-scan_timeout = 1000
-command_timeout = 1000
-add_newline = false
-[character]
-success_symbol = '[\$](bold green)'
-error_symbol = '[\$](bold red)'
-[cmd_duration]
-min_time = 0
-format = '⌛ [$duration]($style) '
-[sudo]
-format = '[$symbol]($style)'
-disabled = false
-" | tee -a ~/.config/starship.toml;
+curl https://raw.githubusercontent.com/thiagola92/install/main/startship.toml -o ~/.config/starship.toml;
 
 ######################################################
 # MENTIONS

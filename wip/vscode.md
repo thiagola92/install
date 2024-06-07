@@ -1,4 +1,4 @@
-# VSCode Extensions
+# VSCode Extensions (WIP)
 The less I have to change the default settings from an extension the better (I already have too much settings in my life to think about).
 
 ## C
