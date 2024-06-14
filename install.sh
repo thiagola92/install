@@ -151,6 +151,9 @@ sudo nala install -y fastfetch;
 # transfering network data
 sudo nala install -y curl;
 
+# open/close modem ports through upnp
+sudo nala install -y miniupnpc;
+
 # text editor
 sudo snap install micro --classic;
 sudo nala install -y xclip;
