@@ -289,7 +289,11 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 
 # text editor
 sudo snap install code --classic;
-sudo flatpak install -y flathub dev.lapce.lapce;
+
+# text editor (needs GPU drivers)
+sudo curl -L https://github.com/lapce/lapce/releases/latest/download/lapce.ubuntu.$OS_CODENAME.amd64.deb -o lapce.deb;
+sudo nala install -y ./lapce.deb;
+sudo rm ./lapce.deb;
 
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
