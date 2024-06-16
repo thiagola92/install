@@ -157,6 +157,7 @@ sudo nala install -y miniupnpc;
 # text editor
 sudo snap install micro --classic;
 sudo nala install -y xclip;
+cp micro.json ~/.config/micro/settings.json;
 
 # customize gnome
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
