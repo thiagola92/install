@@ -295,6 +295,7 @@ sudo snap install code --classic;
 sudo curl -L https://github.com/lapce/lapce/releases/latest/download/lapce.ubuntu.$OS_CODENAME.amd64.deb -o lapce.deb;
 sudo nala install -y ./lapce.deb;
 sudo rm ./lapce.deb;
+cp lapce.toml ~/.config/lapce-stable/settings.toml;
 
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
