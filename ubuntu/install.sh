@@ -364,9 +364,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 
 # all-in-one
 sudo nala install -y golang;
-sudo echo "
-# go
-export PATH=\"/usr/bin:\$PATH\"" | sudo tee -a ~/.bash_profile ~/.bashrc; # /root/.bash_profile /root/.bashrc;
 
 ######################################################
 # PROGRAMMING LANGUAGES - C
