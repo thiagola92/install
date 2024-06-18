@@ -400,7 +400,7 @@ rm FiraCode.zip;
 sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
-sudo curl -sS https://starship.rs/install.sh | sh;
+sudo curl -sS https://starship.rs/install.sh | sh -y;
 sudo echo "
 # starship
 starship init fish | source" | sudo tee -a ~/.config/fish/config.fish;
