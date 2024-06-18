@@ -157,6 +157,7 @@ sudo nala install -y miniupnpc;
 # text editor
 sudo snap install micro --classic;
 sudo nala install -y xclip;
+mkdir ~/.config/micro;
 cp micro.json ~/.config/micro/settings.json;
 
 # customize gnome
@@ -219,9 +220,6 @@ sudo flatpak install -y flathub org.gimp.GIMP;
 sudo add-apt-repository -y ppa:inkscape.dev/stable;
 sudo nala update;
 sudo nala install -y inkscape;
-
-# upscale image
-sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
 # gnome icons
 sudo flatpak install -y flathub org.gnome.design.IconLibrary;
@@ -420,6 +418,9 @@ cp starship.toml ~/.config/starship.toml;
 
 # virtual machine
 # sudo flatpak install -y flathub org.gnome.Boxes;
+
+# upscale image
+# sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
 # mirror phone screen
 # sudo nala install -y ffmpeg libsdl2-2.0-0 adb wget gcc git pkg-config meson ninja-build libsdl2-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libswresample-dev libusb-1.0-0 libusb-1.0-0-dev;
