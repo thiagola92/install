@@ -143,6 +143,11 @@ sudo nala install -y duf;
 # disk analyzer
 sudo flatpak install -y flathub org.gnome.baobab;
 
+# file manager
+curl -fL https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.snap -o yazi.snap;
+sudo snap install yazi.snap --dangerous --classic;
+rm yazi.snap;
+
 # command line information tool
 sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
 sudo nala update;
