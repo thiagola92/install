@@ -128,11 +128,8 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 sudo flatpak update -y;
 
 ######################################################
-# ESSENTIALS TOOLS
+# TERMINAL TOOLS
 ######################################################
-
-# create usb boot (gnome version)
-sudo nala install -y usb-creator-gtk;
 
 # interactive process viewer
 sudo snap install htop;
@@ -165,9 +162,6 @@ sudo nala install -y xclip;
 mkdir ~/.config/micro;
 cp micro.json ~/.config/micro/settings.json;
 
-# customize gnome
-sudo flatpak install -y flathub ca.desrt.dconf-editor;
-
 # process viewer
 sudo snap install bottom;
 sudo snap connect bottom:mount-observe;
@@ -183,8 +177,14 @@ echo /usr/bin/fish | sudo tee -a /etc/shells;
 sudo chsh -s /usr/bin/fish $USERNAME;
 
 ######################################################
-# BASIC TOOLS
+# GENERIC TOOLS
 ######################################################
+
+# create usb boot (gnome version)
+sudo nala install -y usb-creator-gtk;
+
+# customize gnome
+sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
 # browser
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
@@ -250,7 +250,7 @@ sudo flatpak install -y flathub com.obsproject.Studio;
 sudo flatpak install -y flathub org.nickvision.tubeconverter;
 
 ######################################################
-# REMOTE ACCESS
+# REMOTE ACCESS TOOLS
 ######################################################
 
 # ssh server
