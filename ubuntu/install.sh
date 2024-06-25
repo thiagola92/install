@@ -192,6 +192,7 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 sudo nala update;
 sudo nala install -y brave-browser;
 # You may have to manually activate "Widevine"
+# Force update in brave://components/
 
 # discord
 sudo flatpak install -y flathub com.discordapp.Discord;
