@@ -27,6 +27,7 @@ echo "" > ~/Templates/file.java;
 echo "" > ~/Templates/file.json;
 echo "" > ~/Templates/file.tf;
 echo "" > ~/Templates/file.rs;
+echo "" > ~/Templates/file.go;
 
 # mouse speed
 gsettings set org.gnome.desktop.peripherals.mouse speed -1;
