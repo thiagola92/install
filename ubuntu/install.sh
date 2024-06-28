@@ -429,6 +429,8 @@ cp starship.toml ~/.config/starship.toml;
 # git clone https://github.com/Genymobile/scrcpy;
 # cd scrcpy;
 # ./install_release.sh;
+# cd ..;
+# rm -rf scrcpy;
 
 ######################################################
 # OS SETTINGS 2
