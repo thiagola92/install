@@ -158,6 +158,8 @@ sudo nala install -y miniupnpc;
 # text editor
 sudo snap install micro --classic;
 sudo nala install -y xclip;
+mkdir ~/.config/micro;
+cp micro.json ~/.config/micro/settings.json;
 
 # process viewer
 sudo snap install bottom;
