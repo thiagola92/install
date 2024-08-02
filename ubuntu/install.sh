@@ -15,19 +15,19 @@ timedatectl set-local-rtc 1;
 echo "" > ~/Templates/file;
 echo "" > ~/Templates/file.c;
 echo "" > ~/Templates/file.cpp;
-echo "" > ~/Templates/file.h;
-echo "" > ~/Templates/file.py;
-echo "" > ~/Templates/file.md;
-echo "" > ~/Templates/file.sh;
-echo "" > ~/Templates/file.html;
 echo "" > ~/Templates/file.css;
-echo "" > ~/Templates/file.js;
-echo "" > ~/Templates/file.yaml;
-echo "" > ~/Templates/file.java;
-echo "" > ~/Templates/file.json;
-echo "" > ~/Templates/file.tf;
-echo "" > ~/Templates/file.rs;
 echo "" > ~/Templates/file.go;
+echo "" > ~/Templates/file.h;
+echo "" > ~/Templates/file.html;
+echo "" > ~/Templates/file.java;
+echo "" > ~/Templates/file.js;
+echo "" > ~/Templates/file.json;
+echo "" > ~/Templates/file.md;
+echo "" > ~/Templates/file.py;
+echo "" > ~/Templates/file.rs;
+echo "" > ~/Templates/file.sh;
+echo "" > ~/Templates/file.toml;
+echo "" > ~/Templates/file.yaml;
 
 # mouse speed
 gsettings set org.gnome.desktop.peripherals.mouse speed -1;
@@ -142,9 +142,7 @@ sudo nala install -y duf;
 sudo flatpak install -y flathub org.gnome.baobab;
 
 # file manager
-curl -fL https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.snap -o yazi.snap;
-sudo snap install yazi.snap --dangerous --classic;
-rm yazi.snap;
+bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)";
 
 # command line information tool
 sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
