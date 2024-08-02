@@ -132,6 +132,9 @@ sudo flatpak update -y;
 # TERMINAL TOOLS
 ######################################################
 
+# transfering network data
+sudo nala install -y curl;
+
 # interactive process viewer
 sudo snap install htop;
 
@@ -150,9 +153,6 @@ cp superfile.toml ~/.config/superfile/settings.json;
 sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
 sudo nala update;
 sudo nala install -y fastfetch;
-
-# transfering network data
-sudo nala install -y curl;
 
 # open/close modem ports through upnp
 sudo nala install -y miniupnpc;
