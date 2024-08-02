@@ -143,6 +143,8 @@ sudo flatpak install -y flathub org.gnome.baobab;
 
 # file manager
 bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)";
+mkdir ~/.config/superfile;
+cp superfile.toml ~/.config/superfile/settings.json;
 
 # command line information tool
 sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
