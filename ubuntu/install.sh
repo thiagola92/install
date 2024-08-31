@@ -141,9 +141,6 @@ sudo snap install htop;
 # disk usage
 sudo nala install -y duf;
 
-# disk analyzer
-sudo flatpak install -y flathub org.gnome.baobab;
-
 # file manager
 sudo bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)";
 mkdir ~/.config/superfile;
@@ -199,6 +196,9 @@ sudo flatpak install -y flathub com.discordapp.Discord;
 
 # weather forecast
 sudo flatpak install -y flathub org.gnome.Weather;
+
+# disk analyzer
+sudo flatpak install -y flathub org.gnome.baobab;
 
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
