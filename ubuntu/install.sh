@@ -432,6 +432,13 @@ cp starship.toml ~/.config/starship.toml;
 # cd ..;
 # rm -rf scrcpy;
 
+# shell
+# git clone https://github.com/nushell/nushell.git;
+# cd nushell;
+# cargo install --path .;
+# cd ..;
+# rm -rf nushell;
+
 ######################################################
 # OS SETTINGS 2
 ######################################################
