@@ -409,6 +409,36 @@ starship init fish | source" | sudo tee -a ~/.config/fish/config.fish;
 cp starship.toml ~/.config/starship.toml;
 
 ######################################################
+# PART 2
+# BECAUSE SOME PROGRAMS DEPEND ON OTHERS BEING INSTALLED
+######################################################
+
+######################################################
+# OS SETTINGS 2
+######################################################
+
+# dock favorites
+gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
+
+######################################################
+# TERMINAL TOOLS 2
+######################################################
+
+# device usage
+git clone https://github.com/bootandy/dust.git;
+cd dust;
+cargo install --path .;
+cd ..;
+rm -rf dust;
+
+# shell
+git clone https://github.com/nushell/nushell.git;
+cd nushell;
+cargo install --path .;
+cd ..;
+rm -rf nushell;
+
+######################################################
 # MENTIONS
 ######################################################
 
@@ -431,20 +461,6 @@ cp starship.toml ~/.config/starship.toml;
 # ./install_release.sh;
 # cd ..;
 # rm -rf scrcpy;
-
-# shell
-# git clone https://github.com/nushell/nushell.git;
-# cd nushell;
-# cargo install --path .;
-# cd ..;
-# rm -rf nushell;
-
-######################################################
-# OS SETTINGS 2
-######################################################
-
-# dock favorites
-gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
 
 ######################################################
 # ENDING
