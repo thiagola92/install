@@ -401,13 +401,6 @@ unzip FiraCode.zip -d FiraCode;
 rm FiraCode.zip;
 sudo mv FiraCode /usr/share/fonts;
 
-# shell prompt
-sudo curl -sS https://starship.rs/install.sh | sh -- -y;
-sudo echo "
-# starship
-starship init fish | source" | sudo tee -a ~/.config/fish/config.fish;
-cp starship.toml ~/.config/starship.toml;
-
 ######################################################
 # PART 2
 # BECAUSE SOME PROGRAMS DEPEND ON OTHERS BEING INSTALLED
@@ -437,6 +430,28 @@ cd nushell;
 cargo install --path .;
 cd ..;
 rm -rf nushell;
+echo $HOME/.cargo/bin/nu | sudo tee -a /etc/shells;
+sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
+
+######################################################
+# STYLE 2
+######################################################
+
+# shell prompt
+sudo curl -sS https://starship.rs/install.sh | sh -- -y;
+
+sudo echo "
+# starship
+starship init fish | source" | sudo tee -a ~/.config/fish/config.fish;
+cp starship.toml ~/.config/starship.toml;
+
+sudo echo "
+# starship
+mkdir ~/.cache/starship
+starship init nu | save -f ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/env.nu;
+sudo echo "
+# starship
+use ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/config.nu
 
 ######################################################
 # MENTIONS
