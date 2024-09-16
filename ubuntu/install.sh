@@ -167,13 +167,6 @@ sudo snap connect bottom:hardware-observe;
 sudo snap connect bottom:system-observe;
 sudo snap connect bottom:process-control;
 
-# shell
-sudo apt-add-repository -y ppa:fish-shell/release-3;
-sudo nala update;
-sudo nala install -y fish;
-echo /usr/bin/fish | sudo tee -a /etc/shells;
-sudo chsh -s /usr/bin/fish $USERNAME;
-
 ######################################################
 # GENERIC TOOLS
 ######################################################
@@ -432,6 +425,7 @@ cd ..;
 rm -rf nushell;
 echo $HOME/.cargo/bin/nu | sudo tee -a /etc/shells;
 sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
+cp nushell.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
 # STYLE 2
@@ -439,17 +433,13 @@ sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -- -y;
-
 sudo echo "
-# starship
-starship init fish | source" | sudo tee -a ~/.config/fish/config.fish;
-cp starship.toml ~/.config/starship.toml;
 
-sudo echo "
 # starship
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/env.nu;
 sudo echo "
+
 # starship
 use ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/config.nu
 
