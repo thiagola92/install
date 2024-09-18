@@ -433,6 +433,7 @@ cp nushell.nu $HOME/.config/nushell/config.nu;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -- -y;
+cp starship.toml ~/.config/starship.toml;
 sudo echo "
 
 # starship
@@ -441,7 +442,8 @@ starship init nu | save -f ~/.cache/starship/init.nu" | sudo tee -a $HOME/.confi
 sudo echo "
 
 # starship
-use ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/config.nu
+use ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/config.nu;
+
 
 ######################################################
 # MENTIONS
