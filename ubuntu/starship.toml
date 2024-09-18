@@ -21,6 +21,7 @@ format = '[$symbol($version)]($style) '
 [cmd_duration]
 min_time = 0
 format = '[⌛ $duration]($style) '
+disabled = true
 
 [cobol]
 format = '[$symbol($version)]($style) '
@@ -184,6 +185,7 @@ format = '[$symbol$workspace]($style) '
 
 [time]
 format = '[$time]($style) '
+disabled = false
 
 [username]
 format = '[$user]($style) '
