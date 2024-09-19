@@ -138,14 +138,6 @@ sudo nala install -y curl;
 # interactive process viewer
 sudo snap install htop;
 
-# disk usage
-sudo nala install -y duf;
-
-# file manager
-sudo bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)";
-mkdir ~/.config/superfile;
-cp superfile.toml ~/.config/superfile/settings.json;
-
 # command line information tool
 sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
 sudo nala update;
@@ -159,13 +151,6 @@ sudo snap install micro --classic;
 sudo nala install -y xclip;
 mkdir ~/.config/micro;
 cp micro.json ~/.config/micro/settings.json;
-
-# process viewer
-sudo snap install bottom;
-sudo snap connect bottom:mount-observe;
-sudo snap connect bottom:hardware-observe;
-sudo snap connect bottom:system-observe;
-sudo snap connect bottom:process-control;
 
 ######################################################
 # GENERIC TOOLS
