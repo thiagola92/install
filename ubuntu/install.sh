@@ -92,7 +92,7 @@ gsettings set org.gnome.desktop.interface enable-hot-corners false;
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 
 ######################################################
-# OS UPDATE
+# SOFTWARE INSTALLER
 ######################################################
 
 # Change to US servers
@@ -128,129 +128,8 @@ sudo nala install -y flatpak;
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 sudo flatpak update -y;
 
-######################################################
-# TERMINAL TOOLS
-######################################################
-
-# transfering network data
+# transfering network data (indirectly install)
 sudo nala install -y curl;
-
-# interactive process viewer
-sudo snap install htop;
-
-# command line information tool
-sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
-sudo nala update;
-sudo nala install -y fastfetch;
-
-# open/close modem ports through upnp
-sudo nala install -y miniupnpc;
-
-# text editor
-sudo snap install micro --classic;
-sudo nala install -y xclip;
-mkdir ~/.config/micro;
-cp micro.json ~/.config/micro/settings.json;
-
-######################################################
-# GENERIC TOOLS
-######################################################
-
-# create usb boot (gnome version)
-sudo nala install -y usb-creator-gtk;
-
-# customize gnome
-sudo flatpak install -y flathub ca.desrt.dconf-editor;
-
-# browser
-# netflix: activate "Widevine", force update in brave://components/ and restart browser
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
-sudo nala update;
-sudo nala install -y brave-browser;
-
-# discord
-sudo flatpak install -y flathub com.discordapp.Discord;
-
-# weather forecast
-sudo flatpak install -y flathub org.gnome.Weather;
-
-# disk analyzer
-sudo flatpak install -y flathub org.gnome.baobab;
-
-# torrent download
-sudo flatpak install -y flathub de.haeckerfelix.Fragments;
-
-# game platform
-sudo snap install steam;
-
-######################################################
-# AUDIO TOOLS
-######################################################
-
-# music player
-sudo snap install spotify;
-
-# sound recorder
-sudo flatpak install -y flathub org.gnome.SoundRecorder;
-
-######################################################
-# IMAGE TOOLS
-######################################################
-
-# image editor
-sudo flatpak install -y flathub org.gimp.GIMP;
-
-# image draw
-sudo add-apt-repository -y ppa:inkscape.dev/stable;
-sudo nala update;
-sudo nala install -y inkscape;
-
-# gnome icons
-sudo flatpak install -y flathub org.gnome.design.IconLibrary;
-
-# color palette
-sudo flatpak install -y flathub org.gnome.design.Palette;
-
-######################################################
-# VIDEO TOOLS
-######################################################
-
-# video player
-sudo flatpak install -y flathub org.gnome.Totem;
-sudo nala install -y gstreamer1.0-libav;
-
-# video editor
-sudo flatpak install -y flathub org.shotcut.Shotcut;
-
-# stream/record
-sudo flatpak install -y flathub com.obsproject.Studio;
-
-# video downloader
-sudo flatpak install -y flathub org.nickvision.tubeconverter;
-
-######################################################
-# REMOTE ACCESS TOOLS
-######################################################
-
-# ssh server
-sudo nala install -y openssh-server;
-
-# ftp server
-sudo nala install -y vsftpd;
-
-# rdp server
-sudo nala install -y xrdp;
-
-# add screen sharing to ubuntu
-sudo nala install -y vino;
-sudo nala install -y gnome-remote-desktop;
-
-# remote control
-sudo flatpak install -y flathub org.gnome.Connections;
-
-# create a network
-sudo snap install zerotier;
 
 ######################################################
 # PROGRAMMING TOOLS
@@ -370,30 +249,25 @@ sudo nala install -y clangd;
 sudo nala install -y clang-format;
 
 ######################################################
-# STYLE
+# TERMINAL TOOLS
 ######################################################
 
-# fonts
-curl -fL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -o FiraCode.zip;
-unzip FiraCode.zip -d FiraCode;
-rm FiraCode.zip;
-sudo mv FiraCode /usr/share/fonts;
+# interactive process viewer
+sudo snap install htop;
 
-######################################################
-# PART 2
-# BECAUSE SOME PROGRAMS DEPEND ON OTHERS BEING INSTALLED
-######################################################
+# command line information tool
+sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
+sudo nala update;
+sudo nala install -y fastfetch;
 
-######################################################
-# OS SETTINGS 2
-######################################################
+# open/close modem ports through upnp
+sudo nala install -y miniupnpc;
 
-# dock favorites
-gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
-
-######################################################
-# TERMINAL TOOLS 2
-######################################################
+# text editor
+sudo snap install micro --classic;
+sudo nala install -y xclip;
+mkdir ~/.config/micro;
+cp micro.json ~/.config/micro/settings.json;
 
 # shell
 git clone https://github.com/nushell/nushell.git;
@@ -406,8 +280,114 @@ sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 cp nushell.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
-# STYLE 2
+# GENERIC TOOLS
 ######################################################
+
+# create usb boot (gnome version)
+sudo nala install -y usb-creator-gtk;
+
+# customize gnome
+sudo flatpak install -y flathub ca.desrt.dconf-editor;
+
+# browser
+# netflix: activate "Widevine", force update in brave://components/ and restart browser
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
+sudo nala update;
+sudo nala install -y brave-browser;
+
+# discord
+sudo flatpak install -y flathub com.discordapp.Discord;
+
+# weather forecast
+sudo flatpak install -y flathub org.gnome.Weather;
+
+# disk analyzer
+sudo flatpak install -y flathub org.gnome.baobab;
+
+# torrent download
+sudo flatpak install -y flathub de.haeckerfelix.Fragments;
+
+# game platform
+sudo snap install steam;
+
+######################################################
+# AUDIO TOOLS
+######################################################
+
+# music player
+sudo snap install spotify;
+
+# sound recorder
+sudo flatpak install -y flathub org.gnome.SoundRecorder;
+
+######################################################
+# IMAGE TOOLS
+######################################################
+
+# image editor
+sudo flatpak install -y flathub org.gimp.GIMP;
+
+# image draw
+sudo add-apt-repository -y ppa:inkscape.dev/stable;
+sudo nala update;
+sudo nala install -y inkscape;
+
+# gnome icons
+sudo flatpak install -y flathub org.gnome.design.IconLibrary;
+
+# color palette
+sudo flatpak install -y flathub org.gnome.design.Palette;
+
+######################################################
+# VIDEO TOOLS
+######################################################
+
+# video player
+sudo flatpak install -y flathub org.gnome.Totem;
+sudo nala install -y gstreamer1.0-libav;
+
+# video editor
+sudo flatpak install -y flathub org.shotcut.Shotcut;
+
+# stream/record
+sudo flatpak install -y flathub com.obsproject.Studio;
+
+# video downloader
+sudo flatpak install -y flathub org.nickvision.tubeconverter;
+
+######################################################
+# REMOTE ACCESS TOOLS
+######################################################
+
+# ssh server
+sudo nala install -y openssh-server;
+
+# ftp server
+sudo nala install -y vsftpd;
+
+# rdp server
+sudo nala install -y xrdp;
+
+# add screen sharing to ubuntu
+sudo nala install -y vino;
+sudo nala install -y gnome-remote-desktop;
+
+# remote control
+sudo flatpak install -y flathub org.gnome.Connections;
+
+# create a network
+sudo snap install zerotier;
+
+######################################################
+# STYLE
+######################################################
+
+# fonts
+curl -fL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -o FiraCode.zip;
+unzip FiraCode.zip -d FiraCode;
+rm FiraCode.zip;
+sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -- -y;
@@ -422,6 +402,12 @@ sudo echo "
 # starship
 use ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/config.nu;
 
+######################################################
+# OS SETTINGS 2
+######################################################
+
+# dock favorites
+gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
 
 ######################################################
 # MENTIONS
