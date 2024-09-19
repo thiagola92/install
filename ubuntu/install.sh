@@ -128,7 +128,7 @@ sudo nala install -y flatpak;
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 sudo flatpak update -y;
 
-# transfering network data (indirectly install)
+# transfering network data (for indirectly installs)
 sudo nala install -y curl;
 
 ######################################################
