@@ -395,13 +395,6 @@ gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser
 # TERMINAL TOOLS 2
 ######################################################
 
-# device usage
-git clone https://github.com/bootandy/dust.git;
-cd dust;
-cargo install --path .;
-cd ..;
-rm -rf dust;
-
 # shell
 git clone https://github.com/nushell/nushell.git;
 cd nushell;
