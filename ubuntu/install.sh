@@ -201,7 +201,7 @@ pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
 ######################################################
 
 # all-in-one
-curl -fsSL https://deno.land/x/install/install.sh | sh;
+curl -fsSL https://deno.land/x/install/install.sh | sh -s -- -y;
 fish -c "fish_add_path ~/.deno";
 fish -c "fish_add_path ~/.deno/bin";
 echo "
