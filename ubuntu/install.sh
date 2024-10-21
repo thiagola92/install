@@ -278,6 +278,9 @@ mkdir ~/.config/micro;
 cp micro.json ~/.config/micro/settings.json;
 
 # shell
+mkdir $HOME/.config/nushell;
+cp nushell.nu $HOME/.config/nushell/config.nu;
+cp nushell2.nu $HOME/.config/nushell/env.nu;
 git clone https://github.com/nushell/nushell.git;
 cd nushell;
 cargo install --path .;
@@ -285,7 +288,6 @@ cd ..;
 rm -rf nushell;
 echo $HOME/.cargo/bin/nu | sudo tee -a /etc/shells;
 sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
-cp nushell.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
 # GENERIC TOOLS
