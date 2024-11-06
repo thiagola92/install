@@ -221,15 +221,15 @@ sudo nala install -y nodejs npm;
 echo "
 # rust" | tee -a ~/.bash_profile ~/.bashrc;
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
-source ~/.bashrc;
+source ~/.bashrc ~/.bash_profile;
 
 ######################################################
 # PROGRAMMING LANGUAGES - BEND
 ######################################################
 
 # runtime
-cargo install hvm;
-cargo install bend-lang;
+~/.cargo/bin/cargo install hvm;
+~/.cargo/bin/cargo install bend-lang;
 
 ######################################################
 # PROGRAMMING LANGUAGES - GO
@@ -284,7 +284,7 @@ cp nushell.nu $HOME/.config/nushell/config.nu;
 cp nushell2.nu $HOME/.config/nushell/env.nu;
 git clone https://github.com/nushell/nushell.git;
 cd nushell;
-cargo install --path .;
+~/.cargo/bin/cargo install --path .;
 cd ..;
 rm -rf nushell;
 echo $HOME/.cargo/bin/nu | sudo tee -a /etc/shells;
@@ -403,7 +403,7 @@ rm FiraCode.zip;
 sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
-sudo curl -sS https://starship.rs/install.sh | sh -- -y;
+sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
 cp starship.toml ~/.config/starship.toml;
 sudo echo "
 
