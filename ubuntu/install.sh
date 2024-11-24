@@ -344,7 +344,7 @@ sudo flatpak install -y flathub org.gimp.GIMP;
 sudo add-apt-repository -y ppa:inkscape.dev/stable;
 sudo nala update;
 sudo nala install -y inkscape;
-cp inkscape.svg ~/.config/inkscape/templates/inkscape.toml;
+cp inkscape.svg ~/.config/inkscape/templates/default.svg;
 cp inkscape.xml ~/.config/inkscape/preferences.xml;
 
 # gnome icons
