@@ -323,6 +323,9 @@ sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 # game platform
 sudo snap install steam;
 
+# office suite tools
+sudo flatpak install -y flathub org.libreoffice.LibreOffice;
+
 ######################################################
 # AUDIO TOOLS
 ######################################################
