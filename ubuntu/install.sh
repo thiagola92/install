@@ -166,6 +166,9 @@ sudo flatpak install -y flathub me.iepure.devtoolbox;
 # sql database
 sudo snap install beekeeper-studio;
 
+# web api client
+sudo flatpak install -y com.usebruno.Bruno
+
 # docker
 sudo nala install -y ca-certificates curl;
 sudo install -m 0755 -d /etc/apt/keyrings;
