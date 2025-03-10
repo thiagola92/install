@@ -158,7 +158,7 @@ sudo curl -L https://github.com/lapce/lapce/releases/latest/download/lapce.ubunt
 sudo nala install -y ./lapce.deb;
 sudo rm ./lapce.deb;
 mkdir ~/.config/lapce-stable;
-cp lapce.toml ~/.config/lapce-stable/settings.toml;
+cp lapce/settings.toml ~/.config/lapce-stable/settings.toml;
 
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
@@ -278,12 +278,12 @@ sudo nala install -y miniupnpc;
 sudo snap install micro --classic;
 sudo nala install -y xclip;
 mkdir ~/.config/micro;
-cp micro.json ~/.config/micro/settings.json;
+cp micro/settings.json ~/.config/micro/settings.json;
 
 # shell
 mkdir $HOME/.config/nushell;
-cp nushell.nu $HOME/.config/nushell/config.nu;
-cp nushell2.nu $HOME/.config/nushell/env.nu;
+cp nushell/config.nu $HOME/.config/nushell/config.nu;
+cp nushell/env.nu $HOME/.config/nushell/env.nu;
 git clone https://github.com/nushell/nushell.git;
 cd nushell;
 ~/.cargo/bin/cargo install --path .;
@@ -350,8 +350,8 @@ sudo flatpak install -y flathub org.gimp.GIMP;
 sudo add-apt-repository -y ppa:inkscape.dev/stable;
 sudo nala update;
 sudo nala install -y inkscape;
-cp inkscape.svg ~/.config/inkscape/templates/default.svg;
-cp inkscape.xml ~/.config/inkscape/preferences.xml;
+cp inkscape/default.svg ~/.config/inkscape/templates/default.svg;
+cp inkscape/inkscape.xml ~/.config/inkscape/preferences.xml;
 
 # gnome icons
 sudo flatpak install -y flathub org.gnome.design.IconLibrary;
@@ -403,7 +403,7 @@ sudo snap install zerotier;
 # CRON JOBS
 ######################################################
 
-sudo cp export_bookmarks.sh /etc/cron.d/export_bookmarks.sh;
+sudo cp cron/export_bookmarks.sh /etc/cron.d/export_bookmarks.sh;
 crontab <<EOF
 # remove ports from zerotier
 0 0 * * * eval upnpc -l | grep ZeroTier/ | sed -e 's/.* \(.*\)->.*/\1 udp/' | xargs -L 1 upnpc -d
@@ -424,7 +424,7 @@ sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
-cp starship.toml ~/.config/starship.toml;
+cp starship/starship.toml ~/.config/starship.toml;
 sudo echo "
 
 # starship
