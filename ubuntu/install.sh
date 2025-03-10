@@ -309,8 +309,10 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 sudo nala update;
 sudo nala install -y brave-browser;
 
-# discord
-sudo flatpak install -y flathub com.discordapp.Discord;
+# discord (because flatpak version runs in a sandbox and this doesn't let us make RPC)
+curl -L --output /tmp/discord.deb "https://discord.com/api/download?platform=linux&format=deb";
+sudo apt install -y /tmp/discord.deb;
+rm /tmp/discord.deb;
 
 # weather forecast
 sudo flatpak install -y flathub org.gnome.Weather;
