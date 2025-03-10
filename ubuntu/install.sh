@@ -205,11 +205,11 @@ pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
 ######################################################
 
 # all-in-one
-curl -fsSL https://deno.land/x/install/install.sh | sh -s -- -y;
 echo "
 # deno
 export DENO_INSTALL=\"~/.deno\"
 export PATH=\"\$DENO_INSTALL/bin:\$PATH\"" | tee -a ~/.bash_profile ~/.bashrc;
+curl -fsSL https://deno.land/x/install/install.sh | sh -s -- -y;
 source ~/.bashrc;
 
 # all-in-one
