@@ -195,8 +195,7 @@ sudo nala install -y python3-venv;
 curl -sSL https://pdm-project.org/install-pdm.py | python3 -;
 echo "
 # pdm
-export PATH=~/.local/bin:\$PATH
-" | tee -a ~/.bash_profile ~/.bashrc;
+export PATH=~/.local/bin:\$PATH" | tee -a ~/.bash_profile ~/.bashrc;
 source ~/.bashrc;
 pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
 
@@ -284,13 +283,11 @@ cp micro/settings.json ~/.config/micro/settings.json;
 mkdir $HOME/.config/nushell;
 cp nushell/config.nu $HOME/.config/nushell/config.nu;
 cp nushell/env.nu $HOME/.config/nushell/env.nu;
-git clone https://github.com/nushell/nushell.git;
-cd nushell;
-~/.cargo/bin/cargo install --path .;
-cd ..;
-rm -rf nushell;
-echo $HOME/.cargo/bin/nu | sudo tee -a /etc/shells;
-sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
+sudo curl -fsSL https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/fury-nushell.gpg;
+echo "deb https://apt.fury.io/nushell/ /" | sudo tee /etc/apt/sources.list.d/fury.list;
+sudo nala update;
+sudo nala install -y nushell;
+sudo chsh -s /usr/bin/nu $USERNAME;
 
 ######################################################
 # GENERIC TOOLS
@@ -425,15 +422,6 @@ sudo mv FiraCode /usr/share/fonts;
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
 cp starship/starship.toml ~/.config/starship.toml;
-sudo echo "
-
-# starship
-mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/env.nu;
-sudo echo "
-
-# starship
-use ~/.cache/starship/init.nu" | sudo tee -a $HOME/.config/nushell/config.nu;
 
 ######################################################
 # OS SETTINGS 2
