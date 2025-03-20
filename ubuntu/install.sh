@@ -347,6 +347,8 @@ sudo flatpak install -y flathub org.gimp.GIMP;
 sudo add-apt-repository -y ppa:inkscape.dev/stable;
 sudo nala update;
 sudo nala install -y inkscape;
+mkdir ~/.config/inkscape;
+mkdir ~/.config/inkscape/templates;
 cp inkscape/default.svg ~/.config/inkscape/templates/default.svg;
 cp inkscape/preferences.xml ~/.config/inkscape/preferences.xml;
 
