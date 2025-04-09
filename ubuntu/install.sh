@@ -392,13 +392,9 @@ sudo snap install zerotier;
 # CRON JOBS
 ######################################################
 
-sudo cp cron/export_bookmarks.sh /etc/cron.d/export_bookmarks.sh;
 crontab <<EOF
 # remove ports from zerotier
 0 0 * * * eval upnpc -l | grep ZeroTier/ | sed -e 's/.* \(.*\)->.*/\1 udp/' | xargs -L 1 upnpc -d
-
-# backup bookmarks
-0 0 * * * bash /etc/cron.d/export_bookmarks.sh
 EOF
 
 ######################################################
