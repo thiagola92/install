@@ -299,20 +299,10 @@ sudo nala install -y usb-creator-gtk;
 # customize gnome
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
-# browser
-# netflix: activate "Widevine", force update in brave://components/ and restart browser
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg;
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list;
-sudo nala update;
-sudo nala install -y brave-browser;
-
 # discord (because flatpak version runs in a sandbox and this doesn't let us make RPC)
 curl -L --output /tmp/discord.deb "https://discord.com/api/download?platform=linux&format=deb";
 sudo apt install -y /tmp/discord.deb;
 rm /tmp/discord.deb;
-
-# weather forecast
-sudo flatpak install -y flathub org.gnome.Weather;
 
 # disk analyzer
 sudo flatpak install -y flathub org.gnome.baobab;
