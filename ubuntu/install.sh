@@ -416,7 +416,7 @@ cp starship/starship.toml ~/.config/starship.toml;
 ######################################################
 
 # dock favorites
-gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'brave-browser.desktop']";
+gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'firefox.desktop']";
 
 ######################################################
 # MENTIONS
