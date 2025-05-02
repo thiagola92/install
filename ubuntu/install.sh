@@ -470,23 +470,22 @@ sudo apt autoremove -y;
 #               - "jammy" is for Ubuntu 22.04
 #               - "focal" is for Ubuntu 20.04
 # component: Any internal division from your repository. Examples for Ubuntu:
-#
-# References:
-# - Code names: https://wiki.ubuntu.com/Releases
-# - About sources.list: https://wiki.debian.org/SourcesList
-# - About sources.list ubuntu: https://help.ubuntu.com/community/Repositories?action=show&redirect=AddingRepositoriesHowto
-# - Search packages: https://packages.ubuntu.com/
+#               - "main" free softwares that can be freely redistributed and
+#                        Ubuntu gives support for it.
+#               - "restricted" proprietary free softwares that
+#                        Ubuntu has limited support/access.
+#               - "universe" open-source softwares community-maintained but
+#                        Ubuntu can later move it to "main" if it meets their standards.
+#               - "multiverse" not free softwares which you should check license and
+#                        Ubuntu gives zero support to it.
 #
 # TIP: If you are going to a new release, there is big chance that some package be missing in the PPA.
 # Go to "Software & Updates > Other Software > Add...", copy the example and change the codename to a previous release. Example:
 #    'deb http://archive.ubuntu.com/ubuntu mantic main'
 #    'deb http://archive.ubuntu.com/ubuntu lunar main'
 #
-#
-# 'main' is the official support
-#    'deb http://archive.ubuntu.com/ubuntu lunar main'
-# 'universe' is the community-maintained
-#    'deb http://archive.ubuntu.com/ubuntu lunar universe'
-# 
-#
-# 
+# References:
+# - Code names: https://wiki.ubuntu.com/Releases
+# - About sources.list: https://wiki.debian.org/SourcesList
+# - About sources.list ubuntu: https://help.ubuntu.com/community/Repositories?action=show&redirect=AddingRepositoriesHowto
+# - Search packages: https://packages.ubuntu.com/
