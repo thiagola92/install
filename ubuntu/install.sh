@@ -98,16 +98,14 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 # Change to US servers
 OS_CODENAME=$(lsb_release -sc)
 sudo sh -c "echo '
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME main restricted
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-updates main restricted
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME universe
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-updates universe
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-updates multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME main restricted universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-updates main restricted universe multiverse
 deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-backports main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security main restricted
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security universe
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-updates main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-backports main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security main restricted universe multiverse
 ' > /etc/apt/sources.list"
 
 # apt
