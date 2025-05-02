@@ -452,17 +452,41 @@ sudo apt autoremove -y;
 ######################################################
 # NOTES
 ######################################################
-# If you are going to a new release, there is big chance that some package be missing in the PPA.
+# It's good to understand the file "/etc/apt/sources.list"
+# which apt use to look for packages for you.
+# Each line follows the pattern:
+#
+# [archive type] [repository url] [os name] [components1] [components2] [components3] ...
+#
+# archive type: Type of package to search for in the server. Examples:
+#				        - "deb" for debians distributions
+#				        - "rpm" for fedora distributions
+#				        - "deb-src" when you want source files to compile for debian
+# repository url: URL to request packages. Examples:
+#               - "http://us.archive.ubuntu.com/ubuntu/" for Ubuntu US repository
+#               - "http://br.archive.ubuntu.com/ubuntu/" for Ubuntu BR repository
+# os name: Normally it's the first part of the code name. Examples:
+#               - "noble" is for Ubuntu 24.04
+#               - "jammy" is for Ubuntu 22.04
+#               - "focal" is for Ubuntu 20.04
+# component: Any internal division from your repository. Examples for Ubuntu:
+#
+# References:
+# - Code names: https://wiki.ubuntu.com/Releases
+# - About sources.list: https://wiki.debian.org/SourcesList
+# - About sources.list ubuntu: https://help.ubuntu.com/community/Repositories?action=show&redirect=AddingRepositoriesHowto
+# - Search packages: https://packages.ubuntu.com/
+#
+# TIP: If you are going to a new release, there is big chance that some package be missing in the PPA.
 # Go to "Software & Updates > Other Software > Add...", copy the example and change the codename to a previous release. Example:
 #    'deb http://archive.ubuntu.com/ubuntu mantic main'
 #    'deb http://archive.ubuntu.com/ubuntu lunar main'
 #
-# You can find the codenames here: https://wiki.ubuntu.com/Releases
-#    codename == first name in lowercase
 #
 # 'main' is the official support
 #    'deb http://archive.ubuntu.com/ubuntu lunar main'
 # 'universe' is the community-maintained
 #    'deb http://archive.ubuntu.com/ubuntu lunar universe'
 # 
-# You can search packages here: https://packages.ubuntu.com/
+#
+# 
