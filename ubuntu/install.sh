@@ -382,18 +382,6 @@ sudo nala install -y gnome-remote-desktop;
 # remote control
 sudo flatpak install -y flathub org.gnome.Connections;
 
-# create a network
-# sudo snap install zerotier;
-
-######################################################
-# CRON JOBS
-######################################################
-
-crontab <<EOF
-# remove ports from zerotier
-0 0 * * * eval upnpc -l | grep ZeroTier/ | sed -e 's/.* \(.*\)->.*/\1 udp/' | xargs -L 1 upnpc -d
-EOF
-
 ######################################################
 # STYLE
 ######################################################
@@ -438,6 +426,13 @@ gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'firefox.deskt
 # ./install_release.sh;
 # cd ..;
 # rm -rf scrcpy;
+
+# create a network
+# sudo snap install zerotier;
+# crontab <<EOF
+# # remove ports from zerotier
+# 0 0 * * * eval upnpc -l | grep ZeroTier/ | sed -e 's/.* \(.*\)->.*/\1 udp/' | xargs -L 1 upnpc -d
+# EOF
 
 ######################################################
 # ENDING
