@@ -148,6 +148,7 @@ git config --global alias.pull-all 'pull --recurse-submodules';
 git config --global alias.clone-blobless 'clone --filter=blob:none';
 git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse-submodules';
 git config --global gpg.format ssh;
+git config --global commit.gpgsign true;
 
 # text editor
 sudo snap install code --classic;
