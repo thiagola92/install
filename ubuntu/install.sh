@@ -138,6 +138,7 @@ sudo apt install --update -y git;
 git config --global init.defaultBranch main;
 git config --global user.name $USERNAME;
 git config --global user.email $EMAIL
+git config --global user.signingkey ~/.ssh/key.pub;
 git config --global core.editor micro;
 git config --global credential.helper store;
 git config --global pull.rebase false;
@@ -146,6 +147,7 @@ git config --global alias.clone-all 'clone --recurse-submodules';
 git config --global alias.pull-all 'pull --recurse-submodules';
 git config --global alias.clone-blobless 'clone --filter=blob:none';
 git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse-submodules';
+git config --global gpg.format ssh;
 
 # text editor
 sudo snap install code --classic;
