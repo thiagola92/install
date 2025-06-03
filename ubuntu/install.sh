@@ -16,6 +16,7 @@ echo "" > ~/Templates/file;
 echo "" > ~/Templates/file.c;
 echo "" > ~/Templates/file.cpp;
 echo "" > ~/Templates/file.css;
+echo "" > ~/Templates/file.csv;
 echo "" > ~/Templates/file.go;
 echo "" > ~/Templates/file.h;
 echo "" > ~/Templates/file.html;
@@ -114,20 +115,18 @@ sudo apt upgrade -y;
 
 # nala
 sudo apt install -y nala;
-sudo nala update;
-sudo nala upgrade -y;
 
 # snap
-sudo nala install -y snapd;
+sudo apt install -y snapd;
 sudo snap refresh;
 
 # flatpak
-sudo nala install -y flatpak;
+sudo apt install -y flatpak;
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 sudo flatpak update -y;
 
 # transfering network data (for indirectly installs)
-sudo nala install -y curl;
+sudo apt install -y curl;
 
 ######################################################
 # PROGRAMMING TOOLS
@@ -135,7 +134,7 @@ sudo nala install -y curl;
 
 # version control
 sudo add-apt-repository -y ppa:git-core/ppa;
-sudo nala install --update -y git;
+sudo apt install --update -y git;
 git config --global init.defaultBranch main;
 git config --global user.name $USERNAME;
 git config --global user.email $EMAIL
@@ -151,13 +150,6 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 # text editor
 sudo snap install code --classic;
 
-# text editor (needs GPU drivers)
-sudo curl -L https://github.com/lapce/lapce/releases/download/nightly/lapce.ubuntu.$OS_CODENAME.amd64.deb -o lapce.deb;
-sudo nala install -y ./lapce.deb;
-sudo rm ./lapce.deb;
-mkdir ~/.config/lapce-nightly;
-cp lapce/settings.toml ~/.config/lapce-nightly/settings.toml;
-
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
 
@@ -168,7 +160,7 @@ sudo snap install beekeeper-studio;
 sudo flatpak install -y com.usebruno.Bruno
 
 # docker
-sudo nala install -y ca-certificates curl;
+sudo apt install -y ca-certificates curl;
 sudo install -m 0755 -d /etc/apt/keyrings;
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
 sudo chmod a+r /etc/apt/keyrings/docker.asc;
@@ -176,85 +168,81 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo nala update;
-sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+sudo apt update;
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
 
 ######################################################
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
 
 # application installer
-sudo nala install -y pipx;
+sudo apt install -y pipx;
 pipx ensurepath;
 sudo pipx ensurepath --global;
 
 # package manager
-sudo nala install -y python3-venv;
-curl -sSL https://pdm-project.org/install-pdm.py | python3 -;
-echo "
-# pdm
-export PATH=~/.local/bin:\$PATH" | tee -a ~/.bash_profile ~/.bashrc;
-source ~/.bashrc;
-pdm completion bash | sudo tee /etc/bash_completion.d/pdm.bash-completion;
+sudo curl -LsSf https://astral.sh/uv/install.sh | sh;
+source $HOME/.local/bin/env;
 
 ######################################################
 # PROGRAMMING LANGUAGES - JAVASCRIPT
 ######################################################
 
 # all-in-one
-echo "
-# deno
-export DENO_INSTALL=\"~/.deno\"
-export PATH=\"\$DENO_INSTALL/bin:\$PATH\"" | tee -a ~/.bash_profile ~/.bashrc;
-curl -fsSL https://deno.land/x/install/install.sh | sh -s -- -y;
-source ~/.bashrc;
+sudo curl -fsSL https://deno.land/install.sh | sh -s -- -y;
+source $HOME/.deno/env;
 
 # all-in-one
-sudo nala install -y nodejs npm;
+sudo apt install -y nodejs npm;
 
 ######################################################
 # PROGRAMMING LANGUAGES - RUST
 ######################################################
 
 # all-in-one
-echo "
-# rust" | tee -a ~/.bash_profile ~/.bashrc;
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
-source ~/.bashrc ~/.bash_profile;
+sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
+source $HOME/.cargo/env;
 
 ######################################################
 # PROGRAMMING LANGUAGES - BEND
 ######################################################
 
 # runtime
-~/.cargo/bin/cargo install hvm;
-~/.cargo/bin/cargo install bend-lang;
+cargo install hvm;
+cargo install bend-lang;
 
 ######################################################
 # PROGRAMMING LANGUAGES - GO
 ######################################################
 
 # all-in-one
-sudo nala install -y golang;
+sudo apt install -y golang;
+
+######################################################
+# PROGRAMMING LANGUAGES - VALA
+######################################################
+
+# compiler
+sudo apt install -y valac;
 
 ######################################################
 # PROGRAMMING LANGUAGES - C
 ######################################################
 
 # build tool
-sudo nala install -y meson ninja-build;
+sudo apt install -y meson ninja-build;
 
 # build tool
-sudo nala install -y scons;
+sudo apt install -y scons;
 
 # compiler
-sudo nala install -y clang;
+sudo apt install -y clang;
 
 # debugger
-sudo nala install -y clangd;
+sudo apt install -y clangd;
 
 # formatter
-sudo nala install -y clang-format;
+sudo apt install -y clang-format;
 
 ######################################################
 # TERMINAL TOOLS
@@ -265,15 +253,15 @@ sudo snap install htop;
 
 # command line information tool
 sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
-sudo nala update;
-sudo nala install -y fastfetch;
+sudo apt update;
+sudo apt install -y fastfetch;
 
 # open/close modem ports through upnp
-sudo nala install -y miniupnpc;
+sudo apt install -y miniupnpc;
 
 # text editor
 sudo snap install micro --classic;
-sudo nala install -y xclip;
+sudo apt install -y xclip;
 mkdir ~/.config/micro;
 cp micro/settings.json ~/.config/micro/settings.json;
 
@@ -282,8 +270,8 @@ mkdir $HOME/.config/nushell;
 cp nushell/config.nu $HOME/.config/nushell/config.nu;
 sudo curl -fsSL https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/fury-nushell.gpg;
 echo "deb https://apt.fury.io/nushell/ /" | sudo tee /etc/apt/sources.list.d/fury.list;
-sudo nala update;
-sudo nala install -y nushell;
+sudo apt update;
+sudo apt install -y nushell;
 sudo chsh -s /usr/bin/nu $USERNAME;
 
 ######################################################
@@ -291,15 +279,13 @@ sudo chsh -s /usr/bin/nu $USERNAME;
 ######################################################
 
 # create usb boot (gnome version)
-sudo nala install -y usb-creator-gtk;
+sudo apt install -y usb-creator-gtk;
 
 # customize gnome
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
-# discord (because flatpak version runs in a sandbox and this doesn't let us make RPC)
-curl -L --output /tmp/discord.deb "https://discord.com/api/download?platform=linux&format=deb";
-sudo apt install -y /tmp/discord.deb;
-rm /tmp/discord.deb;
+# discord
+sudo flatpak install -y flathub com.discordapp.Discord;
 
 # disk analyzer
 sudo flatpak install -y flathub org.gnome.baobab;
@@ -331,9 +317,7 @@ sudo flatpak install -y flathub org.gnome.SoundRecorder;
 sudo flatpak install -y flathub org.gimp.GIMP;
 
 # image draw
-sudo add-apt-repository -y ppa:inkscape.dev/stable;
-sudo nala update;
-sudo nala install -y inkscape;
+sudo apt install -y inkscape;
 mkdir ~/.config/inkscape;
 mkdir ~/.config/inkscape/templates;
 cp inkscape/default.svg ~/.config/inkscape/templates/default.svg;
@@ -350,8 +334,7 @@ sudo flatpak install -y flathub org.gnome.design.Palette;
 ######################################################
 
 # video player
-sudo flatpak install -y flathub org.gnome.Totem;
-sudo nala install -y gstreamer1.0-libav;
+sudo flatpak install -y flathub org.gnome.Showtime;
 
 # video editor
 sudo flatpak install -y flathub org.shotcut.Shotcut;
@@ -367,17 +350,17 @@ sudo flatpak install -y flathub org.nickvision.tubeconverter;
 ######################################################
 
 # ssh server
-sudo nala install -y openssh-server;
+sudo apt install -y openssh-server;
 
 # ftp server
-sudo nala install -y vsftpd;
+sudo apt install -y vsftpd;
 
 # rdp server
-sudo nala install -y xrdp;
+sudo apt install -y xrdp;
 
 # add screen sharing to ubuntu
-sudo nala install -y vino;
-sudo nala install -y gnome-remote-desktop;
+sudo apt install -y vino;
+sudo apt install -y gnome-remote-desktop;
 
 # remote control
 sudo flatpak install -y flathub org.gnome.Connections;
@@ -401,17 +384,17 @@ cp starship/starship.toml ~/.config/starship.toml;
 ######################################################
 
 # dock favorites
-gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'firefox.desktop']";
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'firefox_firefox.desktop']";
 
 ######################################################
 # MENTIONS
 ######################################################
 
 # gamer mouse
-# sudo nala install -y piper;
+# sudo apt install -y piper;
 
 # fake mouse/keyboard inputs
-# sudo nala install -y xdotool;
+# sudo apt install -y xdotool;
 
 # virtual machine
 # sudo flatpak install -y flathub org.gnome.Boxes;
@@ -420,7 +403,7 @@ gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'firefox.deskt
 # sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
 
 # mirror phone screen
-# sudo nala install -y ffmpeg libsdl2-2.0-0 adb wget gcc git pkg-config meson ninja-build libsdl2-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libswresample-dev libusb-1.0-0 libusb-1.0-0-dev;
+# sudo apt install -y ffmpeg libsdl2-2.0-0 adb wget gcc git pkg-config meson ninja-build libsdl2-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libswresample-dev libusb-1.0-0 libusb-1.0-0-dev;
 # git clone https://github.com/Genymobile/scrcpy;
 # cd scrcpy;
 # ./install_release.sh;
@@ -439,7 +422,6 @@ gsettings set org.gnome.shell favorite-apps "['nautilus.desktop', 'firefox.deskt
 ######################################################
 
 # cleaning
-sudo nala autoremove -y;
 sudo apt autoremove -y;
 
 ######################################################
