@@ -287,6 +287,9 @@ sudo apt install -y usb-creator-gtk;
 # customize gnome
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
+# browser
+curl -fsS https://dl.brave.com/install.sh | sh;
+
 # discord
 sudo flatpak install -y flathub com.discordapp.Discord;
 
