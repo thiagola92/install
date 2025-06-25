@@ -17,6 +17,9 @@ reg add "HKCU\Control Panel\Mouse" /v MouseSensitivity /t REG_SZ /d 5 /f
 :: Disable Widgets (internal name Dashboard)
 reg add "HKLM\Software\Policies\Microsoft\Dsh" /v AllowNewsAndInterests /t REG_DWORD /d 0 /f
 
+:: Hide Searchbox
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTaskbarMode /t REG_DWORD /d 0 /f
+
 :: No support for changing default apps
 
 :: No support for pin/unpin to/from taskbar
