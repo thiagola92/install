@@ -24,9 +24,8 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTask
 
 :: No support for pin/unpin to/from taskbar
 
-:: Disable startup
-:: Note: Not working yet
-reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /f
+:: Remove softwares
+C:\Windows\System32\OneDriveSetup.exe /uninstall
 
 :: Install softwares
 winget install Brave.Brave
