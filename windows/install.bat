@@ -14,15 +14,14 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hi
 :: Mouse sensitivity
 reg add "HKCU\Control Panel\Mouse" /v MouseSensitivity /t REG_SZ /d 5 /f
 
+:: Mouse acceleration
+reg add "HKCU\Control Panel\Mouse" /v MouseSpeed /t REG_SZ /d 0 /f
+
 :: Disable Widgets (internal name Dashboard)
 reg add "HKLM\Software\Policies\Microsoft\Dsh" /v AllowNewsAndInterests /t REG_DWORD /d 0 /f
 
 :: Hide Searchbox
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTaskbarMode /t REG_DWORD /d 0 /f
-
-:: No support for changing default apps
-
-:: No support for pin/unpin to/from taskbar
 
 :: Remove softwares
 C:\Windows\System32\OneDriveSetup.exe /uninstall
@@ -53,3 +52,7 @@ winget install OpenJS.NodeJS
 winget install DenoLand.Deno
 winget install Rustlang.Rustup
 winget install GoLang.Go
+
+:: Stop startup
+reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
+reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Discord /f
