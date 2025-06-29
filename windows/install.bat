@@ -26,6 +26,12 @@ reg add "HKCU\Control Panel\Accessibility\StickyKeys" /v Flags /t REG_SZ /d 506 
 :: Hide Searchbox
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTaskbarMode /t REG_DWORD /d 0 /f
 
+:: Disable turning off screen.
+powercfg /change monitor-timeout-ac 0
+
+:: Disable sleep.
+powercfg /change standby-timeout-ac 0
+
 :: Remove softwares
 C:\Windows\System32\OneDriveSetup.exe /uninstall
 
