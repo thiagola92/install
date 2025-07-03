@@ -52,7 +52,6 @@ winget install Inkscape.Inkscape
 winget install VideoLAN.VLC
 winget install OBSProject.OBSStudio
 winget install Meltytech.Shotcut
-winget install Git.Git
 winget install Bruno.Bruno
 winget install Docker.DockerCLI
 winget install Docker.DockerCompose
