@@ -61,6 +61,7 @@ winget install OpenJS.NodeJS
 winget install DenoLand.Deno
 winget install Rustlang.Rustup
 winget install GoLang.Go
+winget install RARLab.WinRar
 
 :: Stop startup
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
