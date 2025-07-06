@@ -65,3 +65,16 @@ winget install RARLab.WinRar
 :: Stop startup
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Discord /f
+
+:: Git config
+git config --global init.defaultBranch main
+git config --global user.name thiagola92
+git config --global user.email thiagola92@gmail.com
+git config --global core.editor micro
+git config --global credential.helper store
+git config --global pull.rebase false
+git config --global alias.graph 'log --graph'
+git config --global alias.clone-all 'clone --recurse-submodules'
+git config --global alias.pull-all 'pull --recurse-submodules'
+git config --global alias.clone-blobless 'clone --filter=blob:none'
+git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse-submodules'
