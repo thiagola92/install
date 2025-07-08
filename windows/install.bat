@@ -61,6 +61,7 @@ winget install DenoLand.Deno
 winget install Rustlang.Rustup
 winget install GoLang.Go
 winget install RARLab.WinRar
+winget install Microsoft.VisualStudio.2022.Community
 
 :: Stop startup
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
