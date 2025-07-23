@@ -1,5 +1,5 @@
-:: I will improve comments later,
-:: right now I'm just learning windows commands
+:: TODO: Run commands one by one to check if they are working.
+:: TODO: Split commands in sections
 
 :: To run terminal as admin:
 :: - Win + X
@@ -13,6 +13,15 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hi
 
 :: Hide recents open files in explorer
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /v ShowRecent /t REG_DWORD /d 0 /f
+
+:: Hide recommendation files in explorer?
+:: reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v HideRecommendedSection /t REG_DWORD /d 1 /f
+
+:: Disable recent opened items in Start, Jump Lists, File Explorer
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackDocs /t REG_DWORD /d 0 /f
+
+:: Disable recently added apps in Start
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
 
 :: Mouse sensitivity
 reg add "HKCU\Control Panel\Mouse" /v MouseSensitivity /t REG_SZ /d 5 /f
