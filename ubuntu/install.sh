@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Not a secret
+# not a secret
 USERNAME=thiagola92
 EMAIL=thiagola92@gmail.com
 
