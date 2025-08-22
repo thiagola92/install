@@ -5,6 +5,10 @@
 :: - Win + X
 :: - Select "Terminal (Admin)"
 
+:: If the installation doesn't add the environment variable, remember to do manually
+:: because powershell and prompt truncate the replacement at 1024 characters
+:: (and don't use the command of one into the other, you will lose your $Path and will need to reinstall everything).
+
 :: Show hidden files
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hidden /t REG_DWORD /d 1 /f
 
@@ -75,12 +79,7 @@ winget install GoLang.Go
 winget install RARLab.WinRar
 winget install Microsoft.VisualStudio.2022.Community
 winget install nushell
-winget install LLVM.LLVM
-
-:: Add to environment path
-:: DANGER, USE BATCH COMMAND IN POWERSHELL WILL OVERWRITE WITHOUT REPLACING %PATH%
-:: POWERSHELL: setx PATH ("C:\Program Files\LLVM\bin;" + $env:Path)
-:: BATCH: setx PATH "C:\Program Files\LLVM\bin;%PATH%"
+winget install LLVM.LLVM :: Add C:\Program Files\LLVM\bin to path
 
 :: Stop startup
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
