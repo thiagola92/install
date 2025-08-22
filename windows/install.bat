@@ -77,6 +77,9 @@ winget install Microsoft.VisualStudio.2022.Community
 winget install nushell
 winget install LLVM.LLVM
 
+:: Add to environment path
+setx PATH "C:\Program Files\LLVM\bin;%PATH%"
+
 :: Stop startup
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Discord /f
