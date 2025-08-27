@@ -97,3 +97,6 @@ git config --global alias.clone-all 'clone --recurse-submodules'
 git config --global alias.pull-all 'pull --recurse-submodules'
 git config --global alias.clone-blobless 'clone --filter=blob:none'
 git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse-submodules'
+
+:: TODO: learn to add things to open fast
+:: Win + R and write "shell:sendto", these will appear in "Send To >"
