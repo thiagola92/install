@@ -248,6 +248,17 @@ sudo apt install -y clangd;
 sudo apt install -y clang-format;
 
 ######################################################
+# PROGRAMMING LANGUAGES - GDSCRIPT
+######################################################
+
+# formatter
+curl -fL https://github.com/GDQuest/GDScript-formatter/releases/latest/download/gdscript-formatter-linux-x86_64.zip -o gdscript-formatter.zip;
+unzip gdscript-formatter.zip -d gdscript-formatter;
+mv gdscript-formatter/gdscript-formatter-linux-x86_64 $HOME/.local/bin/gdscript-formatter;
+rmdir rm gdscript-formatter;
+rm gdscript-formatter.zip;
+
+######################################################
 # TERMINAL TOOLS
 ######################################################
 
