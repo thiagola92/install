@@ -156,8 +156,13 @@ sudo snap install code --classic;
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
 
-# sql database
+# sql database gui
 sudo snap install beekeeper-studio;
+
+# mongodb database gui
+curl -fL https://downloads.mongodb.com/compass/mongodb-compass_1.46.11_amd64.deb -o compass.deb;
+sudo apt install -y ./compass.deb;
+rm compass.deb;
 
 # web api client
 sudo flatpak install -y com.usebruno.Bruno
