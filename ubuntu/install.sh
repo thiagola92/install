@@ -388,6 +388,16 @@ sudo apt install -y gnome-remote-desktop;
 sudo flatpak install -y flathub org.gnome.Connections;
 
 ######################################################
+# CRON JOBS
+######################################################
+
+sudo cp cron/export_bookmarks.sh /etc/cron.d/export_bookmarks.sh;
+crontab <<EOF
+# backup bookmarks
+0 0 * * * bash /etc/cron.d/export_bookmarks.sh
+EOF
+
+######################################################
 # STYLE
 ######################################################
 
