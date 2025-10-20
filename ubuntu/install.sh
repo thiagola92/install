@@ -286,7 +286,7 @@ cp micro/settings.json ~/.config/micro/settings.json;
 
 # shell
 cargo install nu --locked;
-sudo chsh -s $HOME/$USERNAME/.cargo/bin/nu $USERNAME;
+sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 mkdir $HOME/.config/nushell;
 cp nushell/config.nu $HOME/.config/nushell/config.nu;
 
