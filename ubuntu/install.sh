@@ -80,8 +80,8 @@ gsettings set org.gnome.TextEditor restore-session false;
 # ctrl+alt+backspace terminate session
 gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_bksp']";
 
-# change gnome-terminal theme (REMOVE)
-gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system';
+# change terminal theme
+gsettings set org.gnome.Ptyxis interface-style 'system';
 
 # sort directories first
 gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
