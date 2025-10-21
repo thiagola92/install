@@ -162,7 +162,7 @@ sudo apt install -y ./compass.deb;
 rm compass.deb;
 
 # web api client
-sudo flatpak install -y com.usebruno.Bruno
+sudo flatpak install -y com.usebruno.Bruno;
 
 # docker
 sudo apt install -y ca-certificates curl;
