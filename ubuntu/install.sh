@@ -113,9 +113,6 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security main restrict
 sudo apt update;
 sudo apt upgrade -y;
 
-# nala
-sudo apt install -y nala;
-
 # snap
 sudo apt install -y snapd;
 sudo snap refresh;
