@@ -231,6 +231,13 @@ sudo apt install -y golang;
 sudo apt install -y valac;
 
 ######################################################
+# PROGRAMMING LANGUAGES - ZIG
+######################################################
+
+# compiler
+snap install zig --classic --beta;
+
+######################################################
 # PROGRAMMING LANGUAGES - C
 ######################################################
 
