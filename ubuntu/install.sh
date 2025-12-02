@@ -89,7 +89,7 @@ gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
 # left-top do not activate activities overview
 gsettings set org.gnome.desktop.interface enable-hot-corners false;
 
-# make screen color warmer to prevent sleeplessness
+# turn on/off night light
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 
 ######################################################
