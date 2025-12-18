@@ -36,25 +36,6 @@ set SID="REPLACEWITHYOURSID"
 :: - use some tool that let you check the git diff
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: MANUAL
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:: notepad
-:: - switch to start new session and discard unsaved changes
-:: - disable recent files
-:: - disable copilot
-
-:: taskbar
-:: - unpin copilot
-:: - unpin microsoft store
-:: - unpin microsoft edge
-:: - unpin outlook
-
-:: media player
-:: - disable look up missing album art and artist art online
-:: - disable remember recent media
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: OS SETTINGS 1
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -273,3 +254,25 @@ del "C:\Users\Public\Desktop\OBS Studio.lnk"
 :: COPILOT
 
 :: TODO: https://windowsforum.com/threads/remove-or-disable-windows-copilot-in-windows-11-step-by-step-guide.390362/
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: MANUAL
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: notepad
+:: - switch to start new session and discard unsaved changes
+:: - disable recent files
+:: - disable copilot
+
+:: taskbar
+:: - unpin copilot
+:: - unpin microsoft store
+:: - unpin microsoft edge
+:: - unpin outlook
+
+:: media player
+:: - disable look up missing album art and artist art online
+:: - disable remember recent media
+
+:: default apps
+:: - set default browser
