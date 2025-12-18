@@ -50,6 +50,10 @@ set SID="REPLACEWITHYOURSID"
 :: - unpin microsoft edge
 :: - unpin outlook
 
+:: media player
+:: - disable look up missing album art and artist art online
+:: - disable remember recent media
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: OS SETTINGS 1
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
