@@ -167,18 +167,6 @@ rm compass.deb;
 # web api client
 sudo flatpak install -y com.usebruno.Bruno;
 
-# docker
-sudo apt install -y ca-certificates curl;
-sudo install -m 0755 -d /etc/apt/keyrings;
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
-sudo chmod a+r /etc/apt/keyrings/docker.asc;
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update;
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-
 ######################################################
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
@@ -297,6 +285,28 @@ sudo sh -c "echo '$HOME/.cargo/bin/nu\n' >> /etc/shells"
 sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 mkdir $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
+
+######################################################
+# CONTAINER
+######################################################
+
+# docker
+sudo apt install -y ca-certificates curl;
+sudo install -m 0755 -d /etc/apt/keyrings;
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
+sudo chmod a+r /etc/apt/keyrings/docker.asc;
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update;
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+
+# podman
+sudo apt-get install -y podman;
+
+# podman gui
+sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
 
 ######################################################
 # GENERIC TOOLS
