@@ -4,12 +4,12 @@
 USERNAME=thiagola92
 EMAIL=thiagola92@gmail.com
 
+# configuration files directory
+CONFIG=../../config
+
 ######################################################
 # OS SETTINGS 1
 ######################################################
-
-# fix time (partitions problem)
-timedatectl set-local-rtc 1;
 
 # template files
 echo "" > ~/Templates/file;
@@ -47,32 +47,8 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
 # show hidden files
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true;
 
-# icon size
-gsettings set org.gnome.nautilus.icon-view default-zoom-level 'medium';
-
-# dock position
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM';
-
-# dock on all monitors
-gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true;
-
-# dock can hide
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false;
-
-# dock doesn't show on mouse over
-gsettings set org.gnome.shell.extensions.dash-to-dock autohide false;
-
-# dock doesn't show even when there is space for it
-gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false;
-
-# don't show mount volumes on dock
-gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false;
-
-# touchpad remove natural
-gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true;
-
 # turn on/off gnome desktop animations
-gsettings set org.gnome.desktop.interface enable-animations true;
+gsettings set org.gnome.desktop.interface enable-animations false;
 
 # disable text editor restoring session
 gsettings set org.gnome.TextEditor restore-session false;
@@ -96,42 +72,18 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 # SOFTWARE INSTALLER
 ######################################################
 
-# Change to US servers
-OS_CODENAME=$(lsb_release -sc)
-sudo sh -c "echo '
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-updates main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-backports main restricted universe multiverse
-deb http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security main restricted universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME main restricted universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-updates main restricted universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-backports main restricted universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ $OS_CODENAME-security main restricted universe multiverse
-' > /etc/apt/sources.list"
-
 # apt
-sudo apt update;
-sudo apt upgrade -y;
-
-# snap
-sudo apt install -y snapd;
-sudo snap refresh;
+sudo dnf upgrade -y;
 
 # flatpak
-sudo apt install -y flatpak;
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo;
 sudo flatpak update -y;
-
-# transfering network data (for indirectly installs)
-sudo apt install -y curl;
 
 ######################################################
 # PROGRAMMING TOOLS
 ######################################################
 
 # version control
-sudo add-apt-repository -y ppa:git-core/ppa;
-sudo apt install --update -y git;
 git config --global init.defaultBranch main;
 git config --global user.name $USERNAME;
 git config --global user.email $EMAIL
@@ -148,46 +100,38 @@ git config --global gpg.format ssh;
 git config --global commit.gpgsign true;
 
 # text editor
-sudo snap install code --classic;
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc;
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null;
+sudo dnf check-update;
+sudo dnf install -y code;
 
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
 
-# sql database gui
-sudo snap install beekeeper-studio;
-
 # mongodb database gui
-curl -fL https://downloads.mongodb.com/compass/mongodb-compass_1.46.11_amd64.deb -o compass.deb;
-sudo apt install -y ./compass.deb;
-rm compass.deb;
+curl -fL https://downloads.mongodb.com/compass/mongodb-compass-1.48.2.x86_64.rpm -o compass.rpm;
+sudo dnf install -y ./compass.rpm;
+rm compass.rpm;
 
 # web api client
 sudo flatpak install -y com.usebruno.Bruno;
 
 # docker
-sudo apt install -y ca-certificates curl;
-sudo install -m 0755 -d /etc/apt/keyrings;
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
-sudo chmod a+r /etc/apt/keyrings/docker.asc;
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update;
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+sudo dnf install -y dnf-plugins-core;
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo;
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+sudo systemctl enable --now docker;
 
 ######################################################
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
 
 # application installer
-sudo apt install -y pipx;
+sudo dnf install -y pipx;
 pipx ensurepath;
-sudo pipx ensurepath --global;
 
 # package manager
 sudo curl -LsSf https://astral.sh/uv/install.sh | sh;
-source $HOME/.local/bin/env;
 
 ######################################################
 # PROGRAMMING LANGUAGES - JAVASCRIPT
@@ -198,7 +142,7 @@ sudo curl -fsSL https://deno.land/install.sh | sh -s -- -y;
 source $HOME/.deno/env;
 
 # all-in-one
-sudo apt install -y nodejs npm;
+sudo dnf install -y nodejs;
 
 ######################################################
 # PROGRAMMING LANGUAGES - RUST
@@ -209,82 +153,55 @@ sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 source $HOME/.cargo/env;
 
 ######################################################
-# PROGRAMMING LANGUAGES - BEND
-######################################################
-
-# runtime
-cargo install hvm;
-cargo install bend-lang;
-
-######################################################
 # PROGRAMMING LANGUAGES - GO
 ######################################################
 
 # all-in-one
-sudo apt install -y golang;
+sudo dnf install -y golang;
 
 ######################################################
 # PROGRAMMING LANGUAGES - VALA
 ######################################################
 
 # compiler
-sudo apt install -y valac;
+sudo dnf install -y valac;
 
 ######################################################
 # PROGRAMMING LANGUAGES - ZIG
 ######################################################
 
 # compiler
-snap install zig --classic --beta;
+sudo dnf install -y zig;
 
 ######################################################
 # PROGRAMMING LANGUAGES - C
 ######################################################
 
 # build tool
-sudo apt install -y meson ninja-build;
-
-# build tool
-sudo apt install -y scons;
+sudo pipx install scons;
 
 # compiler
-sudo apt install -y clang;
+sudo dnf install -y clang;
 
 # debugger
-sudo apt install -y clangd;
-
-# formatter
-sudo apt install -y clang-format;
-
-######################################################
-# PROGRAMMING LANGUAGES - GDSCRIPT
-######################################################
-
-# formatter
-curl -fL https://github.com/GDQuest/GDScript-formatter/releases/latest/download/gdscript-formatter-linux-x86_64.zip -o gdscript-formatter.zip;
-unzip gdscript-formatter.zip -d gdscript-formatter;
-mv gdscript-formatter/gdscript-formatter-linux-x86_64 $HOME/.local/bin/gdscript-formatter;
-rm -rf gdscript-formatter;
-rm gdscript-formatter.zip;
+sudo dnf install -y clang-tools-extra;
 
 ######################################################
 # TERMINAL TOOLS
 ######################################################
 
 # interactive process viewer
-sudo snap install htop;
+sudo dnf install -y htop;
 
 # command line information tool
-sudo apt-add-repository -y ppa:zhangsongcui3371/fastfetch;
-sudo apt update;
-sudo apt install -y fastfetch;
+sudo dnf install -y fastfetch;
 
 # open/close modem ports through upnp
-sudo apt install -y miniupnpc;
+sudo dnf install -y miniupnpc;
 
 # text editor
-sudo snap install micro --classic;
-sudo apt install -y xclip;
+curl https://getmic.ro | bash;
+mv micro $HOME/.local/bin;
 mkdir ~/.config/micro;
 cp $CONFIG/micro/settings.json ~/.config/micro/settings.json;
 
@@ -299,9 +216,6 @@ cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 # GENERIC TOOLS
 ######################################################
 
-# create usb boot (gnome version)
-sudo apt install -y usb-creator-gtk;
-
 # customize gnome
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
@@ -311,14 +225,8 @@ curl -fsS https://dl.brave.com/install.sh | sh;
 # discord
 sudo flatpak install -y flathub com.discordapp.Discord;
 
-# disk analyzer
-sudo flatpak install -y flathub org.gnome.baobab;
-
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
-
-# game platform
-sudo snap install steam;
 
 # office suite tools
 sudo flatpak install -y flathub org.libreoffice.LibreOffice;
@@ -326,9 +234,6 @@ sudo flatpak install -y flathub org.libreoffice.LibreOffice;
 ######################################################
 # AUDIO TOOLS
 ######################################################
-
-# music player
-sudo snap install spotify;
 
 # sound recorder
 sudo flatpak install -y flathub org.gnome.SoundRecorder;
@@ -341,7 +246,7 @@ sudo flatpak install -y flathub org.gnome.SoundRecorder;
 sudo flatpak install -y flathub org.gimp.GIMP;
 
 # image draw
-sudo apt install -y inkscape;
+sudo flatpak install -y flathub org.inkscape.Inkscape; 
 mkdir ~/.config/inkscape;
 mkdir ~/.config/inkscape/templates;
 cp $CONFIG/inkscape/default.svg ~/.config/inkscape/templates/default.svg;
@@ -357,9 +262,6 @@ sudo flatpak install -y flathub org.gnome.design.Palette;
 # VIDEO TOOLS
 ######################################################
 
-# video player
-sudo flatpak install -y flathub org.gnome.Showtime;
-
 # video editor
 sudo flatpak install -y flathub org.shotcut.Shotcut;
 
@@ -374,20 +276,13 @@ sudo flatpak install -y flathub org.nickvision.tubeconverter;
 ######################################################
 
 # ssh server
-sudo apt install -y openssh-server;
+sudo dnf install -y openssh-server;
 
 # ftp server
-sudo apt install -y vsftpd;
+sudo dnf install -y vsftpd;
 
 # rdp server
-sudo apt install -y xrdp;
-
-# add screen sharing to ubuntu
-sudo apt install -y vino;
-sudo apt install -y gnome-remote-desktop;
-
-# remote control
-sudo flatpak install -y flathub org.gnome.Connections;
+sudo dnf install -y xrdp;
 
 ######################################################
 # CRON JOBS
@@ -418,45 +313,14 @@ cp $CONFIG/starship/starship.toml ~/.config/starship.toml;
 ######################################################
 
 # dock favorites
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-browser.desktop']";
-
-######################################################
-# MENTIONS
-######################################################
-
-# gamer mouse
-# sudo apt install -y piper;
-
-# fake mouse/keyboard inputs
-# sudo apt install -y xdotool;
-
-# virtual machine
-# sudo flatpak install -y flathub org.gnome.Boxes;
-
-# upscale image
-# sudo flatpak install -y flathub io.gitlab.theevilskeleton.Upscaler;
-
-# mirror phone screen
-# sudo apt install -y ffmpeg libsdl2-2.0-0 adb wget gcc git pkg-config meson ninja-build libsdl2-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libswresample-dev libusb-1.0-0 libusb-1.0-0-dev;
-# git clone https://github.com/Genymobile/scrcpy;
-# cd scrcpy;
-# ./install_release.sh;
-# cd ..;
-# rm -rf scrcpy;
-
-# create a network
-# sudo snap install zerotier;
-# crontab <<EOF
-# # remove ports from zerotier
-# 0 0 * * * eval upnpc -l | grep ZeroTier/ | sed -e 's/.* \(.*\)->.*/\1 udp/' | xargs -L 1 upnpc -d
-# EOF
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-browser.desktop','org.gnome.Ptyxis.desktop']";
 
 ######################################################
 # ENDING
 ######################################################
 
 # cleaning
-sudo apt autoremove -y;
+sudo dnf autoremove -y;
 
 ######################################################
 # NOTES
