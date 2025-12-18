@@ -3,8 +3,8 @@ set USERNAME=thiagola92
 set EMAIL=thiagola92@gmail.com
 
 :: use the following commands to discover your SID (Security Identifier) and set it.
-whoami /user
-set SID="REPLACEWITHYOURSID"
+:: whoami /user
+set SID="S-1-5-21-3042928129-3283668424-2952786783-1000"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: REFERENCES
@@ -48,7 +48,10 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hi
 :: hide recents open files in explorer
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /v ShowRecent /t REG_DWORD /d 0 /f
 
-:: disable recent opened items in Start, Jump Lists, File Explorer
+:: switch layout from start
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_Layout /t REG_DWORD /d 1 /f
+
+:: disable recent opened items in start, jump lists, file explorer
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackDocs /t REG_DWORD /d 0 /f
 
 :: disable recently added apps
@@ -60,13 +63,13 @@ reg add "HKCU\Control Panel\Mouse" /v MouseSensitivity /t REG_SZ /d 5 /f
 :: mouse acceleration
 reg add "HKCU\Control Panel\Mouse" /v MouseSpeed /t REG_SZ /d 0 /f
 
-:: disable Widgets (internal name Dashboard)
+:: disable widgets (internal name is dashboard)
 reg add "HKLM\Software\Policies\Microsoft\Dsh" /v AllowNewsAndInterests /t REG_DWORD /d 0 /f
 
-:: disable Sticky Keys (pressing shift key 5x)
+:: disable sticky keys (pressing shift key 5x)
 reg add "HKCU\Control Panel\Accessibility\StickyKeys" /v Flags /t REG_SZ /d 506 /f
 
-:: hide Searchbox
+:: hide searchbox from taskbar
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTaskbarMode /t REG_DWORD /d 0 /f
 
 :: disable turning off screen.
@@ -84,6 +87,21 @@ del "C:\Users\Public\Desktop\Microsoft Edge.lnk"
 :: switch wallpaper (TODO: check if rundll32.exe works or if it will only change after restarting)
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d C:\windows\web\wallpaper\themea\img20.jpg /f
 rundll32.exe user32.dll, UpdatePerUserSystemParameters 1, True
+
+:: uninstall tools
+:: (order matter, to avoid string being a substring of other name)
+winget uninstall "Microsoft 365 Copilot"
+winget uninstall "Copilot"
+winget uninstall "Xbox Identity Provider"
+winget uninstall "Xbox TCUI"
+winget uninstall "Game Speech Window"
+winget uninstall "Game Bar"
+winget uninstall "Xbox"
+winget uninstall "Solitaire & Casual Games"
+winget uninstall "Microsoft Bing"
+winget uninstall "Microsoft Teams"
+winget uninstall "News"
+winget uninstall "Outlook for Windows"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: PROGRAMMING TOOLS
@@ -235,25 +253,15 @@ del "C:\Users\Public\Desktop\OBS Studio.lnk"
 :: IN TESTING
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:: EXPLORER RECOMMENDATION
+:: disable recently added apps (does it work internally?)
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
 
-:: hide recommendation files in explorer? (TODO: check if work, this settings even exist?)
-:: reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v HideRecommendedSection /t REG_DWORD /d 1 /f
-
-:: Doesn't disable recently added apps, but does it help? Stopping tracking needs to be turned off?
-:: reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
-
-:: Changing any of does settings "value" to 1 helps?
-:: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start
-:: 	HideFrequentlyUsedApps
-:: 	HideRecentlyAddedApps
-::	HideRecommendedPersonalizedSites
-:: 	HideRecommendedSection
-::	ShowOrHideMostUsedApps
-
-:: COPILOT
-
-:: TODO: https://windowsforum.com/threads/remove-or-disable-windows-copilot-in-windows-11-step-by-step-guide.390362/
+:: changing any of does settings "value" to 1 helps?
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideFrequentlyUsedApps" /v value /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecentlyAddedApps" /v value /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedPersonalizedSites" /v value /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedSection" /v value /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\ShowOrHideMostUsedApps" /v value /t REG_DWORD /d 1 /f
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: MANUAL
@@ -270,6 +278,7 @@ del "C:\Users\Public\Desktop\OBS Studio.lnk"
 :: - unpin microsoft store
 :: - unpin microsoft edge
 :: - unpin outlook
+:: - pin brave
 
 :: media player
 :: - disable look up missing album art and artist art online
@@ -283,3 +292,6 @@ del "C:\Users\Public\Desktop\OBS Studio.lnk"
 :: - disable show recommendations for tips, shortcuts, new apps and more
 :: - disable show account-related notifications
 :: - remove all pins
+
+:: keyboard
+:: - remove others layouts (to avoid changing when pressing ctrl+shift)
