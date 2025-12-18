@@ -17,7 +17,7 @@
 :: the following example show how to stop an application from opening at start up:
 :: reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Discord /f
 
-:: how to discover new data to change?
+:: how to discover new data to change in registry editor?
 :: - creates a folder
 :: - "git init" inside the folder
 :: - export registry editor in the folder
@@ -26,6 +26,10 @@
 :: - change settings
 :: - export registry editor in the folder
 :: - use some tool that let you check the git diff
+
+:: otherwise you can always backup settings files and overwrite it.
+:: for example, notepad settings is located at:
+:: C:\Users\thiagola92\AppData\Local\Packages\Microsoft.WindowsNotepad_8wekyb3d8bbwe\Settings\settings.dat
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: MANUAL
