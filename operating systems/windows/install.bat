@@ -1,3 +1,11 @@
+:: not a secret
+set USERNAME=thiagola92
+set EMAIL=thiagola92@gmail.com
+
+:: use the following commands to discover your SID (Security Identifier) and set it.
+whoami /user
+set SID="REPLACEWITHYOURSID"
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: REFERENCES
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -31,13 +39,16 @@
 :: MANUAL
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:: not a secret
-set USERNAME=thiagola92
-set EMAIL=thiagola92@gmail.com
+:: notepad
+:: - switch to start new session and discard unsaved changes
+:: - disable recent files
+:: - disable copilot
 
-:: use the following commands to discover your SID (Security Identifier) and set it.
-whoami /user
-set SID="REPLACEWITHYOURSID"
+:: taskbar
+:: - unpin copilot
+:: - unpin microsoft store
+:: - unpin microsoft edge
+:: - unpin outlook
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: OS SETTINGS 1
