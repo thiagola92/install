@@ -257,6 +257,7 @@ del "C:\Users\Public\Desktop\OBS Studio.lnk"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: MANUAL
+:: finding how to do any of does through terminal would be great
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: notepad
@@ -276,3 +277,9 @@ del "C:\Users\Public\Desktop\OBS Studio.lnk"
 
 :: default apps
 :: - set default browser
+
+:: start
+:: - disable show websites from your browsing history
+:: - disable show recommendations for tips, shortcuts, new apps and more
+:: - disable show account-related notifications
+:: - remove all pins
