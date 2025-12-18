@@ -86,7 +86,7 @@ sudo flatpak update -y;
 # version control
 git config --global init.defaultBranch main;
 git config --global user.name $USERNAME;
-git config --global user.email $EMAIL
+git config --global user.email $EMAIL;
 git config --global user.signingkey ~/.ssh/key.pub;
 git config --global core.editor micro;
 git config --global credential.helper store;
