@@ -286,14 +286,14 @@ sudo apt install -y miniupnpc;
 sudo snap install micro --classic;
 sudo apt install -y xclip;
 mkdir ~/.config/micro;
-cp micro/settings.json ~/.config/micro/settings.json;
+cp $CONFIG/micro/settings.json ~/.config/micro/settings.json;
 
 # shell
 cargo install nu --locked;
 sudo sh -c "echo '$HOME/.cargo/bin/nu\n' >> /etc/shells"
 sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 mkdir $HOME/.config/nushell;
-cp nushell/config.nu $HOME/.config/nushell/config.nu;
+cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
 # GENERIC TOOLS
@@ -344,8 +344,8 @@ sudo flatpak install -y flathub org.gimp.GIMP;
 sudo apt install -y inkscape;
 mkdir ~/.config/inkscape;
 mkdir ~/.config/inkscape/templates;
-cp inkscape/default.svg ~/.config/inkscape/templates/default.svg;
-cp inkscape/preferences.xml ~/.config/inkscape/preferences.xml;
+cp $CONFIG/inkscape/default.svg ~/.config/inkscape/templates/default.svg;
+cp $CONFIG/inkscape/preferences.xml ~/.config/inkscape/preferences.xml;
 
 # gnome icons
 sudo flatpak install -y flathub org.gnome.design.IconLibrary;
@@ -393,7 +393,7 @@ sudo flatpak install -y flathub org.gnome.Connections;
 # CRON JOBS
 ######################################################
 
-sudo cp cron/export_bookmarks.sh /etc/cron.d/export_bookmarks.sh;
+sudo cp export_bookmarks.sh /etc/cron.d/export_bookmarks.sh;
 crontab <<EOF
 # backup bookmarks
 0 0 * * * bash /etc/cron.d/export_bookmarks.sh
@@ -411,7 +411,7 @@ sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
-cp starship/starship.toml ~/.config/starship.toml;
+cp $CONFIG/starship/starship.toml ~/.config/starship.toml;
 
 ######################################################
 # OS SETTINGS 2
