@@ -318,7 +318,13 @@ sudo dnf install -y xrdp;
 # CRON JOBS
 ######################################################
 
-sudo cp export_bookmarks.sh /etc/cron.daily/export_bookmarks.sh;
+# add user cron jobs
+mkdir ~/Crons;
+cp export_bookmarks.sh ~/Crons/export_bookmarks.sh;
+crontab <<EOF
+# backup bookmarks
+0 0 * * * bash /etc/cron.d/export_bookmarks.sh
+EOF
 
 ######################################################
 # STYLE
