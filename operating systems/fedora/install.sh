@@ -68,7 +68,7 @@ gsettings set org.gnome.desktop.interface enable-hot-corners false;
 # turn on/off night light
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 
-# keyboard layout
+# keyboard layout as "Portuguese (Brazil)"
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br')]";
 
 ######################################################
