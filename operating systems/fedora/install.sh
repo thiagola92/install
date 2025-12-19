@@ -262,11 +262,13 @@ sudo flatpak install -y flathub org.gnome.SoundRecorder;
 sudo flatpak install -y flathub org.gimp.GIMP;
 
 # image draw
+# package: ~/.config/inkscape
+# flatpak: ~/.var/app/org.inkscape.Inkscape/config/inkscape
 sudo flatpak install -y flathub org.inkscape.Inkscape; 
 mkdir ~/.config/inkscape;
 mkdir ~/.config/inkscape/templates;
-cp $CONFIG/inkscape/default.svg ~/.config/inkscape/templates/default.svg;
-cp $CONFIG/inkscape/preferences.xml ~/.config/inkscape/preferences.xml;
+cp $CONFIG/inkscape/default.svg ~/.var/app/org.inkscape.Inkscape/config/inkscape/templates/default.svg;
+cp $CONFIG/inkscape/preferences.xml ~/.var/app/org.inkscape.Inkscape/config/inkscape/preferences.xml;
 
 # gnome icons
 sudo flatpak install -y flathub org.gnome.design.IconLibrary;
