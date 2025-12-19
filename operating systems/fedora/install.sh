@@ -298,11 +298,7 @@ sudo dnf install -y xrdp;
 # CRON JOBS
 ######################################################
 
-sudo cp export_bookmarks.sh /etc/cron.d/export_bookmarks.sh;
-crontab <<EOF
-# backup bookmarks
-0 0 * * * bash /etc/cron.d/export_bookmarks.sh
-EOF
+sudo cp export_bookmarks.sh /etc/cron.daily/export_bookmarks.sh;
 
 ######################################################
 # STYLE
