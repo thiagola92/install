@@ -59,6 +59,9 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_
 # change terminal theme
 gsettings set org.gnome.Ptyxis interface-style 'system';
 
+# don't restore terminal session
+gsettings set org.gnome.Ptyxis restore-session false;
+
 # sort directories first
 gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
 
