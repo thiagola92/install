@@ -206,6 +206,13 @@ sudo dnf install -y clang-tools-extra;
 # PROGRAMMING LANGUAGES - GDScript
 ######################################################
 
+# godot
+curl https://api.github.com/repos/godotengine/godot-builds/releases/latest -o releases.json;
+curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.x86_64.zip")) | .browser_download_url' releases.json);
+unzip godot.zip;
+rm godot.zip;
+rm releases.json;
+
 # desktop entry
 echo "[Desktop Entry]
 Type=Application
