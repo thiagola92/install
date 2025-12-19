@@ -89,19 +89,20 @@ reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d C:\w
 rundll32.exe user32.dll, UpdatePerUserSystemParameters 1, True
 
 :: uninstall tools
-:: (order matter, to avoid string being a substring of other name)
-winget uninstall "Microsoft 365 Copilot"
-winget uninstall "Copilot"
-winget uninstall "Xbox Identity Provider"
-winget uninstall "Xbox TCUI"
-winget uninstall "Game Speech Window"
-winget uninstall "Game Bar"
-winget uninstall "Xbox"
-winget uninstall "Solitaire & Casual Games"
-winget uninstall "Microsoft Bing"
-winget uninstall "Microsoft Teams"
-winget uninstall "News"
-winget uninstall "Outlook for Windows"
+winget uninstall --name "Microsoft 365 Copilot"
+winget uninstall --name "Copilot"
+winget uninstall --name "Xbox Identity Provider"
+winget uninstall --name "Xbox TCUI"
+winget uninstall --name "Game Speech Window"
+winget uninstall --name "Xbox"
+winget uninstall --name "Solitaire & Casual Games"
+winget uninstall --name "Microsoft Bing"
+winget uninstall --name "Microsoft Teams"
+winget uninstall --name "News"
+winget uninstall --name "Outlook for Windows"
+
+:: avoid uninstalling
+:: "Game Bar": microsoft tries to open every time you open a game (and it fails if is uninstalled)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: PROGRAMMING TOOLS
