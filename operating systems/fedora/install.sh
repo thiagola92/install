@@ -123,6 +123,22 @@ rm compass.rpm;
 sudo flatpak install -y com.usebruno.Bruno;
 
 ######################################################
+# CONTAINER
+######################################################
+
+# docker
+sudo dnf install -y dnf-plugins-core;
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo;
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+sudo systemctl enable --now docker;
+
+# podman
+sudo dnf install -y podman;
+
+# podman gui
+sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
+
+######################################################
 # PROGRAMMING LANGUAGES - PYTHON
 ######################################################
 
@@ -211,22 +227,6 @@ sudo sh -c "echo '$HOME/.cargo/bin/nu\n' >> /etc/shells"
 sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 mkdir $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
-
-######################################################
-# CONTAINER
-######################################################
-
-# docker
-sudo dnf install -y dnf-plugins-core;
-sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo;
-sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-sudo systemctl enable --now docker;
-
-# podman
-sudo dnf install -y podman;
-
-# podman gui
-sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
 
 ######################################################
 # GENERIC TOOLS
