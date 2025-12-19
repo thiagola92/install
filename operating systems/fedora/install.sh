@@ -203,6 +203,18 @@ sudo dnf install -y clang;
 sudo dnf install -y clang-tools-extra;
 
 ######################################################
+# PROGRAMMING LANGUAGES - GDScript
+######################################################
+
+# desktop entry
+echo "[Desktop Entry]
+Type=Application
+Name=Godot
+Exec=/home/thiagola92/.local/bin/godot
+Terminal=false
+Categories=Game;Development;" > /home/$USERNAME/.local/share/applications/godot.desktop
+
+######################################################
 # TERMINAL TOOLS
 ######################################################
 
