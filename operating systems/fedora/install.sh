@@ -325,12 +325,17 @@ sudo dnf install -y xrdp;
 # CRON JOBS
 ######################################################
 
-# add user cron jobs
+# directories and utility files
 mkdir ~/Crons;
-cp export_bookmarks.sh ~/Crons/export_bookmarks.sh;
+mkdir ~/Crons/logs;
+echo "#\!/bin/bash
+export $(env | grep -i SSH_AUTH_SOCK) # stop asking about ssh passphrase
+" > ~/Crons/env.sh;
+
+# add user cron jobs
+cp backup_bookmarks.sh ~/Crons/backup_bookmarks.sh;
 crontab <<EOF
-# backup bookmarks
-0 0 * * * bash /etc/cron.d/export_bookmarks.sh
+0 0 * * * bash ~/Crons/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log 2>&1
 EOF
 
 ######################################################
