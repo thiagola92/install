@@ -329,7 +329,7 @@ sudo dnf install -y xrdp;
 mkdir ~/Crons;
 mkdir ~/Crons/logs;
 echo "#\!/bin/bash
-export $(env | grep -i SSH_AUTH_SOCK) # stop asking about ssh passphrase
+export $(env | grep -i SSH_AUTH_SOCK)
 " > ~/Crons/env.sh;
 
 # add user cron jobs
