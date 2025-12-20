@@ -325,7 +325,7 @@ sudo dnf install -y xrdp;
 # CRON JOBS
 ######################################################
 
-# directories and utility files
+# create directories and utility files
 mkdir ~/Crons;
 mkdir ~/Crons/logs;
 echo "#\!/bin/bash
