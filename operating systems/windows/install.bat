@@ -299,4 +299,13 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\ShowO
 :: - remove all pins
 
 :: keyboard
-:: - remove others layouts (to avoid changing when pressing ctrl+shift)
+:: - disable shortcut to change keyboard layout
+::   - Go to "Time & Language"
+::   - Go to "Typing"
+::   - Go to "Advanced keyboard settings"
+::   - Go to "Language bar options"
+::   - Go to "Advanced Key Settings"
+::   - Under "Hot keys for input languages"
+::   - Select "Between input languages"
+::   - Press "Change Key Sequence"
+::   - Disable it
