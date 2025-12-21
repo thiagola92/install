@@ -72,11 +72,15 @@ reg add "HKCU\Control Panel\Accessibility\StickyKeys" /v Flags /t REG_SZ /d 506 
 :: hide searchbox from taskbar
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTaskbarMode /t REG_DWORD /d 0 /f
 
+:: disable notifications from snipping tool (printscreen)
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.ScreenSketch_8wekyb3d8bbwe!App" /v Enabled /t REG_DWORD /d 0 /f
+
 :: disable turning off screen.
 powercfg /change monitor-timeout-ac 0
 
 :: disable sleep.
 powercfg /change standby-timeout-ac 0
+
 
 :: remove softwares
 C:\Windows\System32\OneDriveSetup.exe /uninstall
