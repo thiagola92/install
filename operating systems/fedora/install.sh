@@ -354,7 +354,7 @@ START_HOURS_RANGE=0-23
 
 # add user cron
 crontab <<EOF
-0 * * * * anacron -s -t ~/Crons/anacrontab -S ~/Crons/spool
+0 * * * * anacron -t ~/Crons/anacrontab -S ~/Crons/spool
 EOF
 
 ######################################################
