@@ -334,11 +334,23 @@ echo "#\!/bin/bash
 export $(env | grep -i SSH_AUTH_SOCK)
 " > ~/Crons/env.sh;
 
-# add user cron jobs
+# replace anacron
+# https://docs.fedoraproject.org/en-US/fedora/rawhide/system-administrators-guide/monitoring-and-automation/Automating_System_Tasks/
+# https://man7.org/linux/man-pages/man5/anacrontab.5.html
 cp backup_bookmarks.sh ~/Crons/backup_bookmarks.sh;
-crontab <<EOF
-0 0 * * * bash ~/Crons/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log 2>&1
-EOF
+echo "SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+NO_MAIL_OUTPUT=disable
+RANDOM_DELAY=5
+START_HOURS_RANGE=0-23
+
+#period in days   delay in minutes   job-identifier   command
+1         5     cron.daily    nice run-parts /etc/cron.daily
+7         25    cron.weekly   nice run-parts /etc/cron.weekly
+@monthly  45    cron.monthly  nice run-parts /etc/cron.monthly
+
+@monthly 10 backup.bookmarks bash ~/Crons/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log 2>&1
+" | sudo tee /etc/anacrontab;
 
 ######################################################
 # STYLE
