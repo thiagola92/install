@@ -342,14 +342,15 @@ export $(env | grep -i SSH_AUTH_SOCK)
 cp backup_bookmarks.sh ~/Crons/scripts/backup_bookmarks.sh;
 
 # create user anacron
+# manually test with "anacron -f -n -t anacrontab -S spool/"
 echo "SHELL=/bin/sh
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 NO_MAIL_OUTPUT=disable
-RANDOM_DELAY=5
+RANDOM_DELAY=0
 START_HOURS_RANGE=0-23
 
 #period in days   delay in minutes   job-identifier   command
-@monthly 5 backup_bookmarks bash ~/Crons/backup_bookmarks.sh
+@monthly 0 backup_bookmarks bash ~/Crons/scripts/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log
 " > ~/Crons/anacrontab;
 
 # add user cron
