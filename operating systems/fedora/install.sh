@@ -341,7 +341,7 @@ echo "export $(env | grep -i SSH_AUTH_SOCK)" >> ~/Crons/env.sh;
 cp backup_bookmarks.sh ~/Crons/scripts/backup_bookmarks.sh;
 
 # create user anacron
-# manually test with "anacron -f -n -t anacrontab -S spool"
+# force running with "anacron -f -n -t anacrontab -S spool"
 echo "SHELL=/bin/sh
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 NO_MAIL_OUTPUT=disable
