@@ -327,17 +327,20 @@ sudo dnf install -y xrdp;
 # CRON JOBS
 ######################################################
 
-# create directories and utility files
+# create directories
 mkdir ~/Crons;
+mkdir ~/Crons/scripts;
 mkdir ~/Crons/logs;
-echo "#\!/bin/bash
-export $(env | grep -i SSH_AUTH_SOCK)
-" > ~/Crons/env.sh;
 
-# replace anacron
-# https://docs.fedoraproject.org/en-US/fedora/rawhide/system-administrators-guide/monitoring-and-automation/Automating_System_Tasks/
-# https://man7.org/linux/man-pages/man5/anacrontab.5.html
-cp backup_bookmarks.sh ~/Crons/backup_bookmarks.sh;
+# create utility script
+echo '#!/bin/bash
+export $(env | grep -i SSH_AUTH_SOCK) 
+' > ~/Crons/env.sh;
+
+# copy user scripts
+cp backup_bookmarks.sh ~/Crons/scripts/backup_bookmarks.sh;
+
+# create user anacron
 echo "SHELL=/bin/sh
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 NO_MAIL_OUTPUT=disable
@@ -345,12 +348,13 @@ RANDOM_DELAY=5
 START_HOURS_RANGE=0-23
 
 #period in days   delay in minutes   job-identifier   command
-1         5     cron.daily    nice run-parts /etc/cron.daily
-7         25    cron.weekly   nice run-parts /etc/cron.weekly
-@monthly  45    cron.monthly  nice run-parts /etc/cron.monthly
+@monthly 5 backup.bookmarks bash ~/Crons/backup_bookmarks.sh
+" > ~/Crons/anacrontab;
 
-@monthly 10 backup.bookmarks bash ~/Crons/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log 2>&1
-" | sudo tee /etc/anacrontab;
+# add user cron
+crontab <<EOF
+0 * * * * anacron -s -t ~/Crons/anacrontab -S ~/Crons/logs > ~/Crons/logs/anacron.log 2>&1
+EOF
 
 ######################################################
 # STYLE
