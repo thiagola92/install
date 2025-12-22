@@ -212,6 +212,7 @@ curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.
 unzip godot.zip;
 rm godot.zip;
 rm releases.json;
+cp $CONFIG/godot/editor_settings.tres ~/.config/godot/editor_settings.tres;
 
 # desktop entry
 echo "[Desktop Entry]
