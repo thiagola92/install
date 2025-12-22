@@ -334,15 +334,14 @@ mkdir ~/Crons/scripts;
 mkdir ~/Crons/spool;
 
 # create utility script
-echo '#!/bin/bash
-export $(env | grep -i SSH_AUTH_SOCK) 
-' > ~/Crons/env.sh;
+echo '#!/bin/bash' > ~/Crons/env.sh;
+echo "export $(env | grep -i SSH_AUTH_SOCK)" >> ~/Crons/env.sh;
 
 # copy user scripts
 cp backup_bookmarks.sh ~/Crons/scripts/backup_bookmarks.sh;
 
 # create user anacron
-# manually test with "anacron -f -n -t anacrontab -S spool/"
+# manually test with "anacron -f -n -t anacrontab -S spool"
 echo "SHELL=/bin/sh
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 NO_MAIL_OUTPUT=disable
