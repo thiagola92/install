@@ -1,5 +1,7 @@
 #!/bin/bash
 
+date
+
 # load ssh key path
 . ~/Crons/env.sh
 
