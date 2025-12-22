@@ -329,8 +329,9 @@ sudo dnf install -y xrdp;
 
 # create directories
 mkdir ~/Crons;
-mkdir ~/Crons/scripts;
 mkdir ~/Crons/logs;
+mkdir ~/Crons/scripts;
+mkdir ~/Crons/spool;
 
 # create utility script
 echo '#!/bin/bash
@@ -348,12 +349,12 @@ RANDOM_DELAY=5
 START_HOURS_RANGE=0-23
 
 #period in days   delay in minutes   job-identifier   command
-@monthly 5 backup.bookmarks bash ~/Crons/backup_bookmarks.sh
+@monthly 5 backup_bookmarks bash ~/Crons/backup_bookmarks.sh
 " > ~/Crons/anacrontab;
 
 # add user cron
 crontab <<EOF
-0 * * * * anacron -s -t ~/Crons/anacrontab -S ~/Crons/logs > ~/Crons/logs/anacron.log 2>&1
+0 * * * * anacron -s -t ~/Crons/anacrontab -S ~/Crons/spool
 EOF
 
 ######################################################
