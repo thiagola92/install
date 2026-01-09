@@ -111,6 +111,9 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 sudo dnf check-update;
 sudo dnf install -y code;
 
+# text editor (alternative)
+sudo dnf install -y gnome-builder;
+
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
 
@@ -377,6 +380,9 @@ cp $CONFIG/starship/starship.toml ~/.config/starship.toml;
 
 # dock favorites
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-browser.desktop','org.gnome.Ptyxis.desktop']";
+
+# gnome builder
+gsettings set org.gnome.builder.editor auto-save false;
 
 ######################################################
 # ENDING
