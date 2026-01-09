@@ -349,7 +349,7 @@ RANDOM_DELAY=0
 START_HOURS_RANGE=0-23
 
 #period in days   delay in minutes   job-identifier   command
-@monthly 0 backup_bookmarks bash ~/Crons/scripts/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log
+@weekly 0 backup_bookmarks bash ~/Crons/scripts/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log
 " > ~/Crons/anacrontab;
 
 # add user cron
