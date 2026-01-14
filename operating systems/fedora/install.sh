@@ -206,6 +206,17 @@ sudo dnf install -y clang;
 sudo dnf install -y clang-tools-extra;
 
 ######################################################
+# PROGRAMMING LANGUAGES - V
+######################################################
+
+git clone --depth=1 https://github.com/vlang/v
+cd v
+make
+cd ..
+cp v ~
+ln --symbolic ~/v/v ~/.local/bin/v
+
+######################################################
 # PROGRAMMING LANGUAGES - GDScript
 ######################################################
 
