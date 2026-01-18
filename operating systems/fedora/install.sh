@@ -197,7 +197,7 @@ sudo dnf install -y zig;
 ######################################################
 
 # build tool
-sudo pipx install scons;
+pipx install scons;
 
 # compiler
 sudo dnf install -y clang;
