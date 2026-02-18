@@ -71,6 +71,9 @@ gsettings set org.gnome.desktop.interface enable-hot-corners false;
 # turn on/off night light
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 
+# don't focus new windows
+gsettings set org.gnome.desktop.wm.preferences focus-new-windows 'strict';
+
 # keyboard layout as "Portuguese (Brazil)"
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br')]";
 
