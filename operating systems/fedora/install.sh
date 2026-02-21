@@ -13,22 +13,6 @@ CONFIG=../../config
 
 # template files
 echo "" > ~/Templates/file;
-echo "" > ~/Templates/file.c;
-echo "" > ~/Templates/file.cpp;
-echo "" > ~/Templates/file.css;
-echo "" > ~/Templates/file.csv;
-echo "" > ~/Templates/file.go;
-echo "" > ~/Templates/file.h;
-echo "" > ~/Templates/file.html;
-echo "" > ~/Templates/file.java;
-echo "" > ~/Templates/file.js;
-echo "" > ~/Templates/file.json;
-echo "" > ~/Templates/file.md;
-echo "" > ~/Templates/file.py;
-echo "" > ~/Templates/file.rs;
-echo "" > ~/Templates/file.sh;
-echo "" > ~/Templates/file.toml;
-echo "" > ~/Templates/file.yaml;
 
 # mouse speed
 gsettings set org.gnome.desktop.peripherals.mouse speed -1;
@@ -215,6 +199,7 @@ curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.
 unzip godot.zip;
 rm godot.zip;
 rm releases.json;
+mv Godot_v* .local/bin/godot
 # TODO: settings name needs version in the name.
 cp $CONFIG/godot/editor_settings.tres ~/.config/godot/editor_settings.tres;
 
@@ -288,9 +273,11 @@ sudo flatpak install -y flathub org.gimp.GIMP;
 # image draw
 # package: ~/.config/inkscape
 # flatpak: ~/.var/app/org.inkscape.Inkscape/config/inkscape
-sudo flatpak install -y flathub org.inkscape.Inkscape; 
-mkdir ~/.config/inkscape;
-mkdir ~/.config/inkscape/templates;
+sudo flatpak install -y flathub org.inkscape.Inkscape;
+mkdir -p ~/.config/inkscape/templates;
+mkdir -p ~/.var/app/org.inkscape.Inkscape/config/inkscape/templates;
+cp $CONFIG/inkscape/default.svg ~/.config/inkscape/templates/default.svg;
+cp $CONFIG/inkscape/preferences.xml ~/.config/inkscape/preferences.xml;
 cp $CONFIG/inkscape/default.svg ~/.var/app/org.inkscape.Inkscape/config/inkscape/templates/default.svg;
 cp $CONFIG/inkscape/preferences.xml ~/.var/app/org.inkscape.Inkscape/config/inkscape/preferences.xml;
 
