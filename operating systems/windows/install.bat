@@ -4,7 +4,7 @@ set EMAIL=thiagola92@gmail.com
 
 :: use the following commands to discover your SID (Security Identifier) and set it.
 :: whoami /user
-set SID="S-1-5-21-3042928129-3283668424-2952786783-1000"
+set SID="S-1-5-21-465092230-2707531800-1033661536-1000"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: REFERENCES
@@ -80,7 +80,6 @@ powercfg /change monitor-timeout-ac 0
 
 :: disable sleep.
 powercfg /change standby-timeout-ac 0
-
 
 :: remove softwares
 C:\Windows\System32\OneDriveSetup.exe /uninstall
@@ -233,7 +232,7 @@ del "%userprofile%\Desktop\Spotify.lnk"
 
 :: image editor
 winget install GIMP.GIMP.3
-del "%userprofile%\Desktop\GIMP 3.0.6-1.lnk"
+del "%userprofile%\Desktop\GIMP 3.*.lnk"
 
 :: image draw
 winget install Inkscape.Inkscape
@@ -293,6 +292,7 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\ShowO
 :: - set default browser
 
 :: start
+:: - disable show recently added apps
 :: - disable show websites from your browsing history
 :: - disable show recommendations for tips, shortcuts, new apps and more
 :: - disable show account-related notifications
