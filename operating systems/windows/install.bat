@@ -4,7 +4,7 @@ set EMAIL=thiagola92@gmail.com
 
 :: use the following commands to discover your SID (Security Identifier) and set it.
 :: whoami /user
-set SID="S-1-5-21-465092230-2707531800-1033661536-1000"
+set SID=S-1-5-21-465092230-2707531800-1033661536-1000
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: REFERENCES
@@ -74,6 +74,13 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTask
 
 :: disable notifications from snipping tool (printscreen)
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.ScreenSketch_8wekyb3d8bbwe!App" /v Enabled /t REG_DWORD /d 0 /f
+
+:: disable game bar
+reg add "HKEY_USERS\%SID%\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe" /v Disabled /t REG_DWORD /d 1 /f
+reg add "HKEY_USERS\%SID%\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe" /v DisabledByUser /t REG_DWORD /d 1 /f
+reg add "HKEY_USERS\%SID%\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe" /v IgnoreBatterySaver /t REG_DWORD /d 0 /f
+reg add "HKEY_USERS\%SID%\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe" /v SleepDisabled /t REG_DWORD /d 1 /f
+reg add "HKEY_USERS\%SID%\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe" /v SleepIgnoreBatterySaver /t REG_DWORD /d 0 /f
 
 :: disable turning off screen.
 powercfg /change monitor-timeout-ac 0
