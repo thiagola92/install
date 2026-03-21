@@ -362,6 +362,13 @@ sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
 cp $CONFIG/starship/starship.toml ~/.config/starship.toml;
 
 ######################################################
+# ANDROID SDK
+######################################################
+
+# TODO: Using sdkmanager instead of GUI.
+# https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html
+
+######################################################
 # OS SETTINGS 2
 ######################################################
 
