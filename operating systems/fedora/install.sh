@@ -137,6 +137,13 @@ pipx ensurepath;
 sudo curl -LsSf https://astral.sh/uv/install.sh | sh;
 
 ######################################################
+# PROGRAMMING LANGUAGES - JAVA
+######################################################
+
+# compiler
+sudo dnf install -y java-latest-openjdk-devel;
+
+######################################################
 # PROGRAMMING LANGUAGES - JAVASCRIPT
 ######################################################
 
