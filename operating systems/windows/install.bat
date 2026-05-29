@@ -119,6 +119,7 @@ winget uninstall --name "Outlook for Windows"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: version control
+:: TODO: fix user.name and user.email
 winget install Git.Git
 git config --global init.defaultBranch main
 git config --global user.name %USERNAME%
