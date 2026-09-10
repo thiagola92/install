@@ -49,7 +49,7 @@ gsettings set org.gnome.Ptyxis restore-session false;
 # sort directories first
 gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true;
 
-# left-top do not activate activities overview
+# disable mousing over left-top of screen activating activities overview
 gsettings set org.gnome.desktop.interface enable-hot-corners false;
 
 # turn on/off night light
@@ -94,9 +94,6 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc;
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null;
 sudo dnf check-update;
 sudo dnf install -y code;
-
-# text editor (alternative)
-sudo dnf install -y gnome-builder;
 
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
@@ -255,7 +252,9 @@ sudo flatpak install -y flathub ca.desrt.dconf-editor;
 curl -fsS https://dl.brave.com/install.sh | sh;
 
 # discord
-sudo flatpak install -y flathub com.discordapp.Discord;
+curl -fL "https://discord.com/api/download?platform=linux&format=rpm" -o discord.rpm;
+sudo dnf install -y ./discord.rpm;
+rm discord.rpm;
 
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
