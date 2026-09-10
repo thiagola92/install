@@ -58,6 +58,9 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 # keyboard layout as "Portuguese (Brazil)"
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br')]";
 
+# turn on/off gnome automatic updates
+gsettings set org.gnome.software allow-updates false;
+
 ######################################################
 # SOFTWARE INSTALLER
 ######################################################
@@ -397,7 +400,7 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'bra
 gsettings set org.gnome.builder.editor auto-save false;
 
 ######################################################
-# ENDING
+# CLEANING
 ######################################################
 
 # cleaning

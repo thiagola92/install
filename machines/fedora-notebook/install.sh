@@ -58,6 +58,9 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 # keyboard layout as "Portuguese (Brazil)"
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br')]";
 
+# turn on/off gnome automatic updates
+gsettings set org.gnome.software allow-updates false;
+
 ######################################################
 # SOFTWARE INSTALLER
 ######################################################
@@ -159,6 +162,7 @@ rm discord.rpm;
 
 # ssh server
 sudo dnf install -y openssh-server;
+sudo systemctl enable --now sshd;
 
 # ftp server
 sudo dnf install -y vsftpd;
@@ -188,8 +192,11 @@ cp $CONFIG/starship/starship.toml ~/.config/starship.toml;
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-browser.desktop','org.gnome.Ptyxis.desktop']";
 
 ######################################################
-# ENDING
+# CLEANING
 ######################################################
+
+# libre office
+sudo dnf remove -y libreoffice-core;
 
 # cleaning
 sudo dnf autoremove -y;
