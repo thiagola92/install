@@ -93,11 +93,11 @@ git config --global commit.gpgsign true;
 # CONTAINER
 ######################################################
 
-# podman
-sudo dnf install -y podman;
-
-# podman gui
-sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
+# docker
+sudo dnf install -y dnf-plugins-core;
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo;
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
+sudo systemctl enable --now docker;
 
 ######################################################
 # PROGRAMMING LANGUAGES - GDScript
