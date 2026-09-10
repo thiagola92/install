@@ -32,7 +32,7 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true;
 
 # turn on/off gnome desktop animations
-gsettings set org.gnome.desktop.interface enable-animations false;
+gsettings set org.gnome.desktop.interface enable-animations true;
 
 # disable text editor restoring session
 gsettings set org.gnome.TextEditor restore-session false;
