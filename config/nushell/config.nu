@@ -7,4 +7,3 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 
 $env.PATH = $env.PATH | append "~/.local/bin"
 $env.PATH = $env.PATH | append "~/.cargo/bin"
-$env.PATH = $env.PATH | append "~/.deno/bin"
