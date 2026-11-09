@@ -65,7 +65,7 @@ gsettings set org.gnome.software allow-updates false;
 # SOFTWARE INSTALLER
 ######################################################
 
-# apt
+# dnf
 sudo dnf upgrade -y;
 
 # flatpak
