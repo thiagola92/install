@@ -75,7 +75,7 @@ sudo dnf install -y git;
 git config --global init.defaultBranch main;
 git config --global user.name $USERNAME;
 git config --global user.email $EMAIL;
-git config --global user.signingkey ~/.ssh/key.pub;
+git config --global user.signingkey $HOME/.ssh/key.pub;
 git config --global core.editor micro;
 git config --global credential.helper store;
 git config --global pull.rebase false;
@@ -102,13 +102,13 @@ sudo systemctl enable --now docker;
 ######################################################
 
 # godot
-mkdir -p ~/.local/bin;
+mkdir -p $HOME/.local/bin;
 curl https://api.github.com/repos/godotengine/godot-builds/releases/latest -o releases.json;
 curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.x86_64.zip")) | .browser_download_url' releases.json);
 unzip godot.zip;
 rm godot.zip;
 rm releases.json;
-mv Godot_v* ~/.local/bin/godot;
+mv Godot_v* $HOME/.local/bin/godot;
 
 # desktop entry
 echo "[Desktop Entry]
@@ -168,16 +168,18 @@ sudo dnf install -y miniupnpc;
 
 # text editor
 curl https://getmic.ro | bash;
-mkdir -p ~/.local/bin;
-mv micro ~/.local/bin;
-mkdir -p ~/.config/micro;
-cp $CONFIG/micro/settings.json ~/.config/micro/settings.json;
+mkdir -p $HOME/.local/bin;
+mv micro $HOME/.local/bin;
+mkdir -p $HOME/.config/micro;
+cp $CONFIG/micro/settings.json $HOME/.config/micro/settings.json;
 
 # shell
+mkdir tmp;
+export TMPDIR=tmp;
 cargo install nu --locked;
-sudo sh -c "echo '$HOME/.cargo/bin/nu\n' >> /etc/shells"
-sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
-mkdir $HOME/.config/nushell;
+rm -rf tmp;
+gsettings set org.gnome.Console shell "['$HOME/.cargo/bin/nu']";
+mkdir -p $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
@@ -221,7 +223,7 @@ sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
-cp $CONFIG/starship/starship.toml ~/.config/starship.toml;
+cp $CONFIG/starship/starship.toml $HOME/.config/starship.toml;
 
 ######################################################
 # OS SETTINGS 2
