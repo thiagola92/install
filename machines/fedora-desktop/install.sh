@@ -229,8 +229,9 @@ sudo dnf install -y miniupnpc;
 
 # text editor
 curl https://getmic.ro | bash;
-mv micro $HOME/.local/bin;
-mkdir ~/.config/micro;
+mkdir -p ~/.local/bin;
+mv micro ~/.local/bin;
+mkdir -p ~/.config/micro;
 cp $CONFIG/micro/settings.json ~/.config/micro/settings.json;
 
 # shell
