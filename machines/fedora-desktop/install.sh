@@ -218,6 +218,9 @@ Categories=Game;Development;" > /home/$USERNAME/.local/share/applications/godot.
 # TERMINAL TOOLS
 ######################################################
 
+# install gnome terminal (kgx)
+sudo dnf install -y gnome-console;
+
 # interactive process viewer
 sudo dnf install -y htop;
 
