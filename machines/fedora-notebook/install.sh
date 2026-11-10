@@ -119,6 +119,30 @@ Terminal=false
 Categories=Game;Development;" > /home/$USERNAME/.local/share/applications/godot.desktop
 
 ######################################################
+# PROGRAMMING LANGUAGES - PYTHON
+######################################################
+
+# application installer
+sudo dnf install -y pipx;
+pipx ensurepath;
+
+# package manager
+sudo curl -LsSf https://astral.sh/uv/install.sh | sh;
+
+######################################################
+# PROGRAMMING LANGUAGES - C
+######################################################
+
+# build tool
+pipx install scons;
+
+# compiler
+sudo dnf install -y clang;
+
+# debugger
+sudo dnf install -y clang-tools-extra;
+
+######################################################
 # PROGRAMMING LANGUAGES - RUST
 ######################################################
 
