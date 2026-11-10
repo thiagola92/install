@@ -11,9 +11,6 @@ CONFIG=../../config
 # OS SETTINGS 1
 ######################################################
 
-# template files
-echo "" > ~/Templates/file;
-
 # mouse speed
 gsettings set org.gnome.desktop.peripherals.mouse speed -1;
 
