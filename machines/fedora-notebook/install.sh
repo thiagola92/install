@@ -119,6 +119,14 @@ Terminal=false
 Categories=Game;Development;" > /home/$USERNAME/.local/share/applications/godot.desktop
 
 ######################################################
+# PROGRAMMING LANGUAGES - RUST
+######################################################
+
+# all-in-one
+sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
+source $HOME/.cargo/env;
+
+######################################################
 # TERMINAL TOOLS
 ######################################################
 
