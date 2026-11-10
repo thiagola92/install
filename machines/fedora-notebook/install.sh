@@ -149,6 +149,13 @@ mv micro ~/.local/bin;
 mkdir -p ~/.config/micro;
 cp $CONFIG/micro/settings.json ~/.config/micro/settings.json;
 
+# shell
+cargo install nu --locked;
+sudo sh -c "echo '$HOME/.cargo/bin/nu\n' >> /etc/shells"
+sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
+mkdir $HOME/.config/nushell;
+cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
+
 ######################################################
 # GENERIC TOOLS
 ######################################################
