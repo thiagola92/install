@@ -195,8 +195,5 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'bra
 # CLEANING
 ######################################################
 
-# libre office
-sudo dnf remove -y libreoffice-core;
-
 # cleaning
 sudo dnf autoremove -y;
