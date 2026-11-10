@@ -235,8 +235,6 @@ mkdir tmp;
 export TMPDIR=tmp;
 cargo install nu --locked;
 rm -rf tmp;
-sudo sh -c "echo '$HOME/.cargo/bin/nu' >> /etc/shells"
-sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 mkdir -p $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
