@@ -37,6 +37,9 @@ gsettings set org.gnome.TextEditor restore-session false;
 # ctrl+alt+backspace terminate session
 gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_bksp']";
 
+# change terminal theme
+gsettings set org.gnome.Ptyxis interface-style 'system';
+
 # don't restore terminal session
 gsettings set org.gnome.Ptyxis restore-session false;
 
@@ -211,9 +214,6 @@ Categories=Game;Development;" > /home/$USERNAME/.local/share/applications/godot.
 # TERMINAL TOOLS
 ######################################################
 
-# install gnome terminal (kgx)
-sudo dnf install -y gnome-console;
-
 # interactive process viewer
 sudo dnf install -y htop;
 
@@ -235,7 +235,8 @@ mkdir tmp;
 export TMPDIR=tmp;
 cargo install nu --locked;
 rm -rf tmp;
-gsettings set org.gnome.Console shell "['$HOME/.cargo/bin/nu']";
+sudo sh -c "echo '$HOME/.cargo/bin/nu' >> /etc/shells"
+sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
 mkdir -p $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
@@ -390,9 +391,6 @@ rm commandlinetools.zip;
 
 # dock favorites
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-origin.desktop','org.gnome.Console.desktop']";
-
-# gnome builder
-gsettings set org.gnome.builder.editor auto-save false;
 
 ######################################################
 # CLEANING
