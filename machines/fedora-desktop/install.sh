@@ -40,6 +40,10 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_
 # change terminal theme
 gsettings set org.gnome.Ptyxis interface-style 'system';
 
+# change terminal font
+gsettings set org.gnome.Ptyxis use-system-font false;
+gsettings set org.gnome.Ptyxis font-name 'Monospace Bold 12 @wght=700';
+
 # don't restore terminal session
 gsettings set org.gnome.Ptyxis restore-session false;
 
