@@ -175,7 +175,6 @@ mkdir tmp;
 export TMPDIR=tmp;
 cargo install nu --locked;
 rm -rf tmp;
-gsettings set org.gnome.Console shell "['$HOME/.cargo/bin/nu']";
 mkdir -p $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
