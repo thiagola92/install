@@ -37,9 +37,6 @@ gsettings set org.gnome.TextEditor restore-session false;
 # ctrl+alt+backspace terminate session
 gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_bksp']";
 
-# change terminal theme
-gsettings set org.gnome.Ptyxis interface-style 'system';
-
 # don't restore terminal session
 gsettings set org.gnome.Ptyxis restore-session false;
 
@@ -390,9 +387,6 @@ rm commandlinetools.zip;
 ######################################################
 # OS SETTINGS 2
 ######################################################
-
-# change terminal theme
-gsettings set org.gnome.Console theme 'day';
 
 # dock favorites
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-origin.desktop','org.gnome.Console.desktop']";
