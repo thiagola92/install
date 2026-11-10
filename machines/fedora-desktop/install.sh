@@ -75,7 +75,7 @@ sudo dnf install -y git;
 git config --global init.defaultBranch main;
 git config --global user.name $USERNAME;
 git config --global user.email $EMAIL;
-git config --global user.signingkey ~/.ssh/key.pub;
+git config --global user.signingkey $HOME/.ssh/key.pub;
 git config --global core.editor micro;
 git config --global credential.helper store;
 git config --global pull.rebase false;
@@ -192,15 +192,15 @@ sudo dnf install -y zig;
 ######################################################
 
 # godot
-mkdir -p ~/.local/bin;
+mkdir -p $HOME/.local/bin;
 curl https://api.github.com/repos/godotengine/godot-builds/releases/latest -o releases.json;
 curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.x86_64.zip")) | .browser_download_url' releases.json);
 unzip godot.zip;
 rm godot.zip;
 rm releases.json;
-mv Godot_v* ~/.local/bin/godot;
+mv Godot_v* $HOME/.local/bin/godot;
 # TODO: settings name needs version in the name.
-cp $CONFIG/godot/editor_settings.tres ~/.config/godot/editor_settings.tres;
+cp $CONFIG/godot/editor_settings.tres $HOME/.config/godot/editor_settings.tres;
 
 # desktop entry
 echo "[Desktop Entry]
@@ -228,16 +228,18 @@ sudo dnf install -y miniupnpc;
 
 # text editor
 curl https://getmic.ro | bash;
-mkdir -p ~/.local/bin;
-mv micro ~/.local/bin;
-mkdir -p ~/.config/micro;
-cp $CONFIG/micro/settings.json ~/.config/micro/settings.json;
+mkdir -p $HOME/.local/bin;
+mv micro $HOME/.local/bin;
+mkdir -p $HOME/.config/micro;
+cp $CONFIG/micro/settings.json $HOME/.config/micro/settings.json;
 
 # shell
+mkdir tmp;
+export TMPDIR=tmp;
 cargo install nu --locked;
-sudo sh -c "echo '$HOME/.cargo/bin/nu\n' >> /etc/shells"
-sudo chsh -s $HOME/.cargo/bin/nu $USERNAME;
-mkdir $HOME/.config/nushell;
+rm -rf tmp;
+gsettings set org.gnome.Console shell "['$HOME/.cargo/bin/nu']";
+mkdir -p $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
@@ -276,15 +278,15 @@ sudo flatpak install -y flathub org.gnome.SoundRecorder;
 sudo flatpak install -y flathub org.gimp.GIMP;
 
 # image draw
-# package: ~/.config/inkscape
-# flatpak: ~/.var/app/org.inkscape.Inkscape/config/inkscape
+# package: $HOME/.config/inkscape
+# flatpak: $HOME/.var/app/org.inkscape.Inkscape/config/inkscape
 sudo flatpak install -y flathub org.inkscape.Inkscape;
-mkdir -p ~/.config/inkscape/templates;
-mkdir -p ~/.var/app/org.inkscape.Inkscape/config/inkscape/templates;
-cp $CONFIG/inkscape/default.svg ~/.config/inkscape/templates/default.svg;
-cp $CONFIG/inkscape/preferences.xml ~/.config/inkscape/preferences.xml;
-cp $CONFIG/inkscape/default.svg ~/.var/app/org.inkscape.Inkscape/config/inkscape/templates/default.svg;
-cp $CONFIG/inkscape/preferences.xml ~/.var/app/org.inkscape.Inkscape/config/inkscape/preferences.xml;
+mkdir -p $HOME/.config/inkscape/templates;
+mkdir -p $HOME/.var/app/org.inkscape.Inkscape/config/inkscape/templates;
+cp $CONFIG/inkscape/default.svg $HOME/.config/inkscape/templates/default.svg;
+cp $CONFIG/inkscape/preferences.xml $HOME/.config/inkscape/preferences.xml;
+cp $CONFIG/inkscape/default.svg $HOME/.var/app/org.inkscape.Inkscape/config/inkscape/templates/default.svg;
+cp $CONFIG/inkscape/preferences.xml $HOME/.var/app/org.inkscape.Inkscape/config/inkscape/preferences.xml;
 
 # gnome icons
 sudo flatpak install -y flathub org.gnome.design.IconLibrary;
@@ -323,17 +325,17 @@ sudo dnf install -y xrdp;
 ######################################################
 
 # create directories
-mkdir ~/Crons;
-mkdir ~/Crons/logs;
-mkdir ~/Crons/scripts;
-mkdir ~/Crons/spool;
+mkdir $HOME/Crons;
+mkdir $HOME/Crons/logs;
+mkdir $HOME/Crons/scripts;
+mkdir $HOME/Crons/spool;
 
 # create utility script
-echo '#!/bin/bash' > ~/Crons/env.sh;
-echo "export $(env | grep -i SSH_AUTH_SOCK)" >> ~/Crons/env.sh;
+echo '#!/bin/bash' > $HOME/Crons/env.sh;
+echo "export $(env | grep -i SSH_AUTH_SOCK)" >> $HOME/Crons/env.sh;
 
 # copy user scripts
-cp backup_bookmarks.sh ~/Crons/scripts/backup_bookmarks.sh;
+cp backup_bookmarks.sh $HOME/Crons/scripts/backup_bookmarks.sh;
 
 # create user anacron
 # force running with "anacron -f -n -t anacrontab -S spool"
@@ -344,12 +346,12 @@ RANDOM_DELAY=0
 START_HOURS_RANGE=0-23
 
 #period in days   delay in minutes   job-identifier   command
-@weekly 0 backup_bookmarks bash ~/Crons/scripts/backup_bookmarks.sh > ~/Crons/logs/backup_bookmarks.log
-" > ~/Crons/anacrontab;
+@weekly 0 backup_bookmarks bash $HOME/Crons/scripts/backup_bookmarks.sh > $HOME/Crons/logs/backup_bookmarks.log
+" > $HOME/Crons/anacrontab;
 
 # add user cron
 crontab <<EOF
-0 * * * * anacron -t ~/Crons/anacrontab -S ~/Crons/spool
+0 * * * * anacron -t $HOME/Crons/anacrontab -S $HOME/Crons/spool
 EOF
 
 ######################################################
@@ -364,7 +366,7 @@ sudo mv FiraCode /usr/share/fonts;
 
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
-cp $CONFIG/starship/starship.toml ~/.config/starship.toml;
+cp $CONFIG/starship/starship.toml $HOME/.config/starship.toml;
 
 ######################################################
 # ANDROID SDK
