@@ -154,9 +154,6 @@ source $HOME/.cargo/env;
 # TERMINAL TOOLS
 ######################################################
 
-# install gnome terminal (kgx)
-sudo dnf install -y gnome-console;
-
 # interactive process viewer
 sudo dnf install -y htop;
 
@@ -230,7 +227,7 @@ cp $CONFIG/starship/starship.toml $HOME/.config/starship.toml;
 ######################################################
 
 # dock favorites
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-origin.desktop','org.gnome.Console.desktop']";
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'brave-origin.desktop','org.gnome.Ptyxis.desktop']";
 
 ######################################################
 # CLEANING
