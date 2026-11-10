@@ -196,6 +196,7 @@ sudo dnf install -y clang-tools-extra;
 ######################################################
 
 # godot
+mkdir -p ~/.local/bin;
 curl https://api.github.com/repos/godotengine/godot-builds/releases/latest -o releases.json;
 curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.x86_64.zip")) | .browser_download_url' releases.json);
 unzip godot.zip;
