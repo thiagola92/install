@@ -108,7 +108,7 @@ curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.
 unzip godot.zip;
 rm godot.zip;
 rm releases.json;
-mv Godot_v* .local/bin/godot
+mv Godot_v* ~/.local/bin/godot;
 
 # desktop entry
 echo "[Desktop Entry]
