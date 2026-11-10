@@ -143,10 +143,6 @@ sudo dnf install -y java-latest-openjdk-devel;
 ######################################################
 
 # all-in-one
-sudo curl -fsSL https://deno.land/install.sh | sh -s -- -y;
-source $HOME/.deno/env;
-
-# all-in-one
 sudo dnf install -y nodejs;
 
 ######################################################
