@@ -146,7 +146,7 @@ cp $CONFIG/micro/settings.json ~/.config/micro/settings.json;
 sudo flatpak install -y flathub ca.desrt.dconf-editor;
 
 # browser
-curl -fsS https://dl.brave.com/install.sh | sh;
+curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh;
 
 # discord
 curl -fL "https://discord.com/api/download?platform=linux&format=rpm" -o discord.rpm;
