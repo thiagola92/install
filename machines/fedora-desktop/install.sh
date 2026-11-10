@@ -71,6 +71,7 @@ sudo flatpak update -y;
 ######################################################
 
 # version control
+sudo dnf install -y git;
 git config --global init.defaultBranch main;
 git config --global user.name $USERNAME;
 git config --global user.email $EMAIL;
