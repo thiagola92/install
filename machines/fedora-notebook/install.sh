@@ -44,6 +44,9 @@ gsettings set org.gnome.Ptyxis interface-style 'system';
 gsettings set org.gnome.Ptyxis use-system-font false;
 gsettings set org.gnome.Ptyxis font-name 'Monospace Bold 12 @wght=700';
 
+# maintain current directory when opening through file manager
+gsettings set "org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/${PTYXIS_PROFILE}/" preserve-directory "'always'";
+
 # don't restore terminal session
 gsettings set org.gnome.Ptyxis restore-session false;
 
