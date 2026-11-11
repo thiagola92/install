@@ -243,6 +243,19 @@ mkdir -p $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
+# DATABASE TOOLS
+######################################################
+
+# database gui
+sudo curl -o /etc/yum.repos.d/beekeeper-studio.repo https://rpm.beekeeperstudio.io/beekeeper-studio.repo;
+sudo rpm --import https://rpm.beekeeperstudio.io/beekeeper.key;
+sudo dnf install -y beekeeper-studio;
+
+# postgres gui
+sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm;
+sudo yum install pgadmin4-desktop;
+
+######################################################
 # GENERIC TOOLS
 ######################################################
 
