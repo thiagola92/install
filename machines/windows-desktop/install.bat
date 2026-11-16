@@ -6,6 +6,9 @@ set EMAIL=thiagola92@gmail.com
 :: whoami /user
 set SID=S-1-5-21-465092230-2707531800-1033661536-1000
 
+:: configuration files directory
+set CONFIG=..\..\config
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: REFERENCES
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -189,9 +192,17 @@ winget install --id LLVM.LLVM
 
 :: text editor
 winget install --id zyedidia.micro
+if not exist %USERPROFILE%\.config (md .config)
+if not exist %USERPROFILE%\.config (move .config %USERPROFILE%)
+if not exist %USERPROFILE%\.config\micro (md micro)
+if not exist %USERPROFILE%\.config\micro (move micro %USERPROFILE%\.config)
+copy %CONFIG%\micro\settings.json %USERPROFILE%\.config\micro
 
 :: shell
 winget install --id nushell
+if not exist %USERPROFILE%\AppData\Roaming\nushell (md nushell)
+if not exist %USERPROFILE%\AppData\Roaming\nushell (move nushell %USERPROFILE%\AppData\Roaming)
+copy %CONFIG%\nushell\config.nu %USERPROFILE%\AppData\Roaming\nushell
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: DATABASE TOOLS
@@ -246,6 +257,12 @@ del "%userprofile%\Desktop\GIMP 3.*.lnk"
 :: image draw
 winget install --id Inkscape.Inkscape
 del "C:\Users\Public\Desktop\Inkscape.lnk"
+if not exist %USERPROFILE%\AppData\Roaming\inkscape (md inkscape)
+if not exist %USERPROFILE%\AppData\Roaming\inkscape (move inkscape %USERPROFILE%\AppData\Roaming)
+if not exist %USERPROFILE%\AppData\Roaming\inkscape\templates (md templates)
+if not exist %USERPROFILE%\AppData\Roaming\inkscape\templates (move templates %USERPROFILE%\AppData\Roaming\inkscape)
+copy %CONFIG%\inkscape\preferences.xml %USERPROFILE%\AppData\Roaming\inkscape
+copy %CONFIG%\inkscape\default.svg %USERPROFILE%\AppData\Roaming\inkscape\templates
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: VIDEO TOOLS
@@ -261,6 +278,18 @@ winget install --id Meltytech.Shotcut
 :: video recorder
 winget install --id OBSProject.OBSStudio
 del "C:\Users\Public\Desktop\OBS Studio.lnk"
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: STYLE
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: shell prompt
+winget install --id Starship.Starship
+if not exist %USERPROFILE%\.config (md .config)
+if not exist %USERPROFILE%\.config (move .config %USERPROFILE%)
+if not exist %USERPROFILE%\.config\starship (md starship)
+if not exist %USERPROFILE%\.config\starship (move starship %USERPROFILE%\.config)
+copy %CONFIG%\starship\starship.toml %USERPROFILE%\.config\starship
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: IN TESTING
