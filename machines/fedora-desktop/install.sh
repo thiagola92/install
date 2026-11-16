@@ -94,6 +94,9 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 git config --global gpg.format ssh;
 git config --global commit.gpgsign true;
 
+# text editor
+sudo curl -f https://zed.dev/install.sh | sh
+
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
 
