@@ -94,19 +94,8 @@ git config --global alias.clone-blobless-all 'clone --filter=blob:none --recurse
 git config --global gpg.format ssh;
 git config --global commit.gpgsign true;
 
-# text editor
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc;
-echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null;
-sudo dnf check-update;
-sudo dnf install -y code;
-
 # dev toolbox
 sudo flatpak install -y flathub me.iepure.devtoolbox;
-
-# mongodb database gui
-curl -fL https://downloads.mongodb.com/compass/mongodb-compass-1.48.2.x86_64.rpm -o compass.rpm;
-sudo dnf install -y ./compass.rpm;
-rm compass.rpm;
 
 # web api client
 sudo flatpak install -y com.usebruno.Bruno;
@@ -114,12 +103,6 @@ sudo flatpak install -y com.usebruno.Bruno;
 ######################################################
 # CONTAINER
 ######################################################
-
-# docker
-sudo dnf install -y dnf-plugins-core;
-sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo;
-sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-sudo systemctl enable --now docker;
 
 # podman
 sudo dnf install -y podman;
@@ -274,9 +257,6 @@ rm discord.rpm;
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
-# office suite tools
-sudo flatpak install -y flathub org.libreoffice.LibreOffice;
-
 ######################################################
 # AUDIO TOOLS
 ######################################################
@@ -317,9 +297,6 @@ sudo flatpak install -y flathub org.shotcut.Shotcut;
 
 # stream/record
 sudo flatpak install -y flathub com.obsproject.Studio;
-
-# video downloader
-sudo flatpak install -y flathub org.nickvision.tubeconverter;
 
 ######################################################
 # REMOTE ACCESS TOOLS
@@ -381,25 +358,6 @@ sudo mv FiraCode /usr/share/fonts;
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
 cp $CONFIG/starship/starship.toml $HOME/.config/starship.toml;
-
-######################################################
-# ANDROID SDK
-######################################################
-
-# TODO: Using sdkmanager instead of GUI.
-# https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html
-mkdir -p $HOME/Android/Sdk;
-curl -fl https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip -o commandlinetools.zip;
-unzip commandlinetools.zip;
-mv cmdline-tools $HOME/Android/Sdk;
-mkdir $HOME/Android/Sdk/comdline-tools/latest
-mv $HOME/Android/Sdk/comdline-tools/bin $HOME/Android/Sdk/comdline-tools/latest;
-mv $HOME/Android/Sdk/comdline-tools/lib $HOME/Android/Sdk/comdline-tools/latest;
-mv $HOME/Android/Sdk/comdline-tools/NOTICE.txt $HOME/Android/Sdk/comdline-tools/latest;
-mv $HOME/Android/Sdk/comdline-tools/source.properties $HOME/Android/Sdk/comdline-tools/latest;
-echo "PATH=\"\$HOME/Android/SDK/cmdline-tools/latest/bin:\$PATH\"" >> $HOME/.bashrc
-sdkmanager --sdk_root=$HOME/Android/Sdk "platform-tools" "build-tools;35.0.1" "platforms;android-35" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;28.1.13356709"
-rm commandlinetools.zip;
 
 ######################################################
 # OS SETTINGS 2
