@@ -265,6 +265,9 @@ rm discord.rpm;
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
+# mouse rgb
+sudo dnf install -y piper;
+
 ######################################################
 # AUDIO TOOLS
 ######################################################
