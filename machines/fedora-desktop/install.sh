@@ -265,9 +265,6 @@ rm discord.rpm;
 # torrent download
 sudo flatpak install -y flathub de.haeckerfelix.Fragments;
 
-# mouse rgb
-sudo dnf install -y piper;
-
 ######################################################
 # AUDIO TOOLS
 ######################################################
@@ -369,6 +366,12 @@ sudo mv FiraCode /usr/share/fonts;
 # shell prompt
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
 cp $CONFIG/starship/starship.toml $HOME/.config/starship.toml;
+
+# mouse rgb
+sudo dnf install -y piper;
+
+# general rgb
+sudo dnf install -y openrgb;
 
 ######################################################
 # OS SETTINGS 2
