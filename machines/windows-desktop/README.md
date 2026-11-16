@@ -28,7 +28,7 @@ One way to discover new data to change in Registry Editor is using Git:
 
 Configuring **in-memory** RGB light is important because you don't want a software open 24-hours to maintain the correct light (and you want to maintain when changing to Linux).
 
-- Normally the best software to configure **in-memory** light is from the hardware seller. For example:
+- Normally the best software to configure in-memory light is from the hardware seller. For example:
   - Corsair: iCUE
   - HyperX: NGENUITY
   - Logitech: LIGHTSYNC RGB

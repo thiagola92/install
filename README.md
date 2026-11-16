@@ -2,11 +2,6 @@
 
 Scripts to use after restoring my computer.  
 
-# usage
-
-> [!TIP]  
-> Remove lines from the script that you don't consider useful in your new computer.  
-
 ## Linux
 
 ```shell
@@ -24,4 +19,4 @@ bash install.sh
 ```
 
 > [!CAUTION]  
-> Windows still needs a lot of manual setup, read the script for more information.  
+> Windows still needs a lot of manual setup, read the details in the directory.
