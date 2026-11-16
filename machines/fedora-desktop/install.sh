@@ -232,6 +232,11 @@ cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 # DATABASE TOOLS
 ######################################################
 
+# database gui
+sudo curl -o /etc/yum.repos.d/beekeeper-studio.repo https://rpm.beekeeperstudio.io/beekeeper-studio.repo;
+sudo rpm --import https://rpm.beekeeperstudio.io/beekeeper.key;
+sudo dnf install -y beekeeper-studio;
+
 # mongodb gui
 sudo dnf install -y mongodb-compass;
 
