@@ -133,54 +133,47 @@ git config --global alias.pull-all "pull --recurse-submodules"
 git config --global alias.clone-blobless "clone --filter=blob:none"
 git config --global alias.clone-blobless-all "clone --filter=blob:none --recurse-submodules"
 
-:: text editor
-winget install Microsoft.VisualStudioCode
-
 :: ide
-winget install Microsoft.VisualStudio.2022.Community
+winget install --id Microsoft.VisualStudio.Community
 
-:: sql database gui
-winget install beekeeper-studio.beekeeper-studio
-del "%userprofile%\Desktop\Beekeeper Studio.lnk"
+:: text editor
+winget install --id ZedIndustries.Zed
 
 :: web api client
-winget install Bruno.Bruno
+winget install --id Bruno.Bruno
 del "%userprofile%\Desktop\Bruno.lnk"
 
 :: container
-winget install Docker.DockerCLI
-winget install Docker.DockerCompose
+winget install --id Docker.DockerCLI
+winget install --id Docker.DockerCompose
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: PROGRAMMING LANGUAGES - PYTHON
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: runtime
-winget install Python.Python.3.13
+winget install --id Python.Python.3.15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: PROGRAMMING LANGUAGES - JAVASCRIPT
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: all-in-one
-winget install OpenJS.NodeJS
-
-:: all-in-one
-winget install DenoLand.Deno
+winget install --id OpenJS.NodeJS
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: PROGRAMMING LANGUAGES - RUST
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: all-in-one
-winget install Rustlang.Rustup
+winget install --id Rustlang.Rustup
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: PROGRAMMING LANGUAGES - GO
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: all-in-one
-winget install GoLang.Go
+winget install --id GoLang.Go
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: PROGRAMMING LANGUAGES - C
@@ -188,50 +181,58 @@ winget install GoLang.Go
 
 :: all-in-one
 :: NOTE: Add "C:\Program Files\LLVM\bin" to path later
-winget install LLVM.LLVM
+winget install --id LLVM.LLVM
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: TERMINAL TOOLS
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: text editor
-winget install zyedidia.micro
+winget install --id zyedidia.micro
 
 :: shell
-winget install nushell
+winget install --id nushell
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: DATABASE TOOLS
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: database gui
+winget install --id beekeeper-studio.beekeeper-studio
+del "%userprofile%\Desktop\Beekeeper Studio.lnk"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: GENERIC TOOLS
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: browser
-winget install Brave.Brave
+winget install --id Brave.Brave
 del "%userprofile%\Desktop\Brave.lnk"
 
 :: voice chat
-winget install Discord.Discord
+winget install --id Discord.Discord
 del "%userprofile%\Desktop\Discord.lnk"
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Discord /f
 
 :: torrent
-winget install DelugeTeam.Deluge
+winget install --id DelugeTeam.Deluge
 
 :: game
-winget install Valve.Steam
+winget install --id Valve.Steam
 del "C:\Users\Public\Desktop\Steam.lnk"
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Steam /f
 
 :: zip
-winget install RARLab.WinRar
-winget install Giorgiotani.Peazip
+winget install --id RARLab.WinRar
+winget install --id Giorgiotani.Peazip
 del "%userprofile%\Desktop\PeaZip.lnk"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: AUDIO TOOLS
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:: music player (can't be done as admin)
-winget install Spotify.Spotify
+:: music player (can't be done as admin, how to make only this run as user)
+winget install --id Spotify.Spotify
 del "%userprofile%\Desktop\Spotify.lnk"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -239,11 +240,11 @@ del "%userprofile%\Desktop\Spotify.lnk"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: image editor
-winget install GIMP.GIMP.3
+winget install --id GIMP.GIMP.3
 del "%userprofile%\Desktop\GIMP 3.*.lnk"
 
 :: image draw
-winget install Inkscape.Inkscape
+winget install --id Inkscape.Inkscape
 del "C:\Users\Public\Desktop\Inkscape.lnk"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -251,14 +252,14 @@ del "C:\Users\Public\Desktop\Inkscape.lnk"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: video player
-winget install VideoLAN.VLC
+winget install --id VideoLAN.VLC
 del "C:\Users\Public\Desktop\VLC media player.lnk"
 
 :: video editor
-winget install Meltytech.Shotcut
+winget install --id Meltytech.Shotcut
 
 :: video recorder
-winget install OBSProject.OBSStudio
+winget install --id OBSProject.OBSStudio
 del "C:\Users\Public\Desktop\OBS Studio.lnk"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -266,14 +267,14 @@ del "C:\Users\Public\Desktop\OBS Studio.lnk"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: disable recently added apps (does it work internally?)
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
+:: reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
 
 :: changing any of does settings "value" to 1 helps?
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideFrequentlyUsedApps" /v value /t REG_DWORD /d 1 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecentlyAddedApps" /v value /t REG_DWORD /d 1 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedPersonalizedSites" /v value /t REG_DWORD /d 1 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedSection" /v value /t REG_DWORD /d 1 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\ShowOrHideMostUsedApps" /v value /t REG_DWORD /d 1 /f
+:: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideFrequentlyUsedApps" /v value /t REG_DWORD /d 1 /f
+:: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecentlyAddedApps" /v value /t REG_DWORD /d 1 /f
+:: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedPersonalizedSites" /v value /t REG_DWORD /d 1 /f
+:: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedSection" /v value /t REG_DWORD /d 1 /f
+:: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\ShowOrHideMostUsedApps" /v value /t REG_DWORD /d 1 /f
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: MANUAL
