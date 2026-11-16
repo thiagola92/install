@@ -204,6 +204,9 @@ if not exist %USERPROFILE%\AppData\Roaming\nushell (md nushell)
 if not exist %USERPROFILE%\AppData\Roaming\nushell (move nushell %USERPROFILE%\AppData\Roaming)
 copy %CONFIG%\nushell\config.nu %USERPROFILE%\AppData\Roaming\nushell
 
+:: rgb
+:: search for your device software, it's the best for doing what you need in that device
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: DATABASE TOOLS
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
