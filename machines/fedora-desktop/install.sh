@@ -367,7 +367,7 @@ sudo mv FiraCode /usr/share/fonts;
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
 cp $CONFIG/starship/starship.toml $HOME/.config/starship.toml;
 
-# mouse rgb
+# mouse rgb/dpi/buttons
 sudo dnf install -y piper;
 
 # general rgb
