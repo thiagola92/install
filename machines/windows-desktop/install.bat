@@ -10,35 +10,6 @@ set SID=S-1-5-21-465092230-2707531800-1033661536-1000
 set CONFIG=..\..\config
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: REFERENCES
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:: to run terminal as admin:
-:: - win + X
-:: - select "Terminal (Admin)"
-
-:: if the installation doesn't add the environment variable, remember to do manually
-:: because powershell and prompt truncate the replacement at 1024 characters.
-:: do not use command for setting environment variable from powershell into prompt,
-:: it doesn't replace variables when doing something like $examples.
-
-:: TODO: learn to add things to open fast
-:: Win + R and write "shell:sendto", these will appear in "Send To >"
-
-:: the following example show how to stop an application from opening at start up:
-:: reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Discord /f
-
-:: how to discover new data to change in registry editor?
-:: - creates a folder
-:: - "git init" inside the folder
-:: - export registry editor in the folder
-:: - "git add -A"
-:: - "git commit -m example"
-:: - change settings
-:: - export registry editor in the folder
-:: - use some tool that let you check the git diff
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: OS SETTINGS 1
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -307,46 +278,3 @@ copy %CONFIG%\starship\starship.toml %USERPROFILE%\.config\starship
 :: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedPersonalizedSites" /v value /t REG_DWORD /d 1 /f
 :: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\HideRecommendedSection" /v value /t REG_DWORD /d 1 /f
 :: reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Start\ShowOrHideMostUsedApps" /v value /t REG_DWORD /d 1 /f
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: MANUAL
-:: finding how to do any of does through terminal would be great
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:: notepad
-:: - switch to start new session and discard unsaved changes
-:: - disable recent files
-:: - disable copilot
-
-:: taskbar
-:: - unpin copilot
-:: - unpin microsoft store
-:: - unpin microsoft edge
-:: - unpin outlook
-:: - pin brave
-
-:: media player
-:: - disable look up missing album art and artist art online
-:: - disable remember recent media
-
-:: default apps
-:: - set default browser
-
-:: start
-:: - disable show recently added apps
-:: - disable show websites from your browsing history
-:: - disable show recommendations for tips, shortcuts, new apps and more
-:: - disable show account-related notifications
-:: - remove all pins
-
-:: keyboard
-:: - disable shortcut to change keyboard layout
-::   - Go to "Time & Language"
-::   - Go to "Typing"
-::   - Go to "Advanced keyboard settings"
-::   - Go to "Language bar options"
-::   - Go to "Advanced Key Settings"
-::   - Under "Hot keys for input languages"
-::   - Select "Between input languages"
-::   - Press "Change Key Sequence"
-::   - Disable it
