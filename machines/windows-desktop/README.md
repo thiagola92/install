@@ -97,3 +97,8 @@ Configure keyboard layout:
   - Select "Between input languages"
   - Press "Change Key Sequence"
   - Disable it
+
+-------------------------------
+
+Configure time to stop using `time.windows.com`
+- `time.google.com`
