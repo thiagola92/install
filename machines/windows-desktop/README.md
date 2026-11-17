@@ -100,5 +100,11 @@ Configure keyboard layout:
 
 -------------------------------
 
-Configure time to stop using `time.windows.com`
-- `time.google.com`
+Configure time:
+- Change time sync used
+  - Go to "Time & Language"
+  - Disable "Set time automatically"
+  - Open drop down from "Sync now"
+  - In "Change the time server"
+  - Change to "time.google.com"
+  - Click "Sync now"
