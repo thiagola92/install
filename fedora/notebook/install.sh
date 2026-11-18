@@ -29,7 +29,7 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true;
 
 # turn on/off gnome desktop animations
-gsettings set org.gnome.desktop.interface enable-animations true;
+gsettings set org.gnome.desktop.interface enable-animations false;
 
 # disable text editor restoring session
 gsettings set org.gnome.TextEditor restore-session false;
@@ -97,12 +97,6 @@ git config --global commit.gpgsign true;
 # text editor
 sudo curl -f https://zed.dev/install.sh | sh
 
-# dev toolbox
-sudo flatpak install -y flathub me.iepure.devtoolbox;
-
-# web api client
-sudo flatpak install -y com.usebruno.Bruno;
-
 ######################################################
 # CONTAINER
 ######################################################
@@ -138,47 +132,12 @@ sudo dnf install -y clang;
 sudo dnf install -y clang-tools-extra;
 
 ######################################################
-# PROGRAMMING LANGUAGES - JAVA
-######################################################
-
-# compiler
-sudo dnf install -y java-latest-openjdk-devel;
-
-######################################################
-# PROGRAMMING LANGUAGES - JAVASCRIPT
-######################################################
-
-# all-in-one
-sudo dnf install -y nodejs;
-
-######################################################
 # PROGRAMMING LANGUAGES - RUST
 ######################################################
 
 # all-in-one
 sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y;
 source $HOME/.cargo/env;
-
-######################################################
-# PROGRAMMING LANGUAGES - GO
-######################################################
-
-# all-in-one
-sudo dnf install -y golang;
-
-######################################################
-# PROGRAMMING LANGUAGES - VALA
-######################################################
-
-# compiler
-sudo dnf install -y valac;
-
-######################################################
-# PROGRAMMING LANGUAGES - ZIG
-######################################################
-
-# compiler
-sudo dnf install -y zig;
 
 ######################################################
 # PROGRAMMING LANGUAGES - GDScript
@@ -232,22 +191,6 @@ mkdir -p $HOME/.config/nushell;
 cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 
 ######################################################
-# DATABASE TOOLS
-######################################################
-
-# database gui
-sudo curl -o /etc/yum.repos.d/beekeeper-studio.repo https://rpm.beekeeperstudio.io/beekeeper-studio.repo;
-sudo rpm --import https://rpm.beekeeperstudio.io/beekeeper.key;
-sudo dnf install -y beekeeper-studio;
-
-# mongodb gui
-sudo dnf install -y mongodb-compass;
-
-# postgres gui
-sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm;
-sudo yum install pgadmin4-desktop;
-
-######################################################
 # GENERIC TOOLS
 ######################################################
 
@@ -262,96 +205,19 @@ curl -fL "https://discord.com/api/download?platform=linux&format=rpm" -o discord
 sudo dnf install -y ./discord.rpm;
 rm discord.rpm;
 
-# torrent download
-sudo flatpak install -y flathub de.haeckerfelix.Fragments;
-
-######################################################
-# AUDIO TOOLS
-######################################################
-
-# sound recorder
-sudo flatpak install -y flathub org.gnome.SoundRecorder;
-
-######################################################
-# IMAGE TOOLS
-######################################################
-
-# image editor
-sudo flatpak install -y flathub org.gimp.GIMP;
-
-# image draw
-# package: $HOME/.config/inkscape
-# flatpak: $HOME/.var/app/org.inkscape.Inkscape/config/inkscape
-sudo flatpak install -y flathub org.inkscape.Inkscape;
-mkdir -p $HOME/.config/inkscape/templates;
-mkdir -p $HOME/.var/app/org.inkscape.Inkscape/config/inkscape/templates;
-cp $CONFIG/inkscape/default.svg $HOME/.config/inkscape/templates/default.svg;
-cp $CONFIG/inkscape/preferences.xml $HOME/.config/inkscape/preferences.xml;
-cp $CONFIG/inkscape/default.svg $HOME/.var/app/org.inkscape.Inkscape/config/inkscape/templates/default.svg;
-cp $CONFIG/inkscape/preferences.xml $HOME/.var/app/org.inkscape.Inkscape/config/inkscape/preferences.xml;
-
-# gnome icons
-sudo flatpak install -y flathub org.gnome.design.IconLibrary;
-
-# color palette
-sudo flatpak install -y flathub org.gnome.design.Palette;
-
-######################################################
-# VIDEO TOOLS
-######################################################
-
-# video editor
-sudo flatpak install -y flathub org.shotcut.Shotcut;
-
-# stream/record
-sudo flatpak install -y flathub com.obsproject.Studio;
-
 ######################################################
 # REMOTE ACCESS TOOLS
 ######################################################
 
 # ssh server
 sudo dnf install -y openssh-server;
+sudo systemctl enable --now sshd;
 
 # ftp server
 sudo dnf install -y vsftpd;
 
 # rdp server
 sudo dnf install -y xrdp;
-
-######################################################
-# CRON JOBS
-######################################################
-
-# create directories
-mkdir $HOME/Crons;
-mkdir $HOME/Crons/logs;
-mkdir $HOME/Crons/scripts;
-mkdir $HOME/Crons/spool;
-
-# create utility script
-echo '#!/bin/bash' > $HOME/Crons/env.sh;
-echo "export $(env | grep -i SSH_AUTH_SOCK)" >> $HOME/Crons/env.sh;
-
-# copy user scripts
-cp backup_bookmarks.sh $HOME/Crons/scripts/backup_bookmarks.sh;
-
-# create user anacron
-# force running with "anacron -f -n -t anacrontab -S spool"
-echo "SHELL=/bin/sh
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-NO_MAIL_OUTPUT=disable
-RANDOM_DELAY=0
-START_HOURS_RANGE=0-23
-
-#period in days   delay in minutes   job-identifier   command
-@weekly 0 backup_bookmarks bash $HOME/Crons/scripts/backup_bookmarks.sh > $HOME/Crons/logs/backup_bookmarks.log
-" > $HOME/Crons/anacrontab;
-
-# add user cron
-crontab <<EOF
-0 * * * * anacron -t $HOME/Crons/anacrontab -S $HOME/Crons/spool
-EOF
 
 ######################################################
 # STYLE
@@ -367,12 +233,6 @@ sudo mv FiraCode /usr/share/fonts;
 sudo curl -sS https://starship.rs/install.sh | sh -s -- -y;
 cp $CONFIG/starship/starship.toml $HOME/.config/starship.toml;
 
-# mouse rgb/dpi/buttons
-sudo dnf install -y piper;
-
-# general rgb
-sudo dnf install -y openrgb;
-
 ######################################################
 # OS SETTINGS 2
 ######################################################
@@ -386,44 +246,3 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'bra
 
 # cleaning
 sudo dnf autoremove -y;
-
-######################################################
-# NOTES
-######################################################
-# It's good to understand the file "/etc/apt/sources.list"
-# which apt use to look for packages for you.
-# Each line follows the pattern:
-#
-# [archive type] [repository url] [os name] [components1] [components2] [components3] ...
-#
-# archive type: Type of package to search for in the server. Examples:
-#				        - "deb" for debians distributions
-#				        - "rpm" for fedora distributions
-#				        - "deb-src" when you want source files to compile for debian
-# repository url: URL to request packages. Examples:
-#               - "http://us.archive.ubuntu.com/ubuntu/" for Ubuntu US repository
-#               - "http://br.archive.ubuntu.com/ubuntu/" for Ubuntu BR repository
-# os name: Normally it's the first part of the code name. Examples:
-#               - "noble" is for Ubuntu 24.04
-#               - "jammy" is for Ubuntu 22.04
-#               - "focal" is for Ubuntu 20.04
-# component: Any internal division from your repository. Examples for Ubuntu:
-#               - "main" free softwares that can be freely redistributed and
-#                        Ubuntu gives support for it.
-#               - "restricted" proprietary free softwares that
-#                        Ubuntu has limited support/access.
-#               - "universe" open-source softwares community-maintained but
-#                        Ubuntu can later move it to "main" if it meets their standards.
-#               - "multiverse" not free softwares which you should check license and
-#                        Ubuntu gives zero support to it.
-#
-# TIP: If you are going to a new release, there is big chance that some package be missing in the PPA.
-# Go to "Software & Updates > Other Software > Add...", copy the example and change the codename to a previous release. Example:
-#    'deb http://archive.ubuntu.com/ubuntu mantic main'
-#    'deb http://archive.ubuntu.com/ubuntu lunar main'
-#
-# References:
-# - Code names: https://wiki.ubuntu.com/Releases
-# - About sources.list: https://wiki.debian.org/SourcesList
-# - About sources.list ubuntu: https://help.ubuntu.com/community/Repositories?action=show&redirect=AddingRepositoriesHowto
-# - Search packages: https://packages.ubuntu.com/

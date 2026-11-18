@@ -29,7 +29,7 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true;
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true;
 
 # turn on/off gnome desktop animations
-gsettings set org.gnome.desktop.interface enable-animations false;
+gsettings set org.gnome.desktop.interface enable-animations true;
 
 # disable text editor restoring session
 gsettings set org.gnome.TextEditor restore-session false;
@@ -98,43 +98,11 @@ git config --global commit.gpgsign true;
 # CONTAINER
 ######################################################
 
-# docker
-sudo dnf install -y dnf-plugins-core;
-sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo;
-sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin;
-sudo systemctl enable --now docker;
+# podman
+sudo dnf install -y podman;
 
-######################################################
-# PROGRAMMING LANGUAGES - GDScript
-######################################################
-
-# godot
-mkdir -p $HOME/.local/bin;
-curl https://api.github.com/repos/godotengine/godot-builds/releases/latest -o releases.json;
-curl -L -o godot.zip $(jq -r '.assets[] | select(.name? | match(".*stable_linux.x86_64.zip")) | .browser_download_url' releases.json);
-unzip godot.zip;
-rm godot.zip;
-rm releases.json;
-mv Godot_v* $HOME/.local/bin/godot;
-
-# desktop entry
-echo "[Desktop Entry]
-Type=Application
-Name=Godot
-Exec=/home/thiagola92/.local/bin/godot
-Terminal=false
-Categories=Game;Development;" > /home/$USERNAME/.local/share/applications/godot.desktop
-
-######################################################
-# PROGRAMMING LANGUAGES - PYTHON
-######################################################
-
-# application installer
-sudo dnf install -y pipx;
-pipx ensurepath;
-
-# package manager
-sudo curl -LsSf https://astral.sh/uv/install.sh | sh;
+# podman gui
+sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
 
 ######################################################
 # PROGRAMMING LANGUAGES - C
@@ -189,16 +157,8 @@ cp $CONFIG/nushell/config.nu $HOME/.config/nushell/config.nu;
 # GENERIC TOOLS
 ######################################################
 
-# customize gnome
-sudo flatpak install -y flathub ca.desrt.dconf-editor;
-
 # browser
 curl -fsS https://dl.brave.com/install.sh | FLAVOR=origin sh;
-
-# discord
-curl -fL "https://discord.com/api/download?platform=linux&format=rpm" -o discord.rpm;
-sudo dnf install -y ./discord.rpm;
-rm discord.rpm;
 
 ######################################################
 # REMOTE ACCESS TOOLS
@@ -206,7 +166,6 @@ rm discord.rpm;
 
 # ssh server
 sudo dnf install -y openssh-server;
-sudo systemctl enable --now sshd;
 
 # ftp server
 sudo dnf install -y vsftpd;

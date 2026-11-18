@@ -1,4 +1,10 @@
-# tips
+# Windows
+
+```prompt
+.\install.bat
+```
+
+## tips
 To run terminal as admin:
 - `windows key` + `x`
 - select "Terminal (Admin)"
@@ -37,14 +43,14 @@ Configuring **in-memory** RGB light is important because you don't want a softwa
   - Piper
   - OpenRGB
 
-# warnings
+## warnings
 If the installation doesn't add the environment variable, remember to add manually because powershell and prompt truncate at 1024 characters. So the following has a chance of truncating:
 
 ```batch
 set PATH=%PATH%;C:\example
 ```
 
-# pending
+## pending
 Learn to add things to open fast. For example:
 - Win + R and write "shell:sendto", these will appear in "Send To >"
 
