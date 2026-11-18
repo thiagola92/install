@@ -1,5 +1,11 @@
 # Linux
 
+# Create ISO file
+```shell
+sudo image-builder build image-installer --blueprint blueprint.toml
+```
+
+# Run script
 ```shell
 bash install.sh
 ```  

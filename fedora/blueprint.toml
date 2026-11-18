@@ -1,0 +1,35 @@
+name = "thiagola92"
+description = "Image base"
+version = "0.0.1"
+distro = "fedora-45"
+
+######################################################
+# MINIMAL
+######################################################
+
+[[groups]]
+name = "standard"
+
+[[groups]]
+# allow to use wifi
+name = "networkmanager-submodules"
+
+[[groups]]
+# helps to compile/link/build others softwares
+name = "c-development"
+
+[[groups]]
+# desktop environment
+name = "gnome-desktop"
+
+[customizations.services]
+# use desktop environment on launching
+default_target = "graphical.target"
+
+[[packages]]
+# secondary browser
+name = "firefox"
+
+[[packages]]
+# image building
+name = "image-builder"

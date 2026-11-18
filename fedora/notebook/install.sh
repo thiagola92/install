@@ -104,10 +104,10 @@ sudo curl -f https://zed.dev/install.sh | sh
 # CONTAINER
 ######################################################
 
-# podman
+# container
 sudo dnf install -y podman;
 
-# podman gui
+# container gui
 sudo flatpak install -y flathub io.podman_desktop.PodmanDesktop;
 
 ######################################################

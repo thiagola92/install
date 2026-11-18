@@ -1,3 +1,2 @@
 # install
-
-Scripts to use after restoring my computer.  
+Scripts to use after restoring my computer.
