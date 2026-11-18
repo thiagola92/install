@@ -8,6 +8,7 @@ distro = "fedora-45"
 ######################################################
 
 [[groups]]
+# utility tools (crontabs, dbus, sudo, which, whois, ...)
 name = "standard"
 
 [[groups]]
@@ -31,5 +32,5 @@ default_target = "graphical.target"
 name = "firefox"
 
 [[packages]]
-# image building
+# build ISO image
 name = "image-builder"
