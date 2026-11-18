@@ -11,6 +11,9 @@ CONFIG=../../config
 # OS SETTINGS 1
 ######################################################
 
+# enable copy & paste with middle mouse buton
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
+
 # mouse speed
 gsettings set org.gnome.desktop.peripherals.mouse speed -1;
 
