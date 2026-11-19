@@ -65,6 +65,16 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false;
 # keyboard layout as "Portuguese (Brazil)"
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'br')]";
 
+# add directories to nautilus bookmarks.
+echo "
+file:///home/$USERNAME/Documents
+file:///home/$USERNAME/Music
+file:///home/$USERNAME/Pictures
+file:///home/$USERNAME/Videos
+file:///home/$USERNAME/Downloads
+file:///home/$USERNAME/Projects
+" > ~/.config/gtk-3.0/bookmarks
+
 ######################################################
 # SOFTWARE INSTALLER
 ######################################################
