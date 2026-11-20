@@ -269,6 +269,9 @@ copy %CONFIG%\starship\starship.toml %USERPROFILE%\.config\starship
 :: IN TESTING
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:: disable pinning frequently used folder in file explorer (options > privacy > show frequently used folders)
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /v ShowFrequent /t REG_DWORD /d 0 /f
+
 :: disable recently added apps (does it work internally?)
 :: reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
 
