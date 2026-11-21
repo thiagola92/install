@@ -69,7 +69,7 @@ C:\Windows\System32\OneDriveSetup.exe /uninstall
 del "C:\Users\Public\Desktop\Microsoft Edge.lnk"
 
 :: switch wallpaper (TODO: check if rundll32.exe works or if it will only change after restarting)
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d C:\windows\web\wallpaper\themea\img20.jpg /f
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v WallPaper /t REG_SZ /d C:\windows\web\wallpaper\Windows\img0.jpg /f
 rundll32.exe user32.dll, UpdatePerUserSystemParameters 1, True
 
 :: uninstall tools
