@@ -11,6 +11,12 @@ CONFIG=../../config
 # OS SETTINGS 1
 ######################################################
 
+# makes linux save bios clock with utc
+sudo timedatectl set-local-rtc 1;
+# linux & windows pull the bios clock at start up and update the bios clock
+# when user/system decide to change the clock. the time problem happens because
+# windows saves with utc and linux saves without utc
+
 # enable copy & paste with middle mouse buton
 gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
 
