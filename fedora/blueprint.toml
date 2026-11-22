@@ -20,6 +20,10 @@ name = "networkmanager-submodules"
 name = "c-development"
 
 [[groups]]
+# helps rendering emojis
+name = "fonts"
+
+[[groups]]
 # desktop environment
 name = "gnome-desktop"
 
