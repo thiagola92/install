@@ -49,6 +49,9 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v SearchboxTask
 :: disable notifications from snipping tool (printscreen)
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.ScreenSketch_8wekyb3d8bbwe!App" /v Enabled /t REG_DWORD /d 0 /f
 
+:: disable automatically pinning frequently used folders in file explorer (together with Downloads, Documents, Pictures, Music, Videos, ...)
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /v ShowFrequent /t REG_DWORD /d 0 /f
+
 :: disable game bar
 reg add "HKEY_USERS\%SID%\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe" /v Disabled /t REG_DWORD /d 1 /f
 reg add "HKEY_USERS\%SID%\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxGamingOverlay_8wekyb3d8bbwe" /v DisabledByUser /t REG_DWORD /d 1 /f
@@ -268,9 +271,6 @@ copy %CONFIG%\starship\starship.toml %USERPROFILE%\.config\starship
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: IN TESTING
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:: disable pinning frequently used folder in file explorer (options > privacy > show frequently used folders)
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /v ShowFrequent /t REG_DWORD /d 0 /f
 
 :: disable recently added apps (does it work internally?)
 :: reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
