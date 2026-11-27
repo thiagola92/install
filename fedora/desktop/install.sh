@@ -282,7 +282,7 @@ sudo dnf install -y ./discord.rpm;
 rm discord.rpm;
 
 # torrent download
-sudo flatpak install -y flathub de.haeckerfelix.Fragments;
+sudo dnf install -y deluge;
 
 ######################################################
 # AUDIO TOOLS
